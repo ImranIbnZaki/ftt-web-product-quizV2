@@ -1,0 +1,3057 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Care Consultation</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(330deg, #d1ab4f, #fff4cf);
+        color: #333;
+        line-height: 1.3;
+        height: 100vh;
+      }
+
+      .title-large {
+        font-family: "Times New Roman", serif;
+        font-weight: 300;
+        font-size: 45px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .subtitle-medium {
+        margin-top: 1;
+        font-family: Arial, sans-serif;
+        font-weight: 5;
+        font-style: italic;
+        font-size: 15px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 80px;
+        width: 80%;
+        max-width: 350px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .heading-small {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 0;
+        margin-top: 175px;
+      }
+
+      .dot-container {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 10px;
+      }
+
+      .dotlight {
+        height: 5px;
+        width: 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .dotdark {
+        height: 5px;
+        width: 5px;
+        background-color: #000000;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* Question container styles */
+      #questionsContainer {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .concern-area-highlight {
+        position: absolute;
+        border-radius: 50%; /* makes it a circle */
+        background-color: rgba(255, 0, 0, 0.5); /* semi-transparent red */
+        pointer-events: none; /* ensures the click goes through the highlight */
+      }
+
+      .question {
+        background-color: #ffffff;
+        padding-top: 20px;
+        padding-bottom: 0;
+        /* Adds padding around the content inside the question panel */
+        margin-bottom: 40px;
+        /* Space between questions */
+        width: 80%;
+
+        max-width: 450px;
+        /* Adjust width as needed */
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        /* Optional: Adds rounded corners for a softer look */
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+        /* Optional: Adds a subtle shadow for depth */
+        min-height: 175px;
+        position: relative;
+      }
+
+      .options-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+      }
+
+      .option-container {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .option-container img {
+        width: 80%; /* Or set a max-width if the images are too large */
+        margin-bottom: 10px;
+      }
+
+      .text-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Label styles */
+      label {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 25px;
+        /* Adjust as needed */
+        color: #000000;
+        font-weight: bold;
+      }
+
+      /* Select styles */
+      /* Select styles */
+      select {
+        width: 100%;
+        padding: 0;
+        /* Adjusted padding for more height */
+        margin-bottom: 0;
+        /* Space below each select element */
+        border-radius: 0;
+        border: 0px solid #ddd;
+        background-color: #e0e0e0;
+        color: #000000;
+        font-size: 15px;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        /* Adding height property if needed */
+        height: auto;
+        min-height: 50px;
+        max-height: 1000px;
+        /* Adjust this value as needed for your design */
+      }
+
+      .full-width-bar {
+        display: block; /* Ensures the button takes up the full width of the container */
+        width: 100%; /* Button takes the full width of its container */
+        height: 50px;
+        margin: 10px 0; /* Add some space above and below the button */
+        padding: 10px 0; /* Padding to increase the height of the button */
+        background-color: #e0e0e0; /* Grey background */
+        color: #000; /* Black text color */
+        font-size: 15px; /* Text size */
+        font-weight: normal; /* Make text bold */
+        border: none; /* Removes the border */
+        border-radius: 0; /* No rounded corners */
+        cursor: pointer; /* Hand cursor on hover */
+        font-size: 15px; /* Text size */
+        text-align: center; /* Center the text inside the button */
+        outline: none; /* Remove the focus outline */
+        -webkit-appearance: none; /* Removes the default webkit button styling */
+        -moz-appearance: none; /* Removes the default Mozilla button styling */
+        appearance: none; /* Removes the default button styling */
+      }
+
+      .full-width-bar:hover,
+      .full-width-bar:focus {
+        background-color: #ccc; /* Slightly darker grey on hover and focus */
+      }
+
+      select:focus {
+        outline: none !important;
+        box-shadow: 0 0 0 0 #000000;
+      }
+
+      /* Button styles */
+      button {
+        background: #000000;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        /* More space above the button */
+        outline: 3px solid #000000;
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 5px;
+        border-radius: 0;
+        /* Allows the button to size according to its content */
+      }
+
+      button:hover {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .button-space {
+        margin-right: 100px;
+        margin-left: 100px;
+        /* Adjust the spacing as needed */
+      }
+
+      /* Slide in from the right */
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Slide out to the left */
+      @keyframes slideOutLeft {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        to {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Slide in from the left */
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Slide out to the right */
+      @keyframes slideOutRight {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        to {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+
+      .question-slide-in-reverse {
+        animation: slideInLeft 0.5s forwards;
+      }
+
+      .question-slide-out-reverse {
+        animation: slideOutRight 0.5s forwards;
+      }
+
+      .question-slide-in,
+      .suggestions-slide-in {
+        animation: slideInRight 0.5s forwards;
+      }
+
+      .question-slide-out {
+        animation: slideOutLeft 0.5s forwards;
+      }
+
+      #suggestionResult {
+        padding: 0;
+        margin: 0 auto;
+        padding-top: 5px;
+        /* Adjust this value as needed */
+        /* Center the section with some margin */
+        border-radius: 15px;
+        /* Rounded corners */
+        width: 100%;
+        text-align: center;
+        /* Center the text */
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 30px;
+      }
+
+      #suggestionResult h2 {
+        color: #333;
+        /* Dark color for the title */
+        margin-bottom: 15px;
+        /* Space between title and list */
+      }
+
+      #suggestionResult ul {
+        /* Remove default list styling */
+        padding: 0;
+        margin: 0; /* Ensure ul doesn't have default margin */
+      }
+
+      #suggestionResult li {
+        margin: 10px auto;
+        /* Top and bottom margin 10px, left and right margin auto to center the items */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /* Rounded corners for each item */
+        /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              /* Subtle shadow for each item */
+        color: #333;
+        /* Text color */
+        font-weight: medium;
+        font-family: "Times New Roman", serif;
+        /* Make the product names stand out */
+        width: 100%;
+        /* Set a specific width for each item */
+        display: block;
+        /* Ensure the items are block-level for margin auto to work */
+        overflow: hidden; /* Add this line to prevent overflow */
+      }
+
+      /* Adjustments for animations */
+      .suggestions-slide-in {
+        animation: slideInRight 0.5s forwards;
+        /* Reuse existing slide-in animation */
+      }
+
+      .option-container {
+        text-align: center;
+        margin-bottom: 20px; /* Adjust as needed */
+      }
+
+      .option-container img {
+        max-width: 100%;
+        border: 1px solid #ccc; /* Example border */
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .option-container img:hover {
+        transform: scale(1.1); /* Slight zoom effect on hover */
+      }
+
+      .select-button {
+        background: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+      }
+
+      .select-button:hover {
+        background: #f8f8f8; /* Light grey background on hover */
+      }
+
+      rect:hover {
+        cursor: pointer;
+      }
+
+      .hover_group:hover {
+        opacity: 1;
+      }
+
+      #concernAreaSvg {
+        position: relative;
+        width: 100%;
+        padding-bottom: 77%;
+        vertical-align: middle;
+        margin: 0;
+        overflow: hidden;
+        background: lightgreen;
+      }
+
+      #concernAreaSvg svg {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .hero-product-details {
+        text-align: left;
+        max-width: 400px;
+        padding: 20px; /* Padding inside the details section */
+        box-sizing: border-box;
+        background-color: #ffffff; /* White background */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+      }
+
+      #essentialsSection {
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      #essentialsSection h2.title-large {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+
+      .essentials-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 20px; /* Add space between items */
+      }
+
+      .essentials-item {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+        width: 300px;
+        text-align: center;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+      }
+
+      .essentials-item img.product-image {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      .essentials-item h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .essentials-item p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      #advancedSection {
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      #advancedSection h2.title-large {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+
+      .advanced-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap to the next line */
+        justify-content: center; /* Center the items */
+        gap: 20px; /* Add space between items */
+      }
+
+      .advanced-item {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+        width: 250px; /* Adjust width for better responsiveness */
+        text-align: center;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+      }
+
+      .advanced-item img.product-image {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+
+      .advanced-item h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .advanced-item p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="heading-small">FTT SKIN CLINICS</div>
+
+    <div class="title-large">Skin Care Consultation</div>
+
+    <div class="subtitle-medium">
+      Give us a moment of your time and we will formulate a unique skin care
+      regiment just for you
+    </div>
+    <div id="welcomeScreen" style="text-align: center; padding: 20px">
+      <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
+      <p>Today I’ll create a personalised skincare routine for you!</p>
+      <button id="startConsultationButton">Start</button>
+    </div>
+    <div id="questionsContainer">
+      <!-- Initial questions already provided, skipping to new additions -->
+
+      <!-- Exit Point -->
+      <div id="questionExitPoint" class="question" style="display: none">
+        <label for="exitPointLabel">SORRY</label>
+        <p id="exitPointParagraph">
+          Today I’ll create a personalised skincare routine for you!
+        </p>
+        <button onclick="goToPreviousQuestion()">Back</button>
+      </div>
+
+      <!-- Question: Based in UK -->
+      <div id="questionBasedUK" class="question" style="display: none">
+        <label for="basedUKSelect">Are you based in the UK?</label>
+        <select
+          id="basedUKSelect"
+          name="basedUKSelect"
+          onchange="filterProducts('basedUK', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Age over 25 -->
+      <div id="questionOverTwentyFive" class="question" style="display: none">
+        <label for="overTwentyFiveSelect">Are you over 25 years old?</label>
+        <select
+          id="overTwentyFiveSelect"
+          name="overTwentyFiveSelect"
+          onchange="filterProducts('overTwentyFive', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Skin Concern -->
+      <div id="questionSkinConcern" class="question" style="display: none">
+        <label for="skinConcernSelect"
+          >What is your primary skin concern?</label
+        >
+        <select
+          id="skinConcernSelect"
+          name="skinConcernSelect"
+          onchange="filterProducts('skinConcern', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="dullDryness">Dull / Dryness</option>
+          <option value="acne">Acne</option>
+          <option value="wrinklesFinelines">Wrinkles / Finelines</option>
+          <option value="darkSpotsHyperpigmentation">
+            Dark Spots / Hyperpigmentation
+          </option>
+          <option value="texturedSkin">Textured Skin</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Wrinkles or Fine Lines -->
+      <div
+        id="questionWrinklesFinelines"
+        class="question"
+        style="display: none"
+      >
+        <h2>Do you have fine lines, wrinkles, or both?</h2>
+
+        <div class="options-wrapper">
+          <div class="option-container">
+            <img
+              src="fine_lines_image.jpg"
+              alt="Fine Lines"
+              onclick="filterProducts('wrinklesFinelines', 'finelines')"
+            />
+            <div class="text-container">
+              <b>Fine lines</b>
+              <p>
+                shallow lines on the skin mainly near the eye area or laugh line
+              </p>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('wrinklesFinelines', 'wrinkles')"
+            />
+            <div class="text-container">
+              <b>Wrinkles</b>
+              <p>
+                Deep folds on the skin due to loss of elasticity or thinning of
+                the skin
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <select
+          id="wrinklesFinelinesSelect"
+          name="wrinklesFinelinesSelect"
+          onchange="filterProducts('wrinklesFinelines', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="both">Both</option>
+          <option value="wrinkles">Wrinkles</option>
+          <option value="finelines">Fine lines</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Dark spots / Hyper pigmentation -->
+      <div
+        id="questionTypeOfHyperpigmentation"
+        class="question"
+        style="display: none"
+      >
+        <h2>Which type of hyper pigmentation do you have?</h2>
+
+        <div class="options-wrapper">
+          <div class="option-container">
+            <img
+              src="fine_lines_image.jpg"
+              alt="Fine Lines"
+              onclick="filterProducts('typeOfHyperpigmentation', 'acneScarring')"
+            />
+            <div class="text-container">
+              <b>Dark Spots</b>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('typeOfHyperpigmentation', 'sunDamage')"
+            />
+            <div class="text-container">
+              <b>Melasma</b>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('typeOfHyperpigmentation', 'melasma')"
+            />
+            <div class="text-container">
+              <b>Undereye Darkness</b>
+            </div>
+          </div>
+        </div>
+
+        <select
+          id="wrinklesFinelinesSelect"
+          name="wrinklesFinelinesSelect"
+          onchange="filterProducts('typeOfHyperpigmentation', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="darkSpots">Dark Spots</option>
+          <option value="melasma">Melasma</option>
+          <option value="undereyeDarkness">Undereye Darkness</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Type of Acne -->
+      <div id="questionTypeOfAcne" class="question" style="display: none">
+        <h2>What type of acne do you have?</h2>
+
+        <div class="options-wrapper">
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('wrinklesFinelines', 'wrinkles')"
+            />
+            <div class="text-container">
+              <b>Cystic</b>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('wrinklesFinelines', 'wrinkles')"
+            />
+            <div class="text-container">
+              <b>Blackheads</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="options-wrapper">
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('wrinklesFinelines', 'wrinkles')"
+            />
+            <div class="text-container">
+              <b>Papules</b>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <img
+              src="wrinkles_image.jpg"
+              alt="Wrinkles"
+              onclick="filterProducts('wrinklesFinelines', 'wrinkles')"
+            />
+            <div class="text-container">
+              <b>Whiteheads</b>
+            </div>
+          </div>
+        </div>
+
+        <select
+          id="TypeOfAcneSelect"
+          name="TypeOfAcneSelect"
+          onchange="filterProducts('typeOfAcne', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="cystic">Cystic</option>
+          <option value="blackheads">Blackheads</option>
+          <option value="pustules">Papules</option>
+          <option value="whiteheads">Whiteheads</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Severity of Acne -->
+      <div id="questionSeverityOfAcne" class="question" style="display: none">
+        <label for="SeverityOfAcneSelect">How severe is your acne?</label>
+        <select
+          id="SeverityOfAcneSelect"
+          name="SeverityOfAcneSelect"
+          onchange="filterProducts('severityOfAcne', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="mild">Mild</option>
+          <option value="moderate">Moderate</option>
+          <option value="severe">Severe</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Have You Used Vitamin C Before -->
+      <div id="questionUsesVitaminC" class="question" style="display: none">
+        <label for="UsesVitaminCSelect"
+          >Have you used Vitamin C products before?</label
+        >
+        <select
+          id="UsesVitaminCSelect"
+          name="UsesVitaminCSelect"
+          onchange="filterProducts('usesVitaminC', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: What Concentration of Vitamin C Do You Use -->
+      <div
+        id="questionVitaminCConcentrate"
+        class="question"
+        style="display: none"
+      >
+        <label for="vitaminCConcentrateSelect">What concentration?</label>
+        <select
+          id="vitaminCConcentrateSelect"
+          name="vitaminCConcentrateSelect"
+          onchange="filterProducts('vitaminCConcentrate', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="10">10%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Are You Allergic To The Following? -->
+      <div id="questionAllergy" class="question" style="display: none">
+        <label for="allergySelect"
+          >Are you allergic to any of the following products?</label
+        >
+        <select id="allergySelect" name="allergySelect" multiple size="4">
+          <option value="none">None</option>
+          <option value="clindamycin">Clindamycin</option>
+          <option value="niacinamide">Niacinamide</option>
+          <option value="hydrocortisone">Hydrocortisone</option>
+          <option value="hydroquinone">Hydroquinone</option>
+          <option value="gluten">Gluten</option>
+          <option value="retinolsRetinoids">Retinols / Retinoids</option>
+          <option value="trentoin">Trentoin</option>
+          <option value="azelaicAcid">Azelaic Acid</option>
+          <option value="fragrances">Fragrances</option>
+        </select>
+        <!-- In your HTML, directly call gatherMultipleFilters() without passing questionType -->
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="gatherMultipleFilters('allergySelect')">
+          &#8594;
+        </button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Take Prescription -->
+      <div id="questionTakePrescription" class="question" style="display: none">
+        <label for="takePrescriptionSelect"
+          >Do you take any medication that might interact with skincare or
+          topical prescription medications?</label
+        >
+        <select
+          id="takePrescriptionSelect"
+          name="takePrescriptionSelect"
+          onchange="filterProducts('takePrescription', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Non-prescription Retinoids Use -->
+      <div id="questionRetinoidUse" class="question" style="display: none">
+        <label for="retinoidUseSelect"
+          >Are you using any non-prescription retinoids (such as
+          retinol)?</label
+        >
+        <select
+          id="retinoidUseSelect"
+          name="retinoidUseSelect"
+          onchange="filterProducts('retinoidUse', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Retinoid Irritation -->
+      <div
+        id="questionRetinoidIrritation"
+        class="question"
+        style="display: none"
+      >
+        <label for="retinoidIrritationSelect"
+          >Have you experienced irritation while using these products?</label
+        >
+        <select
+          id="retinoidIrritationSelect"
+          name="retinoidIrritationSelect"
+          onchange="filterProducts('retinoidIrritation', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: skinType -->
+      <div id="questionSkinType" class="question" style="display: none">
+        <label for="skinTypeSelect">What is your skin type?</label>
+        <select
+          id="skinTypeSelect"
+          name="skinTypeSelect"
+          onchange="filterProducts('skinType', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="normal">Normal</option>
+          <option value="oily">Oily</option>
+          <option value="dry">Dry</option>
+          <option value="combination">Combination</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: skinSensitivity -->
+      <div id="questionSkinSensitivity" class="question" style="display: none">
+        <label for="skinSensitivitySelect">Is your skin sensitive?</label>
+        <select
+          id="skinSensitivitySelect"
+          name="skinSensitivitySelect"
+          onchange="filterProducts('skinSensitivity', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: skinConcernArea -->
+      <div id="questionConcernArea" class="question" style="display: none">
+        <label for="ConcernAreaSelect">Select your areas of concern</label>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+          "
+        >
+          <div style="flex: 3">
+            <figure id="concernAreaSVG">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 572 703"
+              >
+                <image
+                  width="572"
+                  height="703"
+                  xlink:href="concernArea.png"
+                ></image>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="88"
+                    y="74"
+                    fill="#fff"
+                    opacity="0"
+                    width="377"
+                    height="161"
+                    onclick="selectConcernArea('forehead')"
+                  ></rect>
+                </g>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="92"
+                    y="345"
+                    fill="#fff"
+                    opacity="0"
+                    width="140"
+                    height="53"
+                    onclick="selectConcernArea('undereye')"
+                  ></rect>
+                </g>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="337"
+                    y="333"
+                    fill="#fff"
+                    opacity="0"
+                    width="146"
+                    height="65"
+                    onclick="selectConcernArea('undereye')"
+                  ></rect>
+                </g>
+                <g lass="hover_group" opacity="0">
+                  <rect
+                    x="248"
+                    y="308"
+                    fill="#fff"
+                    opacity="0"
+                    width="76"
+                    height="148"
+                    onclick="selectConcernArea('nose')"
+                  ></rect>
+                </g>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="90"
+                    y="401"
+                    fill="#fff"
+                    opacity="0"
+                    width="126"
+                    height="143"
+                    onclick="selectConcernArea('cheeks')"
+                  ></rect>
+                </g>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="345"
+                    y="401"
+                    fill="#fff"
+                    opacity="0"
+                    width="128"
+                    height="143"
+                    onclick="selectConcernArea('cheeks')"
+                  ></rect>
+                </g>
+                <g class="hover_group" opacity="0">
+                  <rect
+                    x="202"
+                    y="595"
+                    fill="#fff"
+                    opacity="0"
+                    width="160"
+                    height="70"
+                    onclick="selectConcernArea('chin')"
+                  ></rect>
+                </g>
+              </svg>
+            </figure>
+          </div>
+
+          <div div style="flex: 1; padding-right: 50px">
+            <h2>Areas:</h2>
+            <!-- This is the container where the list will be displayed -->
+            <ul id="stringList"></ul>
+          </div>
+        </div>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="submitSelectedConcernAreas()">&#8594;</button>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Vegan Products Preference -->
+      <div id="questionVegan" class="question" style="display: none">
+        <label for="veganSelect"
+          >Do you have a preference for vegan products?</label
+        >
+        <select
+          id="veganSelect"
+          name="veganSelect"
+          onchange="filterProducts('vegan', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Question: Sunscreen Use -->
+      <div id="questionSunscreenUse" class="question" style="display: none">
+        <label for="sunscreenUseSelect">What is your sunscreen use?</label>
+        <select
+          id="sunscreenUseSelect"
+          name="sunscreenUseSelect"
+          onchange="filterProducts('sunscreenUse', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="everyDay">Everyday</option>
+          <option value="onlyWhenExposed">
+            Only when I'm going to be exposed to the sun
+          </option>
+          <option value="rarely">Rarely</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- Organic Products Question (from your example) -->
+      <div
+        id="questionOrganicPreference"
+        class="question"
+        style="display: none"
+      >
+        <label for="organicPreferenceSelect"
+          >Do you prefer organic products?</label
+        >
+        <select
+          id="organicPreferenceSelect"
+          name="organicPreferenceSelect"
+          onchange="filterProducts('organicPreference', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <!-- Adjust the previous question ID as needed based on your actual question flow -->
+        <button
+          onclick="goToPreviousQuestion('questionOrganic', 'questionSkinConcern')"
+        >
+          Back
+        </button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+          <!-- Add more or fewer dots based on your design -->
+        </div>
+      </div>
+
+      <!-- Question: Skincare Routine Complexity -->
+      <div
+        id="questionRoutineComplexity"
+        class="question"
+        style="display: none"
+      >
+        <label for="routineComplexitySelect"
+          >What level of complexity in your skincare routine are you comfortable
+          with?</label
+        >
+        <select
+          id="routineComplexitySelect"
+          name="routineComplexitySelect"
+          onchange="filterProducts('routineComplexity', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="hero">Hero</option>
+          <option value="essentials">Essentials</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <button onclick="goToPreviousQuestion()">Back</button>
+        <!-- Dot container under each question -->
+        <div class="dot-container">
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotdark"></span>
+          <span class="dotlight"></span>
+        </div>
+      </div>
+
+      <!-- End of Questions -->
+    </div>
+    <div id="suggestionResult" style="display: none">
+      <h3>Your perfect skincare routine:</h3>
+
+      <!-- Hero Section -->
+      <div id="heroSection" style="display: none">
+        <div style="text-align: center; margin: 20px">
+          <h2 class="title-large">Hero Product</h2>
+          <div
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <img
+              id="heroProductImage"
+              src="path/to/hero-product-image.png"
+              alt="Hero Product"
+              style="width: 150px; margin-right: 20px"
+            />
+            <div
+              id="heroProductDetails"
+              style="text-align: left; max-width: 400px"
+              \
+              class="hero-product-details"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Essentials Section -->
+      <div id="essentialsSection" style="display: none">
+        <h2 class="title-large">Essentials</h2>
+        <div class="essentials-container">
+          <div id="essentials-1" class="essentials-item">
+            <h3>Step 1</h3>
+            <img
+              src="path/to/facewash-image.png"
+              alt="Facewash"
+              class="product-image"
+            />
+          </div>
+          <div id="essentials-2" class="essentials-item">
+            <h3>Step 2</h3>
+            <img
+              src="path/to/serum-image.png"
+              alt="Serum"
+              class="product-image"
+            />
+          </div>
+          <div id="essentials-3" class="essentials-item">
+            <h3>Step 3</h3>
+            <img
+              src="path/to/oilmask-image.png"
+              alt="Oil Mask"
+              class="product-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Section -->
+      <div id="advancedSection" style="display: none">
+        <h2 class="title-large">Advanced</h2>
+        <div class="advanced-container">
+          <div id="advanced-1" class="advanced-item">
+            <img
+              src="path/to/oilmask-image.png"
+              alt="Oil Mask"
+              class="product-image"
+            />
+          </div>
+          <div id="advanced-2" class="advanced-item">
+            <img
+              src="path/to/oilmask-image.png"
+              alt="Oil Mask"
+              class="product-image"
+            />
+          </div>
+          <div id="advanced-3" class="advanced-item">
+            <img
+              src="path/to/oilmask-image.png"
+              alt="Oil Mask"
+              class="product-image"
+            />
+          </div>
+          <div id="advanced-4" class="advanced-item">
+            <img
+              src="path/to/oilmask-image.png"
+              alt="Oil Mask"
+              class="product-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("startConsultationButton")
+        .addEventListener("click", function () {
+          document.getElementById("welcomeScreen").style.display = "none";
+          document.getElementById("questionsContainer").style.display = "flex";
+          document.getElementById("questionBasedUK").style.display = "block"; // Make sure the first question is shown
+        });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Full pool of products
+        let navigationStack = []; // This will store the IDs of the questions as the user navigates through them.
+
+        let rountineSize = 0;
+
+        let initialProductPool = [
+          "Oil Control Serum",
+          "Oil Control Pads",
+          "Blemish Control Pen",
+          "Purifying Skin Spray",
+          "Phenomenal Eye Cream",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Vitamin C Serum 10%",
+          "Vitamin C Serum 20%",
+          "Quench Advanced Hyaluronic Serum",
+          "Calm Night Cream",
+          "Clear Advanced Gel Cleanser",
+          "Thrive Menopausal Skin Serum",
+          "Eye Lift Gel - Refine",
+          "Daily Cleanser",
+          "Foaming Wash",
+          "Luxury Exfoliant Cleanser",
+          "Neck Firming Cream - Lift",
+          "Endurance Moisturiser - FTT H2O",
+          "Rejuvenating Serum - Rejuvenate",
+          "Retinol Serum - FTT Skin Clinics R+",
+          "Skin Brightening Serum - Illuminate",
+          "Night Cream - Recover",
+          "Hydrating Lip Balm",
+          "FTT Signature Lip Duo - lip balm and plumper kit",
+          "Charcoal Mask - Clarity",
+          "Obagi Foaming Cleanser",
+          "Obagi Hydrate Facial Moisturiser",
+          "Obagi Hydro Drops Facial Serum",
+          "Obagi Profesional-C Microdermabrasion Polish Mask",
+          "Obagi 360 Exfoliating Cleanser",
+          "Obagi 360 Hydrofactor SPF 30",
+          "Obagi 360 system",
+          "Obagi ELASTIderm Eye Cream",
+          "Obagi ELASTIderm Eye Serum",
+          "Obagi ELASTIderm Facial Serum",
+          "Obagi Hydrate Luxe Facial Moisturiser",
+          "Obagi Daily Intensive Repair",
+          "Obagi Nu-Derm Foaming Gel",
+          "Obagi Nu-Derm 1 Gentle Cleanser",
+          "Obagi Nu-Derm Toner",
+          "Obagi Nu-Derm Exfoderm",
+          "Obagi Nu-Derm Exfoderm Forte",
+          "Obagi Professional-C Petide Complex",
+          "Obagi Retinol 0.5 Cream",
+          "Obagi Retinol 1.0 Cream",
+          "Obagi Retivance Skin Rejuvenating Complex",
+          "Obagi Sun Shield Cool",
+          "Obagi Sun Shield Matte",
+          "Obagi Sun Shield Warm",
+          "Obagi Vitamin C Serum 10%",
+          "Obagi Vitamin C Serum 15%",
+          "Obgai Vitamin C Serum 20%",
+          "Obagi-C Rx Balancing Toner",
+          "Obagi-C Rx Exfoliating Day Lotion",
+          "Obagi-C Rx Cleaning Gel",
+        ];
+
+        // Map of all elimination lists by question type
+        const eliminationLists = {
+          basedUK: {
+            yes: [],
+            no: [], // pop up saying “Sorry, we can only ship products within the UK”
+          },
+          overTwentyFive: {
+            yes: [],
+            no: [
+              "Thrive Menopausal Skin Serum",
+              "Eye Lift Gel - Refine",
+              "Phenomenal Eye Cream",
+              "Rejuvenating Serum - Rejuvenate",
+              "Night Cream - Recover",
+              "Retinol Serum - FTT Skin Clinics R+",
+            ], // Exclude products with tag: tretinoin, retinol, retinoids Exclude anti-aging
+          },
+          skinConcern: {
+            dullDryness: [
+              "Oil Control Serum",
+              "Oil Control Pads",
+              "Blemish Control Pen",
+              "Purifying Skin Spray",
+              "Phenomenal Eye Cream",
+              "Phenomenal Eyelash Serum",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Quench Advanced Hyaluronic Serum",
+              "Calm Night Cream",
+              "Clear Advanced Gel Cleanser",
+              "Thrive Menopausal Skin Serum",
+              "Daily Cleanser",
+              "Neck Firming Cream - Lift",
+              "Endurance Moisturiser - FTT H2O",
+              "Rejuvenating Serum - Rejuvenate",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Night Cream - Recover",
+              "Hydrating Lip Balm",
+              "FTT Signature Lip Duo - lip balm and plumper kit",
+              "Obagi Foaming Cleanser",
+              "Obagi 360 system",
+              "Obagi ELASTIderm Eye Cream",
+              "Obagi ELASTIderm Eye Serum",
+              "Obagi ELASTIderm Facial Serum",
+              "Obagi Hydrate Luxe Facial Moisturiser",
+              "Obagi Daily Intensive Repair",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi NU-CIL Eyelash Serum",
+              "Obagi Nu-Derm Foaming Gel",
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Retinol 1.0 Cream",
+              "Obagi Retivance Skin Rejuvenating Complex",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+              "Obagi Vitamin C Serum 15%",
+              "Obagi Vitamin C Serum 20%",
+              "Obagi-C Rx Balancing Toner",
+              "Obagi CLENZIderm Daily Care Foaming Cleanser",
+              "Prepare – Cleansing Lotion",
+            ],
+            acne: [
+              "Purifying Skin Spray",
+              "Phenomenal Eye Cream",
+              "Phenomenal Eyelash Serum",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Quench Advanced Hyaluronic Serum",
+              "Calm Night Cream",
+              "Thrive Menopausal Skin Serum",
+              "Daily Cleanser",
+              "Neck Firming Cream - Lift",
+              "Endurance Moisturiser - FTT H2O",
+              "Rejuvenating Serum - Rejuvenate",
+              "Night Cream - Recover",
+              "Hydrating Lip Balm",
+              "FTT Signature Lip Duo - lip balm and plumper kit",
+              "Obagi Foaming Cleanser",
+              "Obagi 360 system",
+              "Obagi ELASTIderm Eye Cream",
+              "Obagi ELASTIderm Eye Serum",
+              "Obagi ELASTIderm Facial Serum",
+              "Obagi Hydrate Luxe Facial Moisturiser",
+              "Obagi Daily Intensive Repair",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi NU-CIL Eyelash Serum",
+              "Obagi Nu-Derm Foaming Gel",
+              "Obagi Retivance Skin Rejuvenating Complex",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+              "Obagi Vitamin C Serum 15%",
+              "Obagi Vitamin C Serum 20%",
+              "Obagi-C Rx Balancing Toner",
+              "Prepare – Cleansing Lotion",
+            ],
+            wrinklesFinelines: [
+              "Oil Control Serum",
+              "Oil Control Pads",
+              "Blemish Control Pen",
+              "Purifying Skin Spray",
+              "Phenomenal Eye Cream",
+              "Phenomenal Eyelash Serum",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Quench Advanced Hyaluronic Serum",
+              "Calm Night Cream",
+              "Clear Advanced Gel Cleanser",
+              "Thrive Menopausal Skin Serum",
+              "Daily Cleanser",
+              "Endurance Moisturiser - FTT H2O",
+              "Hydrating Lip Balm",
+              "FTT Signature Lip Duo - lip balm and plumper kit",
+              "Obagi Foaming Cleanser",
+              "Obagi 360 system",
+              "Obagi Hydrate Luxe Facial Moisturiser",
+              "Obagi Daily Intensive Repair",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi NU-CIL Eyelash Serum",
+              "Obagi Nu-Derm Foaming Gel",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+              "Obagi Vitamin C Serum 15%",
+              "Obagi Vitamin C Serum 20%",
+              "Obagi-C Rx Balancing Toner",
+              "Prepare – Cleansing Lotion",
+            ],
+            rosacea: [
+              "Oil Control Serum",
+              "Oil Control Pads",
+              "Blemish Control Pen",
+              "Purifying Skin Spray",
+              "Phenomenal Eye Cream",
+              "Phenomenal Eyelash Serum",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Quench Advanced Hyaluronic Serum",
+              "Calm Night Cream",
+              "Clear Advanced Gel Cleanser",
+              "Thrive Menopausal Skin Serum",
+              "Daily Cleanser",
+              "Neck Firming Cream - Lift",
+              "Endurance Moisturiser - FTT H2O",
+              "Rejuvenating Serum - Rejuvenate",
+              "Hydrating Lip Balm",
+              "FTT Signature Lip Duo - lip balm and plumper kit",
+              "Obagi Foaming Cleanser",
+              "Obagi 360 system",
+              "Obagi ELASTIderm Eye Cream",
+              "Obagi ELASTIderm Eye Serum",
+              "Obagi ELASTIderm Facial Serum",
+              "Obagi Hydrate Luxe Facial Moisturiser",
+              "Obagi Daily Intensive Repair",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi NU-CIL Eyelash Serum",
+              "Obagi Nu-Derm Foaming Gel",
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Retinol 1.0 Cream",
+              "Obagi Retivance Skin Rejuvenating Complex",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+              "Obagi Vitamin C Serum 15%",
+              "Obagi Vitamin C Serum 20%",
+              "Obagi-C Rx Balancing Toner",
+              "Obagi-C Rx Exfoliating Day Lotion",
+              "Obagi CLENZIderm Daily Care Foaming Cleanser",
+              "Prepare – Cleansing Lotion",
+            ],
+            darkSpotsHyperpigmentation: [
+              "Oil Control Serum",
+              "Oil Control Pads",
+              "Blemish Control Pen",
+              "Purifying Skin Spray",
+              "Phenomenal Eyelash Serum",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Quench Advanced Hyaluronic Serum",
+              "Calm Night Cream",
+              "Clear Advanced Gel Cleanser",
+              "Thrive Menopausal Skin Serum",
+              "Daily Cleanser",
+              "Neck Firming Cream - Lift",
+              "Endurance Moisturiser - FTT H2O",
+              "Rejuvenating Serum - Rejuvenate",
+              "Hydrating Lip Balm",
+              "FTT Signature Lip Duo - lip balm and plumper kit",
+              "Obagi 360 system",
+              "Obagi ELASTIderm Eye Cream",
+              "Obagi ELASTIderm Eye Serum",
+              "Obagi ELASTIderm Facial Serum",
+              "Obagi Hydrate Luxe Facial Moisturiser",
+              "Obagi Daily Intensive Repair",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi NU-CIL Eyelash Serum",
+              "Obagi Nu-Derm Foaming Gel",
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Retinol 1.0 Cream",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+              "Obagi Vitamin C Serum 15%",
+              "Obagi Vitamin C Serum 20%",
+              "Obagi CLENZIderm Daily Care Foaming Cleanser",
+            ],
+          },
+          wrinklesFinelines: {
+            finelines: [],
+            wrinkles: [],
+            both: [],
+          },
+          typeOfHyperpigmentation: {
+            darkSpots: [],
+            melasma: [],
+            undereyeDarkness: [
+              "Purify Micellar Water",
+              "Obagi Nu-Derm Toner",
+              "Obagi Nu-Derm Exfoderm",
+              "Obagi Nu-Derm Exfoderm Forte",
+              "Vitamin C Serum 10%",
+              "Vitamin C Serum 20%",
+              "Charcoal Mask - Clarity",
+            ],
+          },
+          typeOfAcne: {
+            blackhead: [],
+            cystic: [],
+            pustules: [],
+            whiteheads: [],
+          },
+          severityOfAcne: {
+            mild: [
+              "Clear Advanced Gel Cleanser",
+              "Obagi CLENZIderm Daily Care Foaming Cleanser",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Obagi Hydrate Facial Moisturiser",
+              "Obagi Retinol 1.0 Cream",
+              "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            moderate: [
+              "Blemish Control Pen",
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Hydrate Facial Moisturiser",
+              "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            severe: [], // is an out
+          },
+          usesVitaminC: {
+            yes: [],
+            no: ["Vitamin C Serum 20%"],
+          },
+          allergy: {
+            clindamycin: [],
+            niacinamide: ["Calm Night Cream"],
+            gluten: [],
+            retinolRetinoids: [
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Retinol 1.0 Cream",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Vitamin C Serum 20%",
+              "Night Cream - Recover",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            azelaicAcid: ["Skin Brightening Serum - Illuminate"],
+            fragrances: [], // out “most of our products contain mild natural fragrances”
+            none: [],
+          },
+          takePrescription: {
+            yes: [], // out “sorry the active in skincare products can cause irritation if not discussed first with a medical professional, please try again when you are no longer using topical prescriptions”
+            no: [],
+          },
+          retinoidUse: {
+            yes: [],
+            no: ["Obagi Retinol 1.0 Cream"],
+          },
+          retinoidIrritation: {
+            yes: [
+              "Obagi Retinol 0.5 Cream",
+              "Obagi Retinol 1.0 Cream",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Vitamin C Serum 20%",
+              "Night Cream - Recover",
+              "Obagi Medical Cleansing Wipes",
+              "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            no: [],
+          },
+          skinType: {
+            normal: [
+              "Oil Control Pads",
+              "Oil Control Serum",
+              "Obagi Nu-Derm Exfoderm",
+            ],
+            combination: ["Obagi Nu-Derm Exfoderm"],
+            dry: [
+              "Clear Advanced Gel Cleanser",
+              "Obagi Nu-Derm Exfoderm Forte",
+            ],
+            oily: [
+              "Endurance Moisturiser - FTT H2O",
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Obagi Nu-Derm Exfoderm",
+            ],
+          },
+          skinSensitivity: {
+            yes: [
+              "Vitamin C Serum 20%",
+              "Obagi Vitamin C Serum 20%",
+              "Clear Advanced Gel Cleanser",
+              "Obagi Retinol 1.0 Cream",
+              "Obagi Nu-Derm Exfoderm Forte",
+              "Obagi Profesional-C Microdermabrasion Polish Mask",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Clear Advanced Gel Cleanser",
+              "Rejuvenating Serum - Rejuvenate",
+              "Obagi-C Rx Balancing Toner",
+            ],
+            no: [],
+          },
+          concernArea: {
+            undereye: [],
+            nose: [],
+            jaw: [],
+            forehead: [],
+            cheeks: [],
+            chin: [],
+            undereyeWhiteList: [
+              "Phenomenal Eye Cream",
+              "Obagi ELASTIderm Eye Cream",
+              "Obagi ELASTIderm Eye Serum",
+              "Eye Lift Gel - Refine",
+            ],
+          },
+          vegan: {
+            yes: [],
+            no: [],
+          },
+          sunscreenUse: {
+            everyDay: [],
+            onlyWhenExposed: [],
+            rarely: [],
+          },
+          routineComplexity: {
+            hero: [], //output 1 product (has to be active cream, serum, lotion, exfoliant)
+            essentials: [], // output 3 products (Cleanser, active, lotion)
+            advanced: [], // (cleanser, active, moisturiser/lotion/cream, extra, spf)
+          },
+        };
+
+        const productCategoryLists = {
+          hero: [
+            "Oil Control Serum",
+            "Phenomenal Eyelash Serum",
+            "Vitamin C Serum 10%",
+            "Vitamin C Serum 20%",
+            "Quench Advanced Hyaluronic Serum",
+            "Calm Night Cream",
+            "Clear Advanced Gel Cleanser",
+            "Thrive Menopausal Skin Serum",
+            "Foaming Wash",
+            "Rejuvenating Serum - Rejuvenate",
+            "Retinol Serum - FTT Skin Clinics R+",
+            "Skin Brightening Serum - Illuminate",
+            "Night Cream - Recover",
+            "Obagi Hydro Drops Facial Serum",
+            "Obagi ELASTIderm Eye Cream",
+            "Obagi ELASTIderm Eye Serum",
+            "Obagi ELASTIderm Facial Serum",
+            "Obagi Daily Intensive Repair",
+            "Obagi Professional-C Petide Complex",
+            "Obagi Retinol 0.5 Cream",
+            "Obagi Retinol 1.0 Cream",
+            "Obagi Retivance Skin Rejuvenating Complex",
+            "Obagi Vitamin C Serum 10%",
+            "Obagi Vitamin C Serum 15%",
+            "Obgai Vitamin C Serum 20%",
+          ],
+
+          cleanser: [
+            "Clear Advanced Gel Cleanser",
+            "Purify Micellar Water",
+            "Daily Cleanser",
+            "Foaming Wash",
+            "Luxury Exfoliator Cleanser",
+            "Obagi Foaming Cleanser",
+            "Obagi Nu-Derm Foaming Gel",
+            "Obagi Nu-Derm 1 Gentle Cleanser",
+            "Obagi Nu-Derm Exfoderm",
+            "Obagi Nu-Derm Exfoderm Forte",
+            "Obagi-C Rx Cleaning Gel",
+            "Obagi CLENZIderm Daily Care Foaming Cleanser",
+            "Prepare – Cleansing Lotion",
+          ],
+
+          serum: [
+            "Oil Control Serum",
+            "Phenomenal Eyelash Serum",
+            "Vitamin C Serum 10%",
+            "Vitamin C Serum 20%",
+            "Quench Advanced Hyaluronic Serum",
+            "Thrive Menopausal Skin Serum",
+            "Rejuvenating Serum - Rejuvenate",
+            "Retinol Serum - FTT Skin Clinics R+",
+            "Skin Brightening Serum - Illuminate",
+            "Obagi Hydro Drops Facial Serum",
+            "Obagi ELASTIderm Eye Serum",
+            "Obagi ELASTIderm Facial Serum",
+            "Obagi NU-CIL Eyelash Serum",
+            "Obagi Vitamin C Serum 10%",
+            "Obagi Vitamin C Serum 15%",
+            "Obgai Vitamin C Serum 20%",
+            "Obagi Professional-C Petide Complex",
+            "Obagi Retinol 0.5 Cream",
+            "Obagi Retinol 1.0 Cream",
+            "Obagi Retivance Skin Rejuvenating Complex",
+          ],
+
+          moisturiser: [
+            "Calm Night Cream",
+            "Eye Lift Gel - Refine",
+            "Neck Firming Cream - Lift",
+            "Endurance Moisturiser - FTT H2O",
+            "Night Cream - Recover",
+            "Obagi Hydrate Facial Moisturiser",
+            "Obagi ELASTIderm Eye Cream",
+            "Obagi Hydrate Luxe Facial Moisturiser",
+            "Obagi Daily Intensive Repair",
+            "Obagi-C Rx Exfoliating Day Lotion",
+          ],
+
+          advanced: [
+            "Phenomenal Eye Cream",
+            "Oil Control Pads",
+            "Blemish Control Pen",
+            "Purifying Skin Spray",
+            "SPF 50 sunscreen FTT Skin Clinics Protect",
+            "Charcoal Mask - Clarity",
+            "Obagi Profesional-C Microdermabrasion Polish Mask",
+            "Obagi 360 Hydrofactor SPF 30",
+            "Obagi Medical Cleansing Wipes",
+            "Obagi Nu-Derm Toner",
+            "Obagi Sun Shield Cool",
+            "Obagi Sun Shield Matte",
+            "Obagi Sun Shield Warm",
+            "Obagi-C Rx Balancing Toner",
+          ],
+        };
+
+        const productBlurbs = {
+          "Oil Control Serum": {
+            blurb:
+              "FTT Skin Clinics Oil Control Serum deeply cleans pores, dissolving oil and debris to help prevent blemishes, breakouts, and uneven texture.",
+            directions:
+              "Apply liberally once or twice per day as required to entire area of concern.",
+          },
+          "Oil Control Pads": {
+            blurb:
+              "Oil control pads combine salicylic and glycolic acids to deeply cleanse, reduce oil, prevent breakouts, exfoliate dead skin, and refine pores for a smoother complexion.",
+            directions:
+              "Clean skin thoroughly before use, use one pad daily and cover entire area of concern.",
+          },
+          "Blemish Control Pen": {
+            blurb:
+              "The blemish control pen uses a blend of acids and natural extracts to deeply unclog pores, target blemishes, and reduce inflammation and redness.",
+            directions:
+              "Apply one pen tip size amount to each area of concern and allow to absorb.",
+          },
+          "Purifying Skin Spray": {
+            blurb:
+              "HYPO21 purifying skin spray, featuring pure HOCl, boosts the immune response to help restore skin's natural state and is ideal for conditions like eczema, psoriasis, and acne.",
+            directions:
+              "Spray Hypo21 Purifying Skin Spray on freshly washed skin (Preferably After Shower) and leave for 60 seconds or so. There’s no need to rinse off. For best results, apply morning and evening on fresh, clean skin.",
+          },
+          "SPF 50 sunscreen FTT Skin Clinics Protect": {
+            blurb:
+              "Prime & Protect spf50 sunscreen contains clinically proven UVA and UVB filters to protect your skin from the damage that can be caused by radiation from sun exposure.",
+            directions:
+              "Apply liberally before exposure to the sun. Can be used as a moisturiser with or without makeup. Apply regularly. For external use only.",
+          },
+          "Vitamin C Serum 10%": {
+            blurb:
+              "A daily serum that brightens skin and offers antioxidant properties to protect against environmental damage and prevent signs of aging and sun damage.",
+            directions:
+              "Apply daily to cleansed skin before applying SPF or makeup, gently massage until fully absorbed. For external use only.",
+          },
+          "Vitamin C Serum 20%": {
+            blurb:
+              "C20 Maximum Strength Vitamin C Serum 20% offers peak antioxidant benefits to prevent wrinkles, dark spots, and environmental damage while boosting collagen production to delay signs of aging.",
+            directions:
+              "Apply daily to cleansed skin before applying SPF or makeup, gently massage until fully absorbed. For external use only.",
+          },
+          "Quench Advanced Hyaluronic Serum": {
+            blurb:
+              "Quench Advanced Hyaluronic Serum offers deep penetration and 72-hour hydration using the smallest hyaluronic acid molecules for enhanced moisture delivery and long-term skin rejuvenation.",
+            directions:
+              "Apply daily to cleansed skin before applying SPF or makeup, gently massage until fully absorbed. For external use only.",
+          },
+          "Calm Night Cream": {
+            blurb:
+              "Calm night cream combines peptides, plant extracts, and hydrators like niacinamide and bakuchiol to stimulate collagen, enhance elasticity, reduce wrinkles, and deeply hydrate, delivering a rejuvenated, radiant complexion overnight.",
+            directions:
+              "Apply liberally at night as required to entire face after serum.",
+          },
+          "Clear Advanced Gel Cleanser": {
+            blurb:
+              "Clear Advanced Gel Cleanser uses glycolic, salicylic, and lactic acids to exfoliate, reduce oiliness, and combat bacteria, leaving oily and spot-prone skin clear and less inflamed.",
+            directions:
+              "Use in the morning shower, massage into damp skin, leave for a few minutes, then rinse off thoroughly.",
+          },
+          "Thrive Menopausal Skin Serum": {
+            blurb:
+              "This menopausal skin serum combines peptides and natural extracts to reduce redness, irritation, and sensitivity, enhance collagen and elastin production, and improve skin firmness, addressing the specific challenges of menopausal skin changes.",
+            directions:
+              "Apply liberally once per day as required to entire area of concern.",
+          },
+          "Eye Lift Gel - Refine": {
+            blurb: "",
+          },
+
+          eyeLiftGelRefine: {
+            blurb:
+              "Eye Lift Gel - Refine helps promote the creation of healthy, youthful-looking skin. With caffeine and licorice root, this rich lightweight gel cream also aids in brightening the under-eye complexion and reducing the appearance of dark circles. The appearance of eye bags and crow’s feet will be reduced, and the entire eye area will be brighter, more illuminated.",
+            directions:
+              "Apply daily to cleansed skin to areas of concern, massaging until fully absorbed.",
+          },
+          phenomenalEyeCream: {
+            blurb:
+              "A rich, luxurious Eye Cream packed with natural antioxidants including Green Tea, Pomegranate and Ginseng to help reduce the appearance of eye bags and dark circles. This eye will help to achieve an even skin tone under the eye as well as reducing the appearance of fine lines and wrinkles around your eye area.",
+
+            directions:
+              "Apply a pea size amount of our Phenomenal Eye Cream to the eye area above and below your eye.",
+          },
+          obagiELASTIdermEyeCream: {
+            blurb:
+              "Obagi Elastiderm Eye creamis clinically proven to help reduce the appearance of eye area fine lines and wrinkles.",
+
+            directions:
+              "After cleansing skin, gently apply small dots of the ELASTIderm Eye Cream around the eye area.",
+          },
+          obagiELASTIdermEyeSerum: {
+            blurb:
+              "ELASTIderm Eye Serum is energizing and formulated with a combination of Caffeine and Bi-Mineral Contour Complex™ to support skin elasticity and reduce the appearance of under-eye puffiness. For refreshed, tighter-looking skin.",
+
+            directions:
+              "After cleansing skin, gently roll ELASTIderm Eye Serum on the outside and underneath the eye area.: For best results, apply twice daily, in the morning and at night.",
+          },
+
+          "Daily Cleanser": {
+            blurb:
+              "Prepare Cleansing Lotion is a soothing cleanser containing natural fruit extracts and clinically proven amino acids to calm your skin whilst providing deep cleansing to remove pollutants, excess oil and makeup.",
+            directions:
+              "Apply to damp skin, gently massage and then remove with a damp cloth or in the shower. Rinse well and pat to dry before applying serum and moisturiser.",
+          },
+          "Foaming Wash": {
+            blurb:
+              "Reveal Foaming Wash uses Alpha-Hydroxy acids and Aloe Vera to cleanse, exfoliate, and calm skin, enhancing radiance and preparing it for further skincare treatments.",
+            directions:
+              "Gently massage one pump onto damp skin and leave for a few minutes for maximum results, before rinsing with warm water. Gentle enough to use twice daily.",
+          },
+          "Luxury Exfoliant Cleanser": {
+            blurb:
+              "A luxury anti-aging wash containing glycolic acid and quartz, exfoliates and polishes skin, enhancing smoothness and radiance.",
+            directions:
+              "Use after cleansing twice a week. Massage a small amount onto dry skin in light circular movements for 2/3 minutes, re-activating with water when necessary, avoiding direct eye contact. Ensure the whole face has been covered. Rinse off with tepid water, pat dry.",
+          },
+          "Neck Firming Cream - Lift": {
+            blurb:
+              "Lift Next Generation Neck Firming Cream is a daily anti-aging treatment that firms, lifts, and evens skin tone on the neck and décolletage.",
+            directions:
+              "Apply as required to cleansed, dry neck and décolletage area. Massage until fully absorbed.",
+          },
+          "Endurance Moisturiser - FTT H2O": {
+            blurb:
+              "H2∞ is a luxurious silky moisturiser that hydrates and maintains optimal skin condition using peptides to stimulate collagen, tara seed extract to boost moisture levels, and vitamins to protect and restore the skin's natural barrier.",
+            directions: "Apply to clean skin on face and neck as required.",
+          },
+          "Rejuvenating Serum - Rejuvenate": {
+            blurb:
+              "Rejuvenate Active Serum, infused with Alpha-Hydroxy acids, peptides, and Aloe Vera, gently enhances cell renewal, controls breakouts, and diminishes pigmentation and fine lines for a fresher, younger appearance.",
+            directions:
+              "Using fingertips, gently massage one pump onto cleansed face. Can be smoothed all over face or applied to targeted areas.",
+          },
+          "Retinol Serum - FTT Skin Clinics R+": {
+            blurb:
+              "A powerful and highly effective serum clinically proven to increase cell turnover. R+ will reduce pore size, resulting in firmer younger looking skin as well as reduce, visible signs of ageing including pigmentation and uneven skin tone.",
+            directions:
+              "Apply to clean skin at night. Use as directed by your skincare specialist. It is important to use sunscreen when using a retinol cream, as retinol increases the skin’s sensitivity to sun exposure.",
+          },
+          "Skin Brightening Serum - Illuminate": {
+            blurb:
+              "This lightweight, fragrance-free skin brightening serum reduces melanin production, evens skin tone, improves texture, lightens appearance, and diminishes fine lines and wrinkles by boosting collagen, elastin, and hyaluronic acid production.",
+            directions:
+              "Use at night. Apply liberally to areas of concern, avoiding direct eye contact. Use an SPF product during the day.",
+          },
+          "Night Cream - Recover": {
+            blurb:
+              "Recover Night Cream contains active peptides and retinol to help repair your skin to increase cell turnover to renew and hydrate your skin while you sleep.",
+            directions:
+              "Before bedtime apply a small amount to your skin and massage for a few minutes after cleansing.",
+          },
+          "Charcoal Mask - Clarity": {
+            blurb:
+              "A weekly purifying masque containing activated coconut charcoal, long celebrated for its detoxifying benefits, will help cleanse and remove the build-up of pollution and other ageing molecules ever present in modern life.",
+            directions:
+              "Apply generously to cleansed skin on face and neck and leave for 10-15 mins. Wash with warm water and Prepare daily cleanser.",
+          },
+          "Obagi Foaming Cleanser": {
+            blurb:
+              "Obagi CLENZIderm Foaming Cleanser, featuring 2% salicylic acid and menthol, deeply cleans pores without over-drying, removes impurities, and provides cooling relief, making it ideal for those with acne.",
+            directions:
+              "Dispense a small amount of cleanser, massage over the face with warm water, rinse thoroughly, and pat dry; start with once daily, increasing as tolerated, and adjust frequency if dryness occurs.",
+          },
+          "Obagi Hydrate Facial Moisturiser": {
+            blurb:
+              "Obagi Hydrate provides instant, long-lasting hydration for essential moisturisation and rejuvenation, using innovative technologies and naturally derived ingredients. These moisturisers are non-irritating and designed for a variety of skin types to help enhance your skin.",
+            directions:
+              "Apply to face in the morning and evening or as needed.",
+          },
+          "Obagi Hydro Drops Facial Serum": {
+            blurb:
+              "Obagi Hydro Drops is an innovative hydrator that revitalizes dull skin with Abyssinian and Hibiscus oils, supports the skin's natural barrier, offers immediate smoothing and hydration all day. It also reduces fine lines and wrinkles over time.",
+            directions:
+              "Apply several drops on to your finger tips and apply to clean, dry skin every morning before your usual routine.",
+          },
+          "Obagi Profesional-C Microdermabrasion Polish Mask": {
+            blurb:
+              "This new multi-tasking polish + mask features unique is designed to exfoliate and prep your skin for the absorption of vitamin C, helping to smooth skin texture, increase radiance, and reduce the appearance of fine lines and wrinkles.",
+            directions:
+              "Apply a thin layer to clean, damp skin, avoid the eyes, leave for 10-15 minutes, expect a tingling sensation, then wipe off and rinse with warm water; use 2 to 3 times weekly.",
+          },
+          "Obagi 360 Exfoliating Cleanser": {
+            blurb:
+              "Obagi360 Exfoliating Cleanser works to help clear dull, dry skin that can lead to clogged pores and uneven skin texture.",
+            directions:
+              "Wet hands and face, apply cleanser in circular motions, rinse with lukewarm water, pat dry, and use twice daily, morning and evening.",
+          },
+          "Obagi 360 Hydrofactor SPF 30": {
+            blurb:
+              "A dual-function moisturiser with soothing ingredients and broad-spectrum protection thus preventing skin damage caused by UVA/UVB rays.",
+            directions:
+              "Apply liberally 15 minutes before sun exposure and as needed.",
+          },
+          "Obagi 360 system": {
+            blurb: "",
+          },
+          "Obagi ELASTIderm Eye Cream": {
+            blurb: "",
+          },
+          "Obagi ELASTIderm Eye Serum": {
+            blurb: "",
+          },
+          "Obagi ELASTIderm Facial Serum": {
+            blurb:
+              "Obagi ELASTIderm Facial Serum with patented Bi-Mineral Contour ComplexTM helps support skin elasticity so it can bounce back from the signs of ageing, resulting in firmer-looking, more resilient skin.",
+            directions:
+              "After cleansing, apply 2-3 pumps AM and PM to a clean dry face.",
+          },
+          "Obagi Hydrate Luxe Facial Moisturiser": {
+            blurb:
+              "Obagi Hydrate Luxe is crafted to nourish the skin overnight with its rich, creamy texture, providing hydration and replenishment.",
+            directions:
+              "Apply to face in the evening as part of your nightly skin care routine.",
+          },
+          "Obagi Daily Intensive Repair": {
+            blurb:
+              "Intensive Daily Repair exfoliating and hydrating lotion uses polyhydroxy acids (PHAs) to gently exfoliate the skin, helping to reduce the appearance of pores and visible aging signs.",
+            directions:
+              "Apply 2 to 3 pumps of the product daily before sunscreen, massaging gently into the face and extending down to the jawline and neck.",
+          },
+          "Obagi Nu-Derm Foaming Gel": {
+            blurb:
+              "The Obagi Nu-Derm System helps transform the skin’s appearance by reducing dark spots and as a result revealing younger, healthier-looking skin. Gently removes makeup and everyday impurities for a clean, fresh complexion.",
+            directions:
+              "Wetten face and apply a pea sized amount of foaming gel and then massage into skin. Remove with water.",
+          },
+          "Obagi Nu-Derm 1 Gentle Cleanser": {
+            blurb:
+              "Nu-Derm Gentle Cleanser is a mild facial wash that delicately eliminates dirt, oil, and makeup, leaving the skin clean and refreshed, and is ideal for normal to dry skin types.",
+            directions:
+              "Apply the cleanser with moistened fingertips to a damp face and neck, rinse thoroughly to remove dirt, grime, and makeup, and use twice daily, in the morning and at night.",
+          },
+          "Obagi Nu-Derm Toner": {
+            blurb:
+              "Nu-Derm Toner is a crucial part of your daily skincare regimen; this alcohol-free, non-drying toner helps balance and preserve the natural pH of your skin. Use it after cleansing to eliminate impurities and dead skin cells and to ready the skin for subsequent products.",
+            directions:
+              "Shake and apply the toner with a saturated cotton pad after cleansing, without rinsing, twice daily during your morning and nighttime routines.",
+          },
+          "Obagi Nu-Derm Exfoderm": {
+            blurb:
+              "Nu-Derm Exfoderm is a lightweight lotion designed for normal to dry skin types that exfoliates away old, dull skin to unveil fresh, luminous skin for a brighter complexion.",
+            directions: "Apply in the morning to cleanse skin.",
+          },
+          "Obagi Nu-Derm Exfoderm Forte": {
+            blurb:
+              "Nu-Derm Exfoderm Forte is a lightweight lotion formulated with glycolic and lactic acids for normal to oily skin types, exfoliating away old, dull skin and encouraging natural skin renewal for a noticeably smoother and more radiant complexion.",
+            directions: "Apply in the morning to cleanse skin.",
+          },
+          "Obagi Professional-C Petide Complex": {
+            blurb:
+              "Obagi Professional-C Peptide Complex enhances skin firmness, reduces fine lines and wrinkles with Vitamin C, calms, brightens, improves texture, and evens out skin tone.",
+            directions:
+              "Apply 2 to 3 pumps to the face in the morning and evening.",
+          },
+          "Obagi Retinol 0.5 Cream": {
+            blurb:
+              "Obagi Retinol 0.5 Cream is a minimally-irritating, concentrated retinol formula which fights the signs of premature aging caused by environmental aggressors to promote a more radiant and youthful-looking complexion. This anti-wrinkle treatment boosts cell turnover to minimise fine lines and wrinkles while reducing hyperpigmentation.",
+            directions:
+              "Uncap the airless pump and apply 1 pump, or a pearl-sized amount to your face. Massage until fully absorbed. Use once daily in the evenings.",
+          },
+          "Obagi Retinol 1.0 Cream": {
+            blurb:
+              "Retinol 1.0 is a potent, slow-release formula that gently promotes skin turnover, evens skin tone, and minimizes signs of aging like fine lines and wrinkles, effectively resurfacing the skin with minimal irritation for visibly younger-looking skin.",
+            directions:
+              "Uncap the airless pump and apply 1 pump, or a pearl-sized amount to your face. Massage until fully absorbed. Use once daily in the evenings.",
+          },
+          "Obagi Retivance Skin Rejuvenating Complex": {
+            blurb:
+              "RETIVANCE® Skin Rejuvenating Complex is a serum that harnesses the potent effects of retinaldehyde and is enriched with antioxidant-rich vitamins C and E. This premium formulation improves skin texture and visibly reduces fine lines and wrinkles, promoting a smoother, more youthful complexion.",
+            directions:
+              "Apply up to 3 pumps of Retivance to face and massage gently into skin. Always use sunscreen SPF 30 or higher the morning after you apply Retivance.",
+          },
+          "Obagi Sun Shield Cool": {
+            blurb:
+              "Obagi Medical Sun Shield™ is a daily sunscreen perfect for year-round use, designed to enhance and match the natural complexion of cool-toned individuals.",
+            directions:
+              "Apply liberally 15 minutes before sun exposure and as needed.",
+          },
+          "Obagi Sun Shield Matte": {
+            blurb:
+              "Sun Shield Matte Broad Spectrum SPF 50 sunscreen offers both UVB and UVA protection in a non-comedogenic, matte finish that's dermatologist-tested and suitable for all skin types.",
+            directions:
+              "Apply liberally 15 minutes before sun exposure and as needed.",
+          },
+          "Obagi Sun Shield Warm": {
+            blurb:
+              "Obagi Medical Sun Shield™ is a daily sunscreen perfect for year-round use, designed to enhance and match the natural complexion of warm-toned individuals.",
+            directions:
+              "Apply liberally 15 minutes before sun exposure and as needed.",
+          },
+          "Obagi Vitamin C Serum 10%": {
+            blurb:
+              "Obagi Professional-C® Serum 10% uses a concentrated 10% L-ascorbic Acid formula to deeply penetrate and rejuvenate skin by stimulating collagen production, reducing fine lines, and protecting against free radicals and UV damage.",
+            directions: "Apply liberally over face after cleansing.",
+          },
+          "Obagi Vitamin C Serum 15%": {
+            blurb:
+              "This daily antioxidant serum with 15% pure L-ascorbic acid defends against free radicals, brightens skin tone, and reduces signs of past damage.",
+            directions: "Apply liberally over face after cleansing.",
+          },
+          "Obgai Vitamin C Serum 20%": {
+            blurb:
+              "Obagi's Professional C® Serum 20% combines 20% L-Ascorbic Acid and Sodium Hyaluronate to brighten skin tone, reduce dark spots, strengthen antioxidant defenses, and improve the appearance of fine lines and wrinkles.",
+            directions: "Apply liberally over face after cleansing.",
+          },
+          "Obagi-C Rx Balancing Toner": {
+            blurb:
+              "Obagi-C Rx C-Balancing Toner, formulated for normal to oily skin, adjusts skin’s pH without drying, promoting a smoother, more radiant complexion while addressing hyperpigmentation, sun damage, and signs of aging.",
+            directions:
+              "Shake and apply the toner with a saturated cotton pad after cleansing, without rinsing, twice daily during your morning and nighttime routines.",
+          },
+          "Obagi-C Rx Exfoliating Day Lotion": {
+            blurb:
+              "Obagi-C Rx C-Exfoliating Day Lotion is a smooth, lightweight moisturiser that hydrates and gently exfoliates with glycolic acid to reveal a brighter, healthier-looking complexion.",
+            directions:
+              "Apply a small amount of the product to your face each morning, massaging gently until fully absorbed.",
+          },
+          "Obagi-C Rx Cleaning Gel": {
+            blurb:
+              "Obagi-C® C-Cleansing Gel is a Vitamin C-infused cleansing gel that removes makeup, excess oil, and impurities.",
+            directions:
+              "Apply to damp face and neck with moistened fingertips. Rub in a circular motion. Rinse completely with lukewarm water.",
+          },
+          "Obagi Clenziderm Daily Care Foaming Cleanser": {
+            blurb:
+              "CLENZIderm M.D.® Daily Care Foaming Cleanser is a lightweight, foaming acne cleanser with 2% Salicylic Acid and cooling menthol that unclogs pores, removes dead skin and impurities, and refreshes the skin, making it smoother and clearer.",
+            directions:
+              "Dispense a nickel-size amount of cleanser and massage over your entire face using warm water. Rinse skin thoroughly and pat dry. Because this product may dry your skin, start with 1 cleansing daily, then gradually increase to 2 or 3 times daily if needed.",
+          },
+          "Prepare Cleansing Lotion": {
+            blurb:
+              "Prepare Daily Cleanser gently cleanses and calms skin, removes pollutants and makeup, and provides antioxidant protection to prevent signs of aging, enhancing skin's natural glow and promoting a smoother, healthier complexion.",
+            directions:
+              "Apply to damp skin, massage gently and remove with a damp cloth or in the shower. Rinse well and pat dry.",
+          },
+        };
+
+        // Use a stack to track changes in product pool for each question
+        let productPoolStack = [initialProductPool.slice()]; // Clone initial pool
+
+        // Expose the filter functions to the global scope
+        filterProducts = function (questionType, selection) {
+          if (!selection.trim()) return; // Ignore if default 'Select...' is chosen
+
+          const eliminationList = eliminationLists[questionType][selection];
+          if (eliminationList) {
+            applyFilterAndPushState(eliminationList);
+          } else {
+            applyFilterAndPushState([]);
+            console.log(
+              "No selection criteria found. There is a missing entry in the elimination list!"
+            );
+          }
+
+          navigateToNextQuestion(questionType, selection);
+        };
+
+        submitSelectedConcernAreas = function () {
+          document.getElementById("questionConcernArea").style.display = "none";
+          if (!selectedConcernArea.includes("undereye")) {
+            selectedConcernArea.push("undereyeWhiteList");
+          }
+          console.log("Selected concern areas: ", selectedConcernArea);
+          filterProductsMultiple("concernArea", selectedConcernArea);
+        };
+
+        filterProductsMultiple = function (questionType, selections) {
+          // Check if selections array is empty or not provided
+          if (!selections || selections.length === 0) return;
+
+          let combinedEliminationList = [];
+
+          // Iterate over each selection and combine elimination lists
+          selections.forEach((selection) => {
+            const eliminationList = eliminationLists[questionType][selection];
+            if (eliminationList) {
+              combinedEliminationList =
+                combinedEliminationList.concat(eliminationList);
+            }
+          });
+
+          // Remove duplicates from combinedEliminationList
+          combinedEliminationList = [...new Set(combinedEliminationList)];
+
+          // Apply the combined elimination list
+          if (combinedEliminationList) {
+            applyFilterAndPushState(combinedEliminationList);
+          } else {
+            applyFilterAndPushState([]);
+            console.log("No selection criteria found");
+          }
+
+          // Assuming navigateToNextQuestion function doesn't need modification for this purpose
+          navigateToNextQuestion(questionType, selections[0]); // Example, adjust navigation logic as needed
+        };
+
+        gatherMultipleFilters = function (questionType) {
+          // Directly target the allergy select element
+          const selectElement = document.getElementById(questionType);
+          if (!selectElement) {
+            return; // Exit the function if the element is not found
+          }
+
+          // Gather selected values
+          const selectedValues = Array.from(selectElement.selectedOptions).map(
+            (option) => option.value
+          );
+
+          // Filter out the 'none' selection if other options are selected
+          const filteredSelections =
+            selectedValues.includes("none") && selectedValues.length > 1
+              ? selectedValues.filter((value) => value !== "none")
+              : selectedValues;
+
+          // Call filterProductsMultiple with the correct questionType and selections
+          filterProductsMultiple("allergy", filteredSelections);
+
+          navigateToNextQuestion("allergy", "");
+        };
+
+        function applyFilterAndPushState(eliminationList) {
+          let currentPool = productPoolStack[productPoolStack.length - 1];
+          let newPool = currentPool.filter(
+            (product) => !eliminationList.includes(product)
+          );
+
+          // Find removed products for logging
+          let removedProducts = currentPool.filter((product) =>
+            eliminationList.includes(product)
+          );
+
+          // Log removed products, if any
+          if (removedProducts.length > 0) {
+            console.log(`Filtered out products: ${removedProducts.join(", ")}`);
+          } else {
+            console.log(
+              "No products were filtered out with the latest selection."
+            );
+          }
+
+          productPoolStack.push(newPool);
+        }
+
+        function navigateToNextQuestion(questionType, selection) {
+          // Determine next question based on current question type
+          const currentQuestionId = `question${
+            questionType.charAt(0).toUpperCase() + questionType.slice(1)
+          }`;
+          // Only push if we're not navigating from the first question or repeating the same question
+
+          navigationStack.push(currentQuestionId);
+          console.log(
+            "Pushed " + currentQuestionId + " onto the navigation stack"
+          );
+
+          let nextQuestionId;
+          switch (questionType) {
+            case "basedUK":
+              if (selection === "yes") {
+                nextQuestionId = "overTwentyFive";
+              } else {
+                // Handle "No" case, assuming there's a message or action for non-UK users
+                // For the purpose of this switch, assume it ends the questionnaire or suggests an action
+                goToExitPoint(
+                  "Apologies, but we currently only ship products within the UK"
+                );
+                nextQuestionId = "exitPoint";
+              }
+              break;
+            case "overTwentyFive":
+              nextQuestionId = "skinConcern";
+              break;
+            case "skinConcern":
+              switch (selection) {
+                case "dullDryness":
+                  nextQuestionId = "UsesVitaminC"; // Assuming direct to allergies if not acne or wrinkles
+                  break;
+                case "acne":
+                  nextQuestionId = "typeOfAcne";
+                  break;
+                case "wrinklesFinelines":
+                  nextQuestionId = "wrinklesFinelines";
+                  break;
+                case "rosacea":
+                  nextQuestionId = "allergy";
+                  break;
+                case "darkSpotsHyperpigmentation":
+                  nextQuestionId = "typeOfHyperpigmentation";
+                  break;
+                case "texturedSkin":
+                  nextQuestionId = "usesVitaminC";
+                  break;
+                default:
+                  nextQuestionId = "allergy"; // Default follow-up question
+                  break;
+              }
+              break;
+            case "wrinklesFinelines":
+              nextQuestionId = "allergy";
+              break;
+            case "typeOfAcne":
+              nextQuestionId = "severityOfAcne";
+              break;
+            case "ageSigns":
+              // Assuming there's some follow-up based on the age signs selection
+              nextQuestionId = "allergy";
+              break;
+            case "usesVitaminC":
+              nextQuestionId = "allergy";
+              break;
+            case "severityOfAcne":
+              if (selection === "severe") {
+                goToExitPoint(
+                  "We recommend you book a consultation to provide you with presscription only products"
+                );
+                nextQuestionId = "exitPoint";
+                break;
+              } else {
+                nextQuestionId = "allergy";
+                break;
+              }
+            case "typeOfHyperpigmentation":
+              nextQuestionId = "usesVitaminC";
+              break;
+            case "allergy":
+              if (selection === "fragrances") {
+                goToExitPoint("Our products contain low  allergenic profiles ");
+                nextQuestionId = "exitPoint";
+                break;
+              } else {
+                nextQuestionId = "takePrescription";
+                break;
+              }
+            case "takePrescription":
+              if (selection === "yes") {
+                goToExitPoint(
+                  "It is not recomended to use skincare products with active ingridients while on topical medication so wait until your treatment ends and try again"
+                );
+                nextQuestionId = "exitPoint";
+                break;
+              } else {
+                nextQuestionId = "retinoidUse";
+                break;
+              }
+            case "retinoidUse":
+              if (selection === "yes") {
+                nextQuestionId = "retinoidIrritation";
+                break;
+              } else {
+                nextQuestionId = "skinType";
+                break;
+              }
+            case "retinoidIrritation":
+              nextQuestionId = "skinType";
+              break;
+            case "skinType":
+              nextQuestionId = "skinSensitivity";
+              break;
+            case "skinSensitivity":
+              nextQuestionId = "concernArea";
+              break;
+            case "concernArea":
+              nextQuestionId = "vegan";
+              break;
+            case "vegan":
+              nextQuestionId = "sunscreenUse";
+              break;
+            case "sunscreenUse":
+              nextQuestionId = "routineComplexity";
+              break;
+            case "routineComplexity":
+              console.log(selection);
+              setRoutineSize(selection);
+              suggestProduct(); // This is the end of the questionnaire, leading to product suggestion
+              return; // Exit the function early
+            // Add additional cases as necessary based on your flowchart's specific paths and outcomes
+            default:
+              console.error("Unhandled question type: " + questionType);
+              return; // Exit for safety in case of an unhandled question type
+          }
+
+          const formattedCurrentQuestionId = `question${
+            questionType.charAt(0).toUpperCase() + questionType.slice(1)
+          }`;
+
+          const formattedNextQuestionId = `question${
+            nextQuestionId.charAt(0).toUpperCase() + nextQuestionId.slice(1)
+          }`;
+          showNextQuestion(formattedCurrentQuestionId, formattedNextQuestionId);
+        }
+
+        goToExitPoint = function (message) {
+          const exitPointText = document.getElementById("exitPointParagraph");
+          if (exitPointText) {
+            exitPointText.textContent = message;
+          }
+        };
+
+        // Function to show the next question
+        // Modified showNextQuestion function
+        showNextQuestion = function (currentQuestionId, nextQuestionId) {
+          const currentElement = document.getElementById(currentQuestionId);
+          const nextElement = document.getElementById(nextQuestionId);
+
+          // Apply slide-out animation to current element
+          if (currentElement) {
+            currentElement.classList.add("question-slide-out");
+          }
+
+          setTimeout(
+            () => {
+              if (currentElement) {
+                currentElement.style.display = "none"; // Hide after animation
+                currentElement.classList.remove("question-slide-out"); // Clean up class
+              }
+
+              if (nextElement) {
+                nextElement.style.display = "block"; // Display the next question
+                nextElement.classList.add("question-slide-in");
+                setTimeout(() => {
+                  nextElement.classList.remove("question-slide-in");
+                }, 500); // This matches the animation duration
+              }
+            },
+            250 // Wait for the slide-out animation to complete
+          );
+        };
+
+        goToPreviousQuestion = function goToPreviousQuestion() {
+          // Pop the current product pool as we're navigating back
+          if (productPoolStack.length > 1) {
+            const currentPool = productPoolStack[productPoolStack.length - 1];
+            const previousPool = productPoolStack[productPoolStack.length - 2];
+
+            // Use the comparison function before actually popping the pool
+            const { addedProducts, removedProducts } = compareProductPools(
+              currentPool,
+              previousPool
+            );
+
+            // Now pop the current pool since we're going back
+            productPoolStack.pop();
+            console.log(
+              "Navigating back to " +
+                navigationStack[navigationStack.length - 1]
+            );
+
+            // Log or update UI with the differences
+            if (removedProducts.length > 0) {
+              console.log(
+                `Products were removed when undoing, this should not happen!`
+              );
+            }
+            if (addedProducts.length > 0) {
+              console.log(
+                `Added back products when undoing: ${addedProducts.join(", ")}`
+              );
+            } else {
+              console.log("No products were added back with this undo");
+            }
+          }
+
+          // Pop the current navigation state off as we're navigating back
+          if (navigationStack.length === 0) {
+            // If the stack is empty, we're at the start; handle accordingly
+            // Example: document.getElementById('questionsContainer').style.display = 'none';
+            return;
+          }
+
+          const previousQuestionId = navigationStack.pop(); // Correctly manage the navigation stack
+
+          const currentElement = document.querySelector(
+            '.question:not([style*="display: none"])'
+          );
+
+          console.log("Previous element is " + previousQuestionId);
+
+          const previousElement = document.getElementById(previousQuestionId);
+
+          // Ensure we have elements to work with
+          if (!currentElement || !previousElement) return;
+
+          // Apply slide-out reverse animation to the current element
+          currentElement.classList.add("question-slide-out-reverse");
+
+          // Wait for the slide-out animation to finish
+          setTimeout(() => {
+            currentElement.style.display = "none";
+            currentElement.classList.remove("question-slide-out-reverse");
+
+            // Prepare the previous element for sliding in from the left
+            previousElement.style.display = "block";
+
+            // Force reflow to guarantee the animation plays
+            void previousElement.offsetWidth;
+
+            previousElement.classList.add("question-slide-in-reverse");
+
+            // Clean up by removing the class after animation ends
+            setTimeout(() => {
+              previousElement.classList.remove("question-slide-in-reverse");
+            }, 500); // Match the animation duration
+          }, 250); // Wait for the slide-out animation to complete before showing the previous question
+        };
+
+        // Update your HTML accordingly, replacing direct calls to goToPreviousQuestion with just goToPreviousQuestion() without parameters.
+
+        // Function for showing suggestions with slide-in animation
+        function compareProductPools(previousPool, currentPool) {
+          const addedProducts = currentPool.filter(
+            (product) => !previousPool.includes(product)
+          );
+          const removedProducts = previousPool.filter(
+            (product) => !currentPool.includes(product)
+          );
+
+          return {
+            addedProducts,
+            removedProducts,
+          };
+        }
+
+        function setRoutineSize(newRoutineSize) {
+          if (newRoutineSize === "hero") {
+            routineSize = 1;
+          } else if (newRoutineSize === "essentials") {
+            routineSize = 3;
+          } else if (newRoutineSize === "advanced") {
+            routineSize = 5;
+          }
+          console.log("Set routine size to " + routineSize);
+        }
+        function suggestProduct() {
+          // Access the current product pool from the top of the stack
+          const currentProductPool =
+            productPoolStack[productPoolStack.length - 1];
+
+          // Prepare for the slide-out animation of the last question
+          const lastQuestionElement = document.getElementById(
+            "questionOrganicPreference"
+          );
+          if (lastQuestionElement) {
+            lastQuestionElement.classList.add("question-slide-out");
+            setTimeout(() => {
+              // Once the slide-out is complete, proceed to display suggestions
+              lastQuestionElement.style.display = "none"; // Ensure the element is hidden
+              lastQuestionElement.classList.remove("question-slide-out"); // Clean up class
+
+              const suggestionResultContainer =
+                document.getElementById("suggestionResult");
+
+              document.getElementById("heroSection").style.display = "none";
+              document.getElementById("essentialsSection").style.display =
+                "none";
+              document.getElementById("advancedSection").style.display = "none";
+
+              if (routineSize == 1) {
+                document.getElementById("heroSection").style.display = "block";
+
+                const heroSuggestionResult =
+                  document.getElementById("heroProductDetails");
+
+                const heroProductPool = productCategoryLists.hero.filter(
+                  (value) => currentProductPool.includes(value)
+                );
+                heroProductPool.length = 1; // Limit to 1 product
+                if (heroProductPool.length > 0) {
+                  heroSuggestionResult.innerHTML =
+                    heroSuggestionResult.innerHTML +
+                    heroProductPool
+                      .map(
+                        (product) => `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || ""}</p>
+                <p>${productBlurbs[product]?.directions || ""}</p>
+              `
+                      )
+                      .join("");
+                }
+              } else if (routineSize == 3) {
+                document.getElementById("essentialsSection").style.display =
+                  "block";
+
+                const cleanserSuggestionResult =
+                  document.getElementById("essentials-1");
+                const cleanserProductPool =
+                  productCategoryLists.cleanser.filter((value) =>
+                    currentProductPool.includes(value)
+                  );
+                cleanserProductPool.length = 1; // Limit to 1 product
+                if (cleanserProductPool.length > 0) {
+                  cleanserSuggestionResult.innerHTML =
+                    cleanserSuggestionResult.innerHTML +
+                    cleanserProductPool
+                      .map(
+                        (product) => `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || ""}</p>
+                <p>${productBlurbs[product]?.directions || ""}</p>
+              `
+                      )
+                      .join("");
+                }
+
+                const serumSuggestionResult =
+                  document.getElementById("essentials-2");
+
+                const serumProductPool = productCategoryLists.serum.filter(
+                  (value) => currentProductPool.includes(value)
+                );
+                serumProductPool.length = 1; // Limit to 1 product
+                if (serumProductPool.length > 0) {
+                  serumSuggestionResult.innerHTML =
+                    serumSuggestionResult.innerHTML +
+                    serumProductPool
+                      .map(
+                        (product) => `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || ""}</p>
+                <p>${productBlurbs[product]?.directions || ""}</p>
+              `
+                      )
+                      .join("");
+                }
+
+                const moisturiserSuggestionResult =
+                  document.getElementById("essentials-3");
+
+                const moisturiserProductPool =
+                  productCategoryLists.moisturiser.filter((value) =>
+                    currentProductPool.includes(value)
+                  );
+                moisturiserProductPool.length = 1; // Limit to 1 product
+                if (moisturiserProductPool.length > 0) {
+                  moisturiserSuggestionResult.innerHTML =
+                    moisturiserSuggestionResult.innerHTML +
+                    moisturiserProductPool
+                      .map(
+                        (product) => `
+                      <h3>${product}</h3>
+                      <p>${productBlurbs[product]?.blurb || ""}</p>
+                      <p>${productBlurbs[product]?.directions || ""}</p>
+                      `
+                      )
+                      .join("");
+                }
+              } else if (routineSize == 5) {
+                document.getElementById("advancedSection").style.display =
+                  "block";
+
+                const cleanserSuggestionResult =
+                  document.getElementById("advanced-1");
+                const cleanserProductPool =
+                  productCategoryLists.cleanser.filter((value) =>
+                    currentProductPool.includes(value)
+                  );
+                cleanserProductPool.length = 1; // Limit to 1 product
+                if (cleanserProductPool.length > 0) {
+                  cleanserSuggestionResult.innerHTML =
+                    cleanserSuggestionResult.innerHTML +
+                    cleanserProductPool
+                      .map(
+                        (product) => `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || ""}</p>
+                <p>${productBlurbs[product]?.directions || ""}</p>
+              `
+                      )
+                      .join("");
+                }
+
+                const serumSuggestionResult =
+                  document.getElementById("advanced-2");
+
+                const serumProductPool = productCategoryLists.serum.filter(
+                  (value) => currentProductPool.includes(value)
+                );
+                serumProductPool.length = 1; // Limit to 1 product
+                if (serumProductPool.length > 0) {
+                  serumSuggestionResult.innerHTML =
+                    serumSuggestionResult.innerHTML +
+                    serumProductPool
+                      .map(
+                        (product) => `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || ""}</p>
+                <p>${productBlurbs[product]?.directions || ""}</p>
+              `
+                      )
+                      .join("");
+                }
+
+                const moisturiserSuggestionResult =
+                  document.getElementById("advanced-3");
+
+                const moisturiserProductPool =
+                  productCategoryLists.moisturiser.filter((value) =>
+                    currentProductPool.includes(value)
+                  );
+                moisturiserProductPool.length = 1; // Limit to 1 product
+                if (moisturiserProductPool.length > 0) {
+                  moisturiserSuggestionResult.innerHTML =
+                    moisturiserSuggestionResult.innerHTML +
+                    moisturiserProductPool
+                      .map(
+                        (product) => `
+                      <h3>${product}</h3>
+                      <p>${productBlurbs[product]?.blurb || ""}</p>
+                      <p>${productBlurbs[product]?.directions || ""}</p>
+                      `
+                      )
+                      .join("");
+                }
+
+                const advancedSuggestionResult =
+                  document.getElementById("advanced-4");
+
+                const advancedProductPool =
+                  productCategoryLists.advanced.filter((value) =>
+                    currentProductPool.includes(value)
+                  );
+                advancedProductPool.length = 1; // Limit to 1 product
+                if (advancedProductPool.length > 0) {
+                  advancedSuggestionResult.innerHTML =
+                    advancedSuggestionResult.innerHTML +
+                    advancedProductPool
+                      .map(
+                        (product) => `
+                      <h3>${product}</h3>
+                      <p>${productBlurbs[product]?.blurb || ""}</p>
+                      <p>${productBlurbs[product]?.directions || ""}</p>
+                      `
+                      )
+                      .join("");
+                }
+              }
+
+              if (currentProductPool.length <= 0) {
+                // Handle case where no products are left after filtering
+                suggestionResultContainer.innerHTML =
+                  "<h2>No products match your criteria.</h2>";
+              }
+
+              // Ensure the result container is initially visible for the animation
+              suggestionResultContainer.style.display = "block";
+
+              // Apply the slide-in animation to the suggestions
+              suggestionResultContainer.classList.add("suggestions-slide-in");
+
+              // Optionally, reset the animation class to enable re-animating in future
+              setTimeout(() => {
+                suggestionResultContainer.classList.remove(
+                  "suggestions-slide-in"
+                );
+              }, 500); // This duration should match the CSS animation time
+
+              // Hide the questions container
+              document.getElementById("questionsContainer").style.display =
+                "none";
+            }, 500); // Delay to match the slide-out animation of the last question
+          }
+        }
+
+        // Initial display adjustments
+        // Directly display the first question without sliding in
+        document.getElementById("questionBasedUK").style.display = "block";
+
+        let selectedConcernArea = [];
+        selectConcernArea = function (selectedArea) {
+          if (selectedConcernArea.includes(selectedArea)) {
+            selectedConcernArea = selectedConcernArea.filter(
+              (area) => area !== selectedArea
+            );
+          } else {
+            selectedConcernArea.push(selectedArea);
+          }
+
+          console.log("Selected concern areas: ", selectedConcernArea);
+
+          var listContainer = document.getElementById("stringList");
+
+          // Initialize an empty string that will hold the list items
+          var listItems = "";
+
+          // Loop through the list of strings
+          for (var i = 0; i < selectedConcernArea.length; i++) {
+            // For each string, add a list item to the listItems string
+            listItems +=
+              "<li>" + capitalizeFirstLetter(selectedConcernArea[i]) + "</li>";
+          }
+
+          // Set the innerHTML of the list container to the listItems string
+          listContainer.innerHTML = listItems;
+        };
+
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+      });
+    </script>
+  </body>
+</html>
