@@ -4,522 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skin Care Consultation</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        background: linear-gradient(330deg, #d1ab4f, #fff4cf);
-        color: #333;
-        line-height: 1.3;
-        height: 100vh;
-      }
-
-      .title-large {
-        font-family: "Times New Roman", serif;
-        font-weight: 300;
-        font-size: 45px;
-        text-align: center;
-        color: #000000;
-        margin-bottom: 0;
-        margin-top: 0;
-      }
-
-      .subtitle-medium {
-        margin-top: 1;
-        font-family: Arial, sans-serif;
-        font-weight: 5;
-        font-style: italic;
-        font-size: 15px;
-        text-align: center;
-        color: #000000;
-        margin-bottom: 80px;
-        width: 80%;
-        max-width: 350px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .heading-small {
-        font-family: Arial, sans-serif;
-        font-weight: bold;
-        font-size: 20px;
-        text-align: center;
-        color: #000000;
-        margin-bottom: 0;
-        margin-top: 175px;
-      }
-
-      .dot-container {
-        text-align: center;
-        padding-top: 5px;
-        padding-bottom: 10px;
-      }
-
-      .dotlight {
-        height: 5px;
-        width: 5px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      .dotdark {
-        height: 5px;
-        width: 5px;
-        background-color: #000000;
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      /* Question container styles */
-      #questionsContainer {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .concern-area-highlight {
-        position: absolute;
-        border-radius: 50%; /* makes it a circle */
-        background-color: rgba(255, 0, 0, 0.5); /* semi-transparent red */
-        pointer-events: none; /* ensures the click goes through the highlight */
-      }
-
-      .question {
-        background-color: #ffffff;
-        padding-top: 20px;
-        padding-bottom: 0;
-        /* Adds padding around the content inside the question panel */
-        margin-bottom: 40px;
-        /* Space between questions */
-        width: 80%;
-
-        max-width: 450px;
-        /* Adjust width as needed */
-        box-sizing: border-box;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-        /* Optional: Adds rounded corners for a softer look */
-        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-        /* Optional: Adds a subtle shadow for depth */
-        min-height: 175px;
-        position: relative;
-      }
-
-      .options-wrapper {
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 20px;
-      }
-
-      .option-container {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .option-container img {
-        width: 80%; /* Or set a max-width if the images are too large */
-        margin-bottom: 10px;
-      }
-
-      .text-container {
-        padding-left: 20px;
-        padding-right: 20px;
-        text-align: center;
-        justify-content: center;
-      }
-
-      /* Label styles */
-      label {
-        display: block;
-        margin-top: 5px;
-        margin-bottom: 25px;
-        /* Adjust as needed */
-        color: #000000;
-        font-weight: bold;
-      }
-
-      /* Select styles */
-      /* Select styles */
-      select {
-        width: 100%;
-        padding: 0;
-        /* Adjusted padding for more height */
-        margin-bottom: 0;
-        /* Space below each select element */
-        border-radius: 0;
-        border: 0px solid #ddd;
-        background-color: #e0e0e0;
-        color: #000000;
-        font-size: 15px;
-        text-align: center;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        /* Adding height property if needed */
-        height: auto;
-        min-height: 50px;
-        max-height: 1000px;
-        /* Adjust this value as needed for your design */
-      }
-
-      .full-width-bar {
-        display: block; /* Ensures the button takes up the full width of the container */
-        width: 100%; /* Button takes the full width of its container */
-        height: 50px;
-        margin: 10px 0; /* Add some space above and below the button */
-        padding: 10px 0; /* Padding to increase the height of the button */
-        background-color: #e0e0e0; /* Grey background */
-        color: #000; /* Black text color */
-        font-size: 15px; /* Text size */
-        font-weight: normal; /* Make text bold */
-        border: none; /* Removes the border */
-        border-radius: 0; /* No rounded corners */
-        cursor: pointer; /* Hand cursor on hover */
-        font-size: 15px; /* Text size */
-        text-align: center; /* Center the text inside the button */
-        outline: none; /* Remove the focus outline */
-        -webkit-appearance: none; /* Removes the default webkit button styling */
-        -moz-appearance: none; /* Removes the default Mozilla button styling */
-        appearance: none; /* Removes the default button styling */
-      }
-
-      .full-width-bar:hover,
-      .full-width-bar:focus {
-        background-color: #ccc; /* Slightly darker grey on hover and focus */
-      }
-
-      select:focus {
-        outline: none !important;
-        box-shadow: 0 0 0 0 #000000;
-      }
-
-      /* Button styles */
-      button {
-        background: #000000;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 600;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        /* More space above the button */
-        outline: 3px solid #000000;
-        width: 50px;
-        height: 30px;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        padding: 5px 5px;
-        border-radius: 0;
-        /* Allows the button to size according to its content */
-      }
-
-      button:hover {
-        background: #ffffff;
-        color: #000000;
-      }
-
-      .button-space {
-        margin-right: 100px;
-        margin-left: 100px;
-        /* Adjust the spacing as needed */
-      }
-
-      /* Slide in from the right */
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(100%);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* Slide out to the left */
-      @keyframes slideOutLeft {
-        from {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        to {
-          opacity: 0;
-          transform: translateX(-100%);
-        }
-      }
-
-      /* Slide in from the left */
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-100%);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* Slide out to the right */
-      @keyframes slideOutRight {
-        from {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        to {
-          opacity: 0;
-          transform: translateX(100%);
-        }
-      }
-
-      .question-slide-in-reverse {
-        animation: slideInLeft 0.5s forwards;
-      }
-
-      .question-slide-out-reverse {
-        animation: slideOutRight 0.5s forwards;
-      }
-
-      .question-slide-in,
-      .suggestions-slide-in {
-        animation: slideInRight 0.5s forwards;
-      }
-
-      .question-slide-out {
-        animation: slideOutLeft 0.5s forwards;
-      }
-
-      #suggestionResult {
-        padding: 0;
-        margin: 0 auto;
-        padding-top: 5px;
-        /* Adjust this value as needed */
-        /* Center the section with some margin */
-        border-radius: 15px;
-        /* Rounded corners */
-        width: 100%;
-        text-align: center;
-        /* Center the text */
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 30px;
-      }
-
-      #suggestionResult h2 {
-        color: #333;
-        /* Dark color for the title */
-        margin-bottom: 15px;
-        /* Space between title and list */
-      }
-
-      #suggestionResult ul {
-        /* Remove default list styling */
-        padding: 0;
-        margin: 0; /* Ensure ul doesn't have default margin */
-      }
-
-      #suggestionResult li {
-        margin: 10px auto;
-        /* Top and bottom margin 10px, left and right margin auto to center the items */
-        padding-top: 10px;
-        padding-bottom: 10px;
-        /* Rounded corners for each item */
-        /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-              /* Subtle shadow for each item */
-        color: #333;
-        /* Text color */
-        font-weight: medium;
-        font-family: "Times New Roman", serif;
-        /* Make the product names stand out */
-        width: 100%;
-        /* Set a specific width for each item */
-        display: block;
-        /* Ensure the items are block-level for margin auto to work */
-        overflow: hidden; /* Add this line to prevent overflow */
-      }
-
-      /* Adjustments for animations */
-      .suggestions-slide-in {
-        animation: slideInRight 0.5s forwards;
-        /* Reuse existing slide-in animation */
-      }
-
-      .option-container {
-        text-align: center;
-        margin-bottom: 20px; /* Adjust as needed */
-      }
-
-      .option-container img {
-        max-width: 100%;
-        border: 1px solid #ccc; /* Example border */
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .option-container img:hover {
-        transform: scale(1.1); /* Slight zoom effect on hover */
-      }
-
-      .select-button {
-        background: #ffffff;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        padding: 10px 15px;
-      }
-
-      .select-button:hover {
-        background: #f8f8f8; /* Light grey background on hover */
-      }
-
-      rect:hover {
-        cursor: pointer;
-      }
-
-      .hover_group:hover {
-        opacity: 1;
-      }
-
-      #concernAreaSvg {
-        position: relative;
-        width: 100%;
-        padding-bottom: 77%;
-        vertical-align: middle;
-        margin: 0;
-        overflow: hidden;
-        background: lightgreen;
-      }
-
-      #concernAreaSvg svg {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-
-      .hero-product-details {
-        text-align: left;
-        max-width: 400px;
-        padding: 20px; /* Padding inside the details section */
-        box-sizing: border-box;
-        background-color: #ffffff; /* White background */
-        border-radius: 15px; /* Rounded corners */
-        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-      }
-
-      #essentialsSection {
-        padding: 40px;
-        border-radius: 15px;
-        text-align: center;
-      }
-
-      #essentialsSection h2.title-large {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 40px;
-      }
-
-      .essentials-container {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 20px; /* Add space between items */
-      }
-
-      .essentials-item {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-        width: 300px;
-        text-align: center;
-        box-sizing: border-box; /* Ensures padding is included in the width */
-      }
-
-      .essentials-item img.product-image {
-        width: 100px;
-        margin-bottom: 20px;
-      }
-
-      .essentials-item h3 {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .essentials-item p {
-        font-size: 14px;
-        line-height: 1.5;
-        color: #333;
-      }
-
-      #advancedSection {
-        padding: 40px;
-        border-radius: 15px;
-        text-align: center;
-      }
-
-      #advancedSection h2.title-large {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 40px;
-      }
-
-      .advanced-container {
-        display: flex;
-        flex-wrap: wrap; /* Allows items to wrap to the next line */
-        justify-content: center; /* Center the items */
-        gap: 20px; /* Add space between items */
-      }
-
-      .advanced-item {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-        width: 250px; /* Adjust width for better responsiveness */
-        text-align: center;
-        box-sizing: border-box; /* Ensures padding is included in the width */
-      }
-
-      .advanced-item img.product-image {
-        width: 100px;
-        margin-bottom: 20px;
-      }
-
-      .advanced-item h3 {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .advanced-item p {
-        font-size: 14px;
-        line-height: 1.5;
-        color: #333;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
@@ -534,7 +19,7 @@
     <div id="welcomeScreen" style="text-align: center; padding: 20px">
       <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
       <p>Today I’ll create a personalised skincare routine for you!</p>
-      <button id="startConsultationButton">Start</button>
+      <button id="startConsultationButton" class="btn-navigation">Start</button>
     </div>
     <div id="questionsContainer">
       <!-- Initial questions already provided, skipping to new additions -->
@@ -545,21 +30,17 @@
         <p id="exitPointParagraph">
           Today I’ll create a personalised skincare routine for you!
         </p>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
       </div>
 
       <!-- Question: Based in UK -->
       <div id="questionBasedUK" class="question" style="display: none">
         <label for="basedUKSelect">Are you based in the UK?</label>
-        <select
-          id="basedUKSelect"
-          name="basedUKSelect"
-          onchange="filterProducts('basedUK', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+
+        <div>
+          <button onclick="filterProducts('basedUK', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('basedUK', 'yes')" class="btn-option">Yes</button>
+         </div>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -581,16 +62,13 @@
       <!-- Question: Age over 25 -->
       <div id="questionOverTwentyFive" class="question" style="display: none">
         <label for="overTwentyFiveSelect">Are you over 25 years old?</label>
-        <select
-          id="overTwentyFiveSelect"
-          name="overTwentyFiveSelect"
-          onchange="filterProducts('overTwentyFive', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('overTwentyFive', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('overTwentyFive', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -628,7 +106,7 @@
           </option>
           <option value="texturedSkin">Textured Skin</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -696,7 +174,7 @@
           <option value="wrinkles">Wrinkles</option>
           <option value="finelines">Fine lines</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -756,7 +234,7 @@
           <option value="melasma">Melasma</option>
           <option value="undereyeDarkness">Undereye Darkness</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -822,7 +300,7 @@
           <option value="pustules">Papules</option>
           <option value="whiteheads">Whiteheads</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -853,7 +331,7 @@
           <option value="moderate">Moderate</option>
           <option value="severe">Severe</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -876,16 +354,13 @@
         <label for="UsesVitaminCSelect"
           >Have you used Vitamin C products before?</label
         >
-        <select
-          id="UsesVitaminCSelect"
-          name="UsesVitaminCSelect"
-          onchange="filterProducts('usesVitaminC', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('usesVitaminC', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('usesVitaminC', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -921,7 +396,7 @@
           <option value="15">15%</option>
           <option value="20">20%</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -958,7 +433,7 @@
           <option value="fragrances">Fragrances</option>
         </select>
         <!-- In your HTML, directly call gatherMultipleFilters() without passing questionType -->
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <button onclick="gatherMultipleFilters('allergySelect')">
           &#8594;
         </button>
@@ -994,7 +469,7 @@
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <div class="dot-container">
           <span class="dotdark"></span>
           <span class="dotdark"></span>
@@ -1017,16 +492,13 @@
           >Are you using any non-prescription retinoids (such as
           retinol)?</label
         >
-        <select
-          id="retinoidUseSelect"
-          name="retinoidUseSelect"
-          onchange="filterProducts('retinoidUse', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('retinoidUse', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('retinoidUse', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <div class="dot-container">
           <span class="dotdark"></span>
           <span class="dotdark"></span>
@@ -1052,16 +524,14 @@
         <label for="retinoidIrritationSelect"
           >Have you experienced irritation while using these products?</label
         >
-        <select
-          id="retinoidIrritationSelect"
-          name="retinoidIrritationSelect"
-          onchange="filterProducts('retinoidIrritation', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('retinoidIrritation', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('retinoidIrritation', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -1093,7 +563,7 @@
           <option value="dry">Dry</option>
           <option value="combination">Combination</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -1115,16 +585,13 @@
       <!-- Question: skinSensitivity -->
       <div id="questionSkinSensitivity" class="question" style="display: none">
         <label for="skinSensitivitySelect">Is your skin sensitive?</label>
-        <select
-          id="skinSensitivitySelect"
-          name="skinSensitivitySelect"
-          onchange="filterProducts('skinSensitivity', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('skinSensitivity', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('skinSensitivity', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -1253,7 +720,7 @@
             <ul id="stringList"></ul>
           </div>
         </div>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <button onclick="submitSelectedConcernAreas()">&#8594;</button>
 
         <!-- Dot container under each question -->
@@ -1278,16 +745,14 @@
         <label for="veganSelect"
           >Do you have a preference for vegan products?</label
         >
-        <select
-          id="veganSelect"
-          name="veganSelect"
-          onchange="filterProducts('vegan', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+
+        <div>
+          <button onclick="filterProducts('vegan', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('vegan', 'yes')" class="btn-option">Yes</button>
+         </div>
+
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+        
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -1320,7 +785,7 @@
           </option>
           <option value="rarely">Rarely</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -1394,7 +859,7 @@
           <option value="essentials">Essentials</option>
           <option value="advanced">Advanced</option>
         </select>
-        <button onclick="goToPreviousQuestion()">Back</button>
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
