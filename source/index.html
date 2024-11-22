@@ -460,16 +460,14 @@
           >Do you take any medication that might interact with skincare or
           topical prescription medications?</label
         >
-        <select
-          id="takePrescriptionSelect"
-          name="takePrescriptionSelect"
-          onchange="filterProducts('takePrescription', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+
+        <div>
+          <button onclick="filterProducts('takePrescription', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('takePrescription', 'yes')" class="btn-option">Yes</button>
+         </div>
+
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+        
         <div class="dot-container">
           <span class="dotdark"></span>
           <span class="dotdark"></span>
@@ -812,15 +810,11 @@
         <label for="organicPreferenceSelect"
           >Do you prefer organic products?</label
         >
-        <select
-          id="organicPreferenceSelect"
-          name="organicPreferenceSelect"
-          onchange="filterProducts('organicPreference', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+
+        <div>
+          <button onclick="filterProducts('organicPreference', 'no')" class="btn-option">No</button>
+          <button onclick="filterProducts('organicPreference', 'yes')" class="btn-option">Yes</button>
+         </div>
         <!-- Adjust the previous question ID as needed based on your actual question flow -->
         <button
           onclick="goToPreviousQuestion('questionOrganic', 'questionSkinConcern')"
