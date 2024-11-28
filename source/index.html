@@ -1556,7 +1556,7 @@
               "Apply liberally before exposure to the sun. Can be used as a moisturiser with or without makeup. Apply regularly. For external use only.",
             url: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_SPF50_Sun_Screen.jpg",
           },
-          vitaminCSerum10Percent: {
+          "Vitamin C Serum 10%": {
             blurb:
               "A daily serum that brightens dull skin and offers antioxidant properties to protect against environmental damage and prevent signs of aging and sun damage.",
             directions:
@@ -2315,6 +2315,23 @@
                 const heroProductPool = productCategoryLists.hero.filter(
                   (value) => currentProductPool.includes(value)
                 );
+                const [firstProductKey] = heroProductPool; // Extract the first key from heroProductPool
+
+if (firstProductKey) {
+  // Destructure the nested object for the first product
+  const { blurb, directions, url } = productBlurbs[firstProductKey] || {};
+
+  if (url) {
+    document.getElementById("heroProductImage").src = url; // Assign the image URL
+    console.log("Blurb:", blurb);
+    console.log("Directions:", directions);
+    console.log("URL:", url);
+  } else {
+    console.error(`URL is missing for product: ${firstProductKey}`);
+  }
+} else {
+  console.error("Hero Product Pool is empty or invalid.");
+}
                 heroProductPool.length = 1; // Limit to 1 product
                 if (heroProductPool.length > 0) {
                   heroSuggestionResult.innerHTML =
@@ -2323,14 +2340,18 @@
                       .map(
                         (product) => `
                 <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || ""}</p>
-                <p>${productBlurbs[product]?.directions || ""}</p>
+                <p>${productBlurbs[product]?.blurb || "No description"}</p>
+                <p>${productBlurbs[product]?.directions || "No directions"}</p>
               `
                       )
                       .join("");
 
-                  document.getElementById("heroProductImage").src =
-                    heroProductPool[0].url;
+                      const firstProductKey = heroProductPool[0];
+                      if (productBlurbs[firstProductKey]?.url) {
+                        document.getElementById("heroProductImage").src = productBlurbs[firstProductKey].url;
+                      } else {
+                          console.error("URL missing for the first product:", firstProductKey);
+                      }
                 }
               } else if (routineSize == 3) {
                 document.getElementById("essentialsSection").style.display =
