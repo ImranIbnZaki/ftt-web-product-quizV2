@@ -101,9 +101,7 @@
           <option value="dullDryness">Dull / Dryness</option>
           <option value="acne">Acne</option>
           <option value="wrinklesFinelines">Wrinkles / Finelines</option>
-          <option value="darkSpotsHyperpigmentation">
-            Dark Spots / Hyperpigmentation
-          </option>
+          <option value="darkSpotsHyperpigmentation">Dark Spots / Hyperpigmentation</option>
           <option value="texturedSkin">Textured Skin</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
@@ -143,7 +141,7 @@
             <div class="text-container">
               <b>Fine lines</b>
               <p>
-                shallow lines on the skin mainly near the eye area or laugh line
+                Shallow lines on the skin mainly near the eye area or laugh lines
               </p>
             </div>
           </div>
@@ -203,21 +201,36 @@
 
         <div class="options-wrapper">
           <div class="option-container">
-            <img src="fine_lines_image.jpg" alt="Dark Spots" />
+            <img
+              src="fine_lines_image.jpg"
+              alt="Dark Spots"
+              onclick="filterProducts('typeOfHyperpigmentation', 'darkSpots')"
+            />
             <div class="text-container">
               <b>Dark Spots</b>
             </div>
           </div>
 
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Melasma" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Melasma"
+              onclick="filterProducts('typeOfHyperpigmentation', 'melasma')"
+            />
             <div class="text-container">
               <b>Melasma</b>
+              <p>
+                Brown or greyish patches of pigmentation that is darker than natural skin tone
+              </p>
             </div>
           </div>
 
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Undereye Darkness" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Undereye Darkness"
+              onclick="filterProducts('typeOfHyperpigmentation', 'undereyeDarkness')"
+            />
             <div class="text-container">
               <b>Undereye Darkness</b>
             </div>
@@ -259,14 +272,22 @@
 
         <div class="options-wrapper">
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Cystic" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Cystic"
+              onclick="filterProducts('typeOfAcne', 'cystic')"
+            />
             <div class="text-container">
               <b>Cystic</b>
             </div>
           </div>
 
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Blackheads" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Blackheads"
+              onclick="filterProducts('typeOfAcne', 'blackheads')"
+            />
             <div class="text-container">
               <b>Blackheads</b>
             </div>
@@ -275,14 +296,22 @@
 
         <div class="options-wrapper">
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Papules" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Papules"
+              onclick="filterProducts('typeOfAcne', 'pustules')"
+            />
             <div class="text-container">
               <b>Papules</b>
             </div>
           </div>
 
           <div class="option-container">
-            <img src="wrinkles_image.jpg" alt="Whiteheads" />
+            <img
+              src="wrinkles_image.jpg"
+              alt="Whiteheads"
+              onclick="filterProducts('typeOfAcne', 'whiteheads')"
+            />
             <div class="text-container">
               <b>Whiteheads</b>
             </div>
