@@ -2315,23 +2315,6 @@
                 const heroProductPool = productCategoryLists.hero.filter(
                   (value) => currentProductPool.includes(value)
                 );
-                const [firstProductKey] = heroProductPool; // Extract the first key from heroProductPool
-
-if (firstProductKey) {
-  // Destructure the nested object for the first product
-  const { blurb, directions, url } = productBlurbs[firstProductKey] || {};
-
-  if (url) {
-    document.getElementById("heroProductImage").src = url; // Assign the image URL
-    console.log("Blurb:", blurb);
-    console.log("Directions:", directions);
-    console.log("URL:", url);
-  } else {
-    console.error(`URL is missing for product: ${firstProductKey}`);
-  }
-} else {
-  console.error("Hero Product Pool is empty or invalid.");
-}
                 heroProductPool.length = 1; // Limit to 1 product
                 if (heroProductPool.length > 0) {
                   heroSuggestionResult.innerHTML =
