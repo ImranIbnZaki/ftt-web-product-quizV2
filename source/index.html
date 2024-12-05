@@ -951,7 +951,9 @@
               id="heroProductImage"
               src=""
               alt="Hero Product"
-              style="width: 150px; margin-right: 20px"
+              style="width: 150px; 
+                    margin-right: 20px;
+                    border-radius: 15px;"
             />
             <div
               id="heroProductDetails"
@@ -1755,6 +1757,13 @@
               "Apply to damp skin, gently massage and then remove with a damp cloth or in the shower. Rinse well and pat to dry before applying serum and moisturiser.",
             url: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_Daily_Cleanser.jpg",
           },
+          "Prepare – Cleansing Lotion": {
+            blurb:
+              "Prepare Daily Cleanser gently cleanses and calms skin, removes pollutants and makeup, and provides antioxidant protection to prevent signs of aging, enhancing skin's natural glow and promoting a smoother, healthier complexion.",
+            directions:
+              "Apply to damp skin, massage gently and remove with a damp cloth or in the shower. Rinse well and pat dry.",
+            url: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_Daily_Cleanser.jpg",
+          },
           "Foaming Wash": {
             blurb:
               "Reveal Foaming Wash uses Alpha-Hydroxy acids and Aloe Vera to cleanse, exfoliate, and calm skin, enhancing radiance and preparing it for further skincare treatments.",
@@ -2001,13 +2010,6 @@
               "Apply to damp face and neck with moistened fingertips. Rub in a circular motion. Rinse completely with lukewarm water.",
             url: "https://525dca3a.rocketcdn.me/wp-content/uploads/2020/04/OBAGI_C-Rx_Cleansing_Gel_UK-600x600.jpg",
           },
-          prepareCleansingLotion: {
-            blurb:
-              "Prepare Daily Cleanser gently cleanses and calms skin, removes pollutants and makeup, and provides antioxidant protection to prevent signs of aging, enhancing skin's natural glow and promoting a smoother, healthier complexion.",
-            directions:
-              "Apply to damp skin, massage gently and remove with a damp cloth or in the shower. Rinse well and pat dry.",
-            url: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_Daily_Cleanser.jpg",
-          },
         };
 
         // Use a stack to track changes in product pool for each question
@@ -2209,7 +2211,7 @@
             case "takePrescription":
               if (selection === "yes") {
                 goToExitPoint(
-                  "It is not recomended to use skincare products with active ingridients while on topical medication so wait until your treatment ends and try again"
+                  "It is not recommended to use skincare products with active ingredients while on topical medication so please wait until your treatment ends and try again"
                 );
                 nextQuestionId = "exitPoint";
                 break;
