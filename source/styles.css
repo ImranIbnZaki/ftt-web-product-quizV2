@@ -530,3 +530,10 @@ body {
     line-height: 1.5;
     color: #333;
   }
+
+  .confirmTerms {
+    padding-top: 20px;
+    padding-left: 40%;
+    padding-right: 40%;
+    font-weight: normal;
+  }

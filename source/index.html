@@ -20,8 +20,18 @@
     <div id="welcomeScreen" style="text-align: center; padding: 20px">
       <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
       <p>Today I’ll create a personalised skincare routine for you!</p>
-      <button id="startConsultationButton" class="btn-navigation">Start</button>
+      <button id="startConsultationButton" class="btn-navigation" disabled>Start</button>
+      <label class="confirmTerms">
+        <input type="checkbox" id="termsCheckbox" />
+        Please tick here to confirm that you agree to us managing the personal data you share with us.
+      </label>
+
+      <!-- Error message container -->
+      <p id="errorNotification" style="color: red; display: none; font-weight: bold;">
+        Please tick the box to agree before proceeding
+      </p>
     </div>
+    
     <div id="questionsContainer">
       <!-- Initial questions already provided, skipping to new additions -->
 
@@ -1004,13 +1014,39 @@
     </div>
 
     <script>
-      document
-        .getElementById("startConsultationButton")
-        .addEventListener("click", function () {
-          document.getElementById("welcomeScreen").style.display = "none";
-          document.getElementById("questionsContainer").style.display = "flex";
-          document.getElementById("questionBasedUK").style.display = "block"; // Make sure the first question is shown
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkbox = document.getElementById("termsCheckbox");
+        const startButton = document.getElementById("startConsultationButton");
+        const errorNotification = document.getElementById("errorNotification");
+        const startButtonDisabled = document.getElementById("startButtonDisabled");
+
+        // Listen for changes to the checkbox
+        checkbox.addEventListener("change", function () {
+          if (checkbox.checked) {
+            startButton.disabled = false;
+            errorNotification.style.display = "none"; // Hide error if previously shown
+          } else {
+            startButton.disabled = true;
+          }
         });
+
+        // Handle the start button click
+        startButton.addEventListener("click", function () {
+          if (checkbox.checked) {
+            document.getElementById("welcomeScreen").style.display = "none";
+            document.getElementById("questionsContainer").style.display = "flex"; // Proceed with starting the consultation
+            document.getElementById("questionBasedUK").style.display = "block"; // Start the questions
+          }
+        });
+
+        startButton.addEventListener("mouseover", function () {
+          if (!checkbox.checked) {
+            errorNotification.style.display = "block";
+          }
+        });
+      });
+
       document.addEventListener("DOMContentLoaded", function () {
         // Full pool of products
         let navigationStack = []; // This will store the IDs of the questions as the user navigates through them.
