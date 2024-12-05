@@ -9,6 +9,16 @@
   </head>
 
   <body>
+
+    <div id="genericModal" class="modal-container" style="display: none;">
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modalDynamicContent"></div> <!-- Placeholder for dynamic content -->
+        </div>
+      </div>
+    </div>    
+
     <div class="heading-small">FTT SKIN CLINICS</div>
 
     <div class="title-large">Skin Care Consultation</div>
@@ -25,7 +35,7 @@
         <input type="checkbox" id="termsCheckbox" />
         Please tick here to confirm that you agree to us managing the personal data you share with us.
       </label>
-
+      
       <!-- Error message container -->
       <p id="errorNotification" style="color: red; display: none; font-weight: bold;">
         Please tick the box to agree before proceeding
@@ -51,7 +61,7 @@
         <div>
           <button onclick="filterProducts('basedUK', 'no')" class="btn-option">No</button>
           <button onclick="filterProducts('basedUK', 'yes')" class="btn-option">Yes</button>
-         </div>
+        </div>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -115,6 +125,13 @@
           <option value="darkSpotsHyperpigmentation">Dark Spots / Hyperpigmentation</option>
           <option value="texturedSkin">Textured Skin</option>
         </select>
+
+        <div>
+          <button class="modal-trigger" data-modal-content="skinConcern">
+            What is my primary skin concern?
+          </button> 
+        </div>       
+
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <!-- Dot container under each question -->
@@ -893,6 +910,13 @@
           <option value="essentials">Essentials</option>
           <option value="advanced">Advanced</option>
         </select>
+
+        <div>
+          <button class="modal-trigger" data-modal-content="level">
+            What do these complexity means?
+          </button> 
+        </div>
+
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -1044,6 +1068,69 @@
           if (!checkbox.checked) {
             errorNotification.style.display = "block";
           }
+        });
+      });
+
+      // Modals
+
+      const modalContents = {
+        skinConcern: `
+          <h2>Which skin concern is my priority?</h2>
+          <h3>Dull / Dryness</h3>
+          <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
+          <h3>Acne</h3>
+          <p>Hehe</p>
+          <h3>Wrinkles / Fine Lines</h3>
+          <p>Eheh</p>
+          <h3>Dark Spots/ Hyperpigmentation</h3>
+          <p>Hihu</p>
+          <h3>Textured Skin</h3>
+          <p>Huhi</p>
+        `,
+        level: `
+          <h2>What level of complexity should you choose?</h2>
+            <h3>Hero</h3>
+              <p>Consist of 1 items</p>
+            <h3>Essentials</h3>
+              <p></p>
+            <h3>Advanced</h3>
+              <p></p>
+        `
+      };
+
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("genericModal");
+        const modalContent = document.getElementById("modalDynamicContent");
+        const modalClose = document.querySelector("#genericModal .close");
+
+        // Function to open the modal with dynamic content
+        function openModal(contentKey) {
+          modalContent.innerHTML = modalContents[contentKey]; // Inject the content
+          modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+          modal.style.display = "none";
+        }
+
+        // Close modal on "X" click
+        modalClose.onclick = closeModal;
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        };
+
+        // Example: Attach to a button
+        document.querySelectorAll(".modal-trigger").forEach((button) => {
+          button.addEventListener("click", function () {
+            const contentKey = button.getAttribute("data-modal-content");
+            openModal(contentKey);
+          });
         });
       });
 
