@@ -567,6 +567,8 @@ body {
 
   .modal-trigger {
     margin-top: 20px;
+    text-decoration: underline;
+    border: none;
   }
 
   .close {
