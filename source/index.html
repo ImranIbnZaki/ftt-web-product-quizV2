@@ -122,6 +122,7 @@
           <option value="dullDryness">Dull / Dryness</option>
           <option value="acne">Acne</option>
           <option value="wrinklesFinelines">Wrinkles / Finelines</option>
+          <option value="rosacea">Rosacea</option>
           <option value="darkSpotsHyperpigmentation">Dark Spots / Hyperpigmentation</option>
           <option value="texturedSkin">Textured Skin</option>
         </select>
@@ -477,23 +478,56 @@
         <label for="allergySelect"
           >Are you allergic to any of the following products?</label
         >
-        <select id="allergySelect" name="allergySelect" multiple size="4">
-          <option value="none">None</option>
-          <option value="clindamycin">Clindamycin</option>
-          <option value="niacinamide">Niacinamide</option>
-          <option value="hydrocortisone">Hydrocortisone</option>
-          <option value="hydroquinone">Hydroquinone</option>
-          <option value="gluten">Gluten</option>
-          <option value="retinolsRetinoids">Retinols / Retinoids</option>
-          <option value="trentoin">Trentoin</option>
-          <option value="azelaicAcid">Azelaic Acid</option>
-          <option value="fragrances">Fragrances</option>
-        </select>
+
+        <form id="allergyForm">
+          <label for="niacinamide">
+            <input type="checkbox" id="niacinamide" name="allergy" value="niacinamide">
+            Niacinamide
+          </label>
+          
+          <label for="hydrocortisone">
+            <input type="checkbox" id="hydrocortisone" name="allergy" value="hydrocortisone">
+            Hydrocortisone
+          </label>
+          
+          <label for="hydroquinone">
+            <input type="checkbox" id="hydroquinone" name="allergy" value="hydroquinone">
+            Hydroquinone
+          </label>
+          
+          <label for="gluten">
+            <input type="checkbox" id="gluten" name="allergy" value="gluten">
+            Gluten
+          </label>
+          
+          <label for="retinolsRetinoids">
+            <input type="checkbox" id="retinolsRetinoids" name="allergy" value="retinolsRetinoids">
+            Retinols / Retinoids
+          </label>
+          
+          <label for="trentoin">
+            <input type="checkbox" id="trentoin" name="allergy" value="trentoin">
+            Trentoin
+          </label>
+          
+          <label for="azelaicAcid">
+            <input type="checkbox" id="azelaicAcid" name="allergy" value="azelaicAcid">
+            Azelaic Acid
+          </label>
+
+          <label for="fragrances">
+            <input type="checkbox" id="fragrances" name="allergy" value="fragrances">
+            Fragrances
+          </label>
+        </form>
+        
         <!-- In your HTML, directly call gatherMultipleFilters() without passing questionType -->
+
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
-        <button onclick="gatherMultipleFilters('allergySelect')" class="btn-navigation">
+        <button onclick="gatherMultipleFilters('allergyForm')" class="btn-navigation">
           &#8594;
         </button>
+       
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
@@ -1084,6 +1118,8 @@
           <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
           <h3>Wrinkles / Fine Lines</h3>
           <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
+          <h3>Rosacea</h3>
+          <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
           <h3>Dark Spots/ Hyperpigmentation</h3>
           <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
           <h3>Textured Skin</h3>
@@ -1100,7 +1136,6 @@
         `
       };
 
-      
       document.addEventListener("DOMContentLoaded", function () {
         const modal = document.getElementById("genericModal");
         const modalContent = document.getElementById("modalDynamicContent");
@@ -1401,6 +1436,7 @@
               "Obagi Vitamin C Serum 20%",
               "Obagi CLENZIderm Daily Care Foaming Cleanser",
             ],
+            texturedSkin: [],
           },
           wrinklesFinelines: {
             finelines: [],
@@ -2073,15 +2109,9 @@
 
         gatherMultipleFilters = function (questionType) {
           // Directly target the allergy select element
-          const selectElement = document.getElementById(questionType);
-          if (!selectElement) {
-            return; // Exit the function if the element is not found
-          }
-
-          // Gather selected values
-          const selectedValues = Array.from(selectElement.selectedOptions).map(
-            (option) => option.value
-          );
+          const form = document.getElementById(questionType);
+          const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+          const selectedValues= Array.from(checkboxes).map(checkbox => checkbox.value);
 
           // Filter out the 'none' selection if other options are selected
           const filteredSelections =
@@ -2092,7 +2122,6 @@
           // Call filterProductsMultiple with the correct questionType and selections
           filterProductsMultiple("allergy", filteredSelections);
 
-          navigateToNextQuestion("allergy", "");
         };
 
         function applyFilterAndPushState(eliminationList) {

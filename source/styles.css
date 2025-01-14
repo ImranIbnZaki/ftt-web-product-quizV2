@@ -584,3 +584,7 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
+  #stringList {
+    font-size:small;
+  }
