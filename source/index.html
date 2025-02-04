@@ -497,29 +497,9 @@
             Niacinamide
           </label>
           
-          <label for="hydrocortisone">
-            <input type="checkbox" id="hydrocortisone" name="allergy" value="hydrocortisone">
-            Hydrocortisone
-          </label>
-          
-          <label for="hydroquinone">
-            <input type="checkbox" id="hydroquinone" name="allergy" value="hydroquinone">
-            Hydroquinone
-          </label>
-          
-          <label for="gluten">
-            <input type="checkbox" id="gluten" name="allergy" value="gluten">
-            Gluten
-          </label>
-          
           <label for="retinolsRetinoids">
             <input type="checkbox" id="retinolsRetinoids" name="allergy" value="retinolsRetinoids">
             Retinols / Retinoids
-          </label>
-          
-          <label for="trentoin">
-            <input type="checkbox" id="trentoin" name="allergy" value="trentoin">
-            Trentoin
           </label>
           
           <label for="azelaicAcid">
@@ -1153,18 +1133,18 @@
       const modalContents = {
         skinConcern: `
           <h2>Which skin concern is my priority?</h2>
-          <h3>Dull / Dryness</h3>
-          <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
-          <h3>Acne</h3>
-          <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
-          <h3>Wrinkles / Fine Lines</h3>
-          <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
-          <h3>Rosacea</h3>
-          <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
-          <h3>Dark Spots/ Hyperpigmentation</h3>
-          <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
-          <h3>Textured Skin</h3>
-          <p>Rough or uneven skin texture can occur from dead skin buildup, scarring, or environmental damage. We can help smooth and refine your skin for a polished look</p>
+            <h3>Dull / Dryness</h3>
+              <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
+            <h3>Acne</h3>
+              <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
+            <h3>Wrinkles / Fine Lines</h3>
+              <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
+            <h3>Rosacea</h3>
+              <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
+            <h3>Dark Spots/ Hyperpigmentation</h3>
+              <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
+            <h3>Textured Skin</h3>
+              <p>Rough or uneven skin texture can occur from dead skin buildup, scarring, or environmental damage. We can help smooth and refine your skin for a polished look</p>
         `,
         level: `
           <h2>What level of complexity should you choose?</h2>
@@ -1243,7 +1223,6 @@
           "Night Cream - Recover",
           "Hydrating Lip Balm",
           "FTT Signature Lip Duo - lip balm and plumper kit",
-          "Charcoal Mask - Clarity",
           "Obagi Foaming Cleanser",
           "Obagi Hydrate Facial Moisturiser",
           "Obagi Hydro Drops Facial Serum",
@@ -1494,7 +1473,6 @@
               "Obagi Nu-Derm Exfoderm Forte",
               "Vitamin C Serum 10%",
               "Vitamin C Serum 20%",
-              "Charcoal Mask - Clarity",
             ],
           },
           typeOfAcne: {
@@ -1525,9 +1503,7 @@
             no: ["Vitamin C Serum 20%"],
           },
           allergy: {
-            clindamycin: [],
             niacinamide: ["Calm Night Cream"],
-            gluten: [],
             retinolRetinoids: [
               "Obagi Retinol 0.5 Cream",
               "Obagi Retinol 1.0 Cream",
@@ -1554,7 +1530,6 @@
               "Obagi Retinol 0.5 Cream",
               "Obagi Retinol 1.0 Cream",
               "Retinol Serum - FTT Skin Clinics R+",
-              "Vitamin C Serum 20%",
               "Night Cream - Recover",
               "Obagi Medical Cleansing Wipes",
               "Obagi Retivance Skin Rejuvenating Complex",
@@ -1606,6 +1581,7 @@
               "Obagi ELASTIderm Eye Serum",
               "Eye Lift Gel - Refine",
             ],
+            neck:[],
           },
           vegan: {
             yes: [],
@@ -1619,7 +1595,7 @@
           routineComplexity: {
             hero: [], //output 1 product (has to be active cream, serum, lotion, exfoliant)
             essentials: [], // output 3 products (Cleanser, active, lotion)
-            advanced: [], // (cleanser, active, moisturiser/lotion/cream, extra, spf)
+            advanced: [], //output 5 products (cleanser, active, moisturiser/lotion/cream, extra, spf)
           },
         };
 
@@ -1710,7 +1686,6 @@
             "Blemish Control Pen",
             "Purifying Skin Spray",
             "SPF 50 sunscreen FTT Skin Clinics Protect",
-            "Charcoal Mask - Clarity",
             "Obagi Professional-C Microdermabrasion Polish Mask",
             "Obagi 360 Hydrofactor SPF 30",
             "Obagi Medical Cleansing Wipes",
@@ -1921,14 +1896,6 @@
               "Before bedtime apply a small amount to your skin and massage for a few minutes after cleansing.",
             imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_Night_Cream.jpg",
             prodURL: "https://www.francesturnertraill.co.uk/shop/ftt-signature/recover-night-cream/",
-          },
-          "Charcoal Mask - Clarity": {
-            blurb:
-              "A weekly purifying masque containing activated coconut charcoal, long celebrated for its detoxifying benefits, will help cleanse and remove the build-up of pollution and other ageing molecules ever present in modern life.",
-            directions:
-              "Apply generously to cleansed skin on face and neck and leave for 10-15 mins. Wash with warm water and Prepare daily cleanser.",
-            imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2019/05/FTT_Charcoal_Mask.jpg",
-            prodURL: "",
           },
           "Obagi Foaming Cleanser": {
             blurb:
@@ -2259,6 +2226,8 @@
           console.log(
             "Pushed " + currentQuestionId + " onto the navigation stack"
           );
+
+          console.log("Current Product Pool:", productPoolStack[productPoolStack.length - 1]);
 
           let nextQuestionId;
           switch (questionType) {
