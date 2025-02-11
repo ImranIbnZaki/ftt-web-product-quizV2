@@ -131,9 +131,7 @@
           <button class="modal-trigger" data-modal-content="skinConcern">
             What is my primary skin concern?
           </button> 
-        </div>       
-
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+        </div>
 
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -997,36 +995,21 @@
         <div class="essentials-container">
           <div id="essentials1" class="essentials-item">
             <h3>Step 1</h3>
-              <a href="" target="_blank" id="essentials1ProductLink">
-                <img
-                  id="essentials1ProductImage"
-                  src=""
-                  alt="Facewash"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="essentials1ProductLink">
+              <img id="essentials1ProductImage" src="" alt="Essentials 1" class="product-image" />
+            </a>
           </div>
           <div id="essentials2" class="essentials-item">
             <h3>Step 2</h3>
-              <a href="" target="_blank" id="essentials2ProductLink">
-                <img
-                  id="essentials2ProductImage"
-                  src=""
-                  alt="Serum"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="essentials2ProductLink">
+              <img id="essentials2ProductImage" src="" alt="Essentials 2" class="product-image" />
+            </a>
           </div>
           <div id="essentials3" class="essentials-item">
             <h3>Step 3</h3>
-              <a href="" target="_blank" id="essentials3ProductLink">
-                <img
-                  id="essentials3ProductImage"
-                  src=""
-                  alt="Oil Mask"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="essentials3ProductLink">
+              <img id="essentials3ProductImage" src="" alt="Essentials 3" class="product-image" />
+            </a>
           </div>
         </div>
       </div>
@@ -1037,60 +1020,36 @@
         <div class="advanced-container">
           <div id="advanced1" class="advanced-item">
             <h3>Step 1</h3>
-              <a href="" target="_blank" id="advanced1ProductLink">
-                <img
-                  id="advanced1ProductImage"
-                  src=""
-                  alt="Advanced 1"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="advanced1ProductLink">
+              <img id="advanced1ProductImage" src="" alt="Advanced 1" class="product-image" />
+            </a>
           </div>
           <div id="advanced2" class="advanced-item">
             <h3>Step 2</h3>
             <a href="" target="_blank" id="advanced2ProductLink">
-              <img
-                id="advanced2ProductImage"
-                src=""
-                alt="Advanced 2"
-                class="product-image"
-              />
+              <img id="advanced2ProductImage" src="" alt="Advanced 2" class="product-image" />
             </a>
           </div>
           <div id="advanced3" class="advanced-item">
             <h3>Step 3</h3>
-              <a href="" target="_blank" id="advanced3ProductLink">
-                <img
-                  id="advanced3ProductImage"
-                  src=""
-                  alt="Advanced 3"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="advanced3ProductLink">
+              <img id="advanced3ProductImage" src="" alt="Advanced 3" class="product-image" />
+            </a>
           </div>
           <div id="advanced4" class="advanced-item">
             <h3>Step 4</h3>
-              <a href="" target="_blank" id="advanced4ProductLink">
-                <img
-                  id="advanced4ProductImage"
-                  src=""
-                  alt="Advanced 4"
-                  class="product-image"
-                />
-              </a>
+            <a href="" target="_blank" id="advanced4ProductLink">
+              <img id="advanced4ProductImage" src="" alt="Advanced 4" class="product-image" />
+            </a>
           </div>
           <div id="advanced5" class="advanced-item">
             <h3>Step 5</h3>
-              <img
-                id="advanced5ProductImage"
-                src=""
-                alt="Advanced 5"
-                class="product-image"
-              />
+            <a href="" target="_blank" id="advanced5ProductLink">
+              <img id="advanced5ProductImage" src="" alt="Advanced 5" class="product-image" />
+            </a>
           </div>
         </div>
       </div>
-    </div>
 
     <script>
 
@@ -1115,7 +1074,7 @@
           if (checkbox.checked) {
             document.getElementById("welcomeScreen").style.display = "none";
             document.getElementById("questionsContainer").style.display = "flex"; // Proceed with starting the consultation
-            document.getElementById("questionBasedUK").style.display = "block"; // Start the questions
+            document.getElementById("questionSkinConcern").style.display = "block"; // Start the questions
           }
         });
 
@@ -1202,10 +1161,10 @@
           "Blemish Control Pen",
           "Purifying Skin Spray",
           "Phenomenal Eye Cream",
-          "Prepare – Cleansing Lotion",
           "SPF 50 sunscreen FTT Skin Clinics Protect",
           "Vitamin C Serum 10%",
           "Vitamin C Serum 20%",
+          "Prepare – Cleansing Lotion",
           "Quench Advanced Hyaluronic Serum",
           "Calm Night Cream",
           "Clear Advanced Gel Cleanser",
@@ -1254,11 +1213,73 @@
           "Obagi-C Rx Cleaning Gel",
         ];
 
+        let spotProneProductPool = [
+          "Oil Control Pads",
+          "Clear Advanced Gel Cleanser",
+          "Oil Control Serum",
+          "Retinol Serum - FTT Skin Clinics R+",
+          "Quench Advanced Hyaluronic Serum",
+          "Vitamin C Serum 10%",
+          "Luxury Exfoliator Cleanser",
+          "Blemish Control Pen",
+        ];
+
+        let dryDehydratedProductPool = [
+          "Quench Advanced Hyaluronic Serum",
+          "Endurance Moisturiser - FTT H2O",
+          "Night Cream - Recover",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Prepare – Cleansing Lotion",
+          "Vitamin C Serum 10%",
+          "Thrive Menopausal Skin Serum",
+        ];
+
+        let unevenSkinToneProductPool = [
+          "Skin Brightening Serum - Illuminate",
+          "Vitamin C Serum 20%",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Luxury Exfoliator Cleanser",
+          "Rejuvenating Serum - Rejuvenate",
+          "Quench Advanced Hyaluronic Serum",
+          "Clear Advanced Gel Cleanser",
+        ];
+
+        let maturingProductPool = [
+          "Retinol Serum - FTT Skin Clinics R+",
+          "Foaming Wash",
+          "Vitamin C Serum 20%",
+          "Quench Advanced Hyaluronic Serum",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Endurance Moisturiser - FTT H2O",
+          "Rejuvenating Serum - Rejuvenate",
+          "Luxury Exfoliator Cleanser",
+          "Neck Firming Cream - Lift",
+        ];
+
+        let rosaceaProductPool = [
+          "Calm Night Cream",
+          "Vitamin C Serum 10%",
+          "Quench Advanced Hyaluronic Serum",
+          "Thrive Menopausal Skin Serum",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Luxury Exfoliator Cleanser",
+          "Prepare – Cleansing Lotion",
+          "Purify Micellar Water",
+        ];
+
+        let improvementsProductPool = [
+          "Foaming Wash",
+          "Vitamin C Serum 20%",
+          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "Retinol Serum - FTT Skin Clinics R+",
+          "Luxury Exfoliator Cleanser",
+        ]
+
         // Map of all elimination lists by question type
         const eliminationLists = {
           basedUK: {
             yes: [],
-            no: [], // pop up saying “Sorry, we can only ship products within the UK”
+            no: [], //out
           },
           overTwentyFive: {
             yes: [],
@@ -2115,20 +2136,46 @@
         };
 
         // Use a stack to track changes in product pool for each question
-        let productPoolStack = [initialProductPool.slice()]; // Clone initial pool
+        // let productPoolStack = [initialProductPool.slice()]; // Clone initial pool
 
         // Expose the filter functions to the global scope
         filterProducts = function (questionType, selection) {
           if (!selection.trim()) return; // Ignore if default 'Select...' is chosen
 
-          const eliminationList = eliminationLists[questionType][selection];
-          if (eliminationList) {
-            applyFilterAndPushState(eliminationList);
+          if (questionType === 'skinConcern') {
+            // Initialize the product pool based on the selected skin concern
+            switch (selection) {
+              case 'dryDehydrated':
+                initialProductPool = dryDehydratedProductPool.slice();
+                break;
+              case 'acne':
+                initialProductPool = spotProneProductPool.slice();
+                break;
+              case 'wrinklesFinelines':
+                initialProductPool = maturingProductPool.slice();
+                break;
+              case 'rosacea':
+                initialProductPool = rosaceaProductPool.slice();
+                break;
+              case 'unevenSkinTone':
+                initialProductPool = unevenSkinToneProductPool.slice();
+                break;
+              case 'improvements':
+                initialProductPool = improvementsProductPool.slice();
+                break;
+              default:
+                initialProductPool = [];
+                break;
+            }
+            productPoolStack = [initialProductPool.slice()]; // Reset the product pool stack
           } else {
-            applyFilterAndPushState([]);
-            console.log(
-              "No selection criteria found. There is a missing entry in the elimination list!"
-            );
+            const eliminationList = eliminationLists[questionType][selection];
+            if (eliminationList) {
+              applyFilterAndPushState(eliminationList);
+            } else {
+              applyFilterAndPushState([]);
+              console.log("No selection criteria found. There is a missing entry in the elimination list!");
+            }
           }
 
           navigateToNextQuestion(questionType, selection);
@@ -2235,6 +2282,9 @@
 
           let nextQuestionId;
           switch (questionType) {
+            case "skinConcern":
+              nextQuestionId = "basedUK";
+              break;
             case "basedUK":
               if (selection === "yes") {
                 nextQuestionId = "overTwentyFive";
@@ -2248,42 +2298,13 @@
               }
               break;
             case "overTwentyFive":
-              nextQuestionId = "skinConcern";
-              break;
-            case "skinConcern":
-              switch (selection) {
-                case "dryDehydrated":
-                  nextQuestionId = "UsesVitaminC"; // Assuming direct to allergies if not acne or wrinkles
-                  break;
-                case "acne":
-                  nextQuestionId = "typeOfAcne";
-                  break;
-                case "wrinklesFinelines":
-                  nextQuestionId = "wrinklesFinelines";
-                  break;
-                case "rosacea":
-                  nextQuestionId = "allergy";
-                  break;
-                case "unevenSkinTone":
-                  nextQuestionId = "typeOfHyperpigmentation";
-                  break;
-                case "improvements":
-                  nextQuestionId = "usesVitaminC";
-                  break;
-                default:
-                  nextQuestionId = "allergy"; // Default follow-up question
-                  break;
-              }
+              nextQuestionId = "usesVitaminC";
               break;
             case "wrinklesFinelines":
               nextQuestionId = "allergy";
               break;
             case "typeOfAcne":
               nextQuestionId = "severityOfAcne";
-              break;
-            case "ageSigns":
-              // Assuming there's some follow-up based on the age signs selection
-              nextQuestionId = "allergy";
               break;
             case "usesVitaminC":
               nextQuestionId = "allergy";
@@ -2530,214 +2551,128 @@
                 document.getElementById("suggestionResult");
 
               document.getElementById("heroSection").style.display = "none";
-              document.getElementById("essentialsSection").style.display =
-                "none";
+              document.getElementById("essentialsSection").style.display = "none";
               document.getElementById("advancedSection").style.display = "none";
 
               if (routineSize == 1) {
                 document.getElementById("heroSection").style.display = "block";
+                const heroProduct = currentProductPool.slice(0, 1);
 
-                const heroSuggestionResult =
-                  document.getElementById("heroProductDetails");
+                const hero1 = heroProduct[0];
 
-                const heroProductPool = productCategoryLists.hero.filter(
-                  (value) => currentProductPool.includes(value)
-                );
-                heroProductPool.length = 1; // Limit to 1 product
-                if (heroProductPool.length > 0) {
-                  heroSuggestionResult.innerHTML =
-                    heroSuggestionResult.innerHTML +
-                    heroProductPool
-                      .map(
-                        (product) => `
-                <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || "No description"}</p>
-                <p>${productBlurbs[product]?.directions || "No directions"}</p>
-              `
-                      )
-                      .join("");
-                  document.getElementById("heroProductImage").src = productBlurbs[heroProductPool[0]]?.imgURL;
-                  document.getElementById("heroProductLink").href = productBlurbs[heroProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                document.getElementById("heroProductDetails").innerHTML = 
+                document.getElementById("heroProductDetails").innerHTML +
+                `
+                  <h3>${hero1}</h3>
+                  <p>${productBlurbs[hero1]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[hero1]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
+                document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                }
               } else if (routineSize == 3) {
-                document.getElementById("essentialsSection").style.display =
-                  "block";
+                document.getElementById("essentialsSection").style.display = "block";
+                const essentialsProducts = currentProductPool.slice(0, 3);
 
-                const cleanserSuggestionResult =
-                  document.getElementById("essentials1");
-                const cleanserProductPool =
-                  productCategoryLists.cleanser.filter((value) =>
-                    currentProductPool.includes(value)
-                  );
-                cleanserProductPool.length = 1; // Limit to 1 product
-                if (cleanserProductPool.length > 0) {
-                  cleanserSuggestionResult.innerHTML =
-                    cleanserSuggestionResult.innerHTML +
-                    cleanserProductPool
-                      .map(
-                        (product) => `
-                <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || ""}</p>
-                <p>${productBlurbs[product]?.directions || ""}</p>
-              `
-                      )
-                      .join("");
-                  document.getElementById("essentials1ProductImage").src = productBlurbs[cleanserProductPool[0]]?.imgURL;
-                  document.getElementById("essentials1ProductLink").href = productBlurbs[cleanserProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
+                const essentials1 = essentialsProducts[0];
+                const essentials2 = essentialsProducts[1];
+                const essentials3 = essentialsProducts[2];
 
-                const serumSuggestionResult =
-                  document.getElementById("essentials2");
+                document.getElementById("essentials1").innerHTML = 
+                document.getElementById("essentials1").innerHTML +
+                `
+                  <h3>${essentials1}</h3>
+                  <p>${productBlurbs[essentials1]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[essentials1]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("essentials1ProductImage").src = productBlurbs[essentials1]?.imgURL;
+                document.getElementById("essentials1ProductLink").href = productBlurbs[essentials1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const serumProductPool = productCategoryLists.serum.filter(
-                  (value) => currentProductPool.includes(value)
-                );
-                serumProductPool.length = 1; // Limit to 1 product
-                if (serumProductPool.length > 0) {
-                  serumSuggestionResult.innerHTML =
-                    serumSuggestionResult.innerHTML +
-                    serumProductPool
-                      .map(
-                        (product) => `
-                <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || ""}</p>
-                <p>${productBlurbs[product]?.directions || ""}</p>
-              `
-                      )
-                      .join("");
-                  document.getElementById("essentials2ProductImage").src = productBlurbs[serumProductPool[0]]?.imgURL;
-                  document.getElementById("essentials2ProductLink").href = productBlurbs[serumProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
+                document.getElementById("essentials2").innerHTML =
+                document.getElementById("essentials2").innerHTML +
+                `
+                  <h3>${essentials2}</h3>
+                  <p>${productBlurbs[essentials2]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[essentials2]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("essentials2ProductImage").src = productBlurbs[essentials2]?.imgURL;
+                document.getElementById("essentials2ProductLink").href = productBlurbs[essentials2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const moisturiserSuggestionResult =
-                  document.getElementById("essentials3");
+                document.getElementById("essentials3").innerHTML =
+                document.getElementById("essentials3").innerHTML +
+                `
+                  <h3>${essentials3}</h3>
+                  <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
+                document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const moisturiserProductPool =
-                  productCategoryLists.moisturiser.filter((value) =>
-                    currentProductPool.includes(value)
-                  );
-                moisturiserProductPool.length = 1; // Limit to 1 product
-                if (moisturiserProductPool.length > 0) {
-                  moisturiserSuggestionResult.innerHTML =
-                    moisturiserSuggestionResult.innerHTML +
-                    moisturiserProductPool
-                      .map(
-                        (product) => `
-                      <h3>${product}</h3>
-                      <p>${productBlurbs[product]?.blurb || ""}</p>
-                      <p>${productBlurbs[product]?.directions || ""}</p>
-                      `
-                      )
-                      .join("");
-                  document.getElementById("essentials3ProductImage").src = productBlurbs[moisturiserProductPool[0]]?.imgURL;
-                  document.getElementById("essentials3ProductLink").href = productBlurbs[moisturiserProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
               } else if (routineSize == 5) {
-                document.getElementById("advancedSection").style.display =
-                  "block";
+                document.getElementById("advancedSection").style.display = "block";
+                const advancedProducts = currentProductPool.slice(0, 5);
 
-                const cleanserSuggestionResult =
-                  document.getElementById("advanced1");
-                const cleanserProductPool =
-                  productCategoryLists.cleanser.filter((value) =>
-                    currentProductPool.includes(value)
-                  );
-                cleanserProductPool.length = 1; // Limit to 1 product
-                if (cleanserProductPool.length > 0) {
-                  cleanserSuggestionResult.innerHTML =
-                    cleanserSuggestionResult.innerHTML +
-                    cleanserProductPool
-                      .map(
-                        (product) => `
-                <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || ""}</p>
-                <p>${productBlurbs[product]?.directions || ""}</p>
-              `
-                      )
-                      .join("");
-                  document.getElementById("advanced1ProductImage").src = productBlurbs[cleanserProductPool[0]]?.imgURL;
-                  document.getElementById("advanced1ProductLink").href = productBlurbs[cleanserProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                const advanced1 = advancedProducts[0];
+                const advanced2 = advancedProducts[1];
+                const advanced3 = advancedProducts[2];
+                const advanced4 = advancedProducts[3];
+                const advanced5 = advancedProducts[4];
 
-                }
+                document.getElementById("advanced1").innerHTML = 
+                document.getElementById("advanced1").innerHTML +
+                `
+                  <h3>${advanced1}</h3>
+                  <p>${productBlurbs[advanced1]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[advanced1]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("advanced1ProductImage").src = productBlurbs[advanced1]?.imgURL;
+                document.getElementById("advanced1ProductLink").href = productBlurbs[advanced1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const serumSuggestionResult =
-                  document.getElementById("advanced2");
+                document.getElementById("advanced2").innerHTML = 
+                document.getElementById("advanced2").innerHTML +
+                `
+                  <h3>${advanced2}</h3>
+                  <p>${productBlurbs[advanced2]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[advanced2]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("advanced2ProductImage").src = productBlurbs[advanced2]?.imgURL;
+                document.getElementById("advanced2ProductLink").href = productBlurbs[advanced2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const serumProductPool = productCategoryLists.serum.filter(
-                  (value) => currentProductPool.includes(value)
-                );
-                serumProductPool.length = 1; // Limit to 1 product
-                if (serumProductPool.length > 0) {
-                  serumSuggestionResult.innerHTML =
-                    serumSuggestionResult.innerHTML +
-                    serumProductPool
-                      .map(
-                        (product) => `
-                <h3>${product}</h3>
-                <p>${productBlurbs[product]?.blurb || ""}</p>
-                <p>${productBlurbs[product]?.directions || ""}</p>
-              `
-                      )
-                      .join("");
-                  document.getElementById("advanced2ProductImage").src = productBlurbs[serumProductPool[0]]?.imgURL;
-                  document.getElementById("advanced2ProductLink").href = productBlurbs[serumProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
+                document.getElementById("advanced3").innerHTML = 
+                document.getElementById("advanced3").innerHTML +
+                `
+                  <h3>${advanced3}</h3>
+                  <p>${productBlurbs[advanced3]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[advanced3]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("advanced3ProductImage").src = productBlurbs[advanced3]?.imgURL;
+                document.getElementById("advanced3ProductLink").href = productBlurbs[advanced3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const moisturiserSuggestionResult =
-                  document.getElementById("advanced3");
+                document.getElementById("advanced4").innerHTML = 
+                document.getElementById("advanced4").innerHTML +
+                `
+                  <h3>${advanced4}</h3>
+                  <p>${productBlurbs[advanced4]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[advanced4]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("advanced4ProductImage").src = productBlurbs[advanced4]?.imgURL;
+                document.getElementById("advanced4ProductLink").href = productBlurbs[advanced4]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                const moisturiserProductPool =
-                  productCategoryLists.moisturiser.filter((value) =>
-                    currentProductPool.includes(value)
-                  );
-                moisturiserProductPool.length = 1; // Limit to 1 product
-                if (moisturiserProductPool.length > 0) {
-                  moisturiserSuggestionResult.innerHTML =
-                    moisturiserSuggestionResult.innerHTML +
-                    moisturiserProductPool
-                      .map(
-                        (product) => `
-                      <h3>${product}</h3>
-                      <p>${productBlurbs[product]?.blurb || ""}</p>
-                      <p>${productBlurbs[product]?.directions || ""}</p>
-                      `
-                      )
-                      .join("");
-                  document.getElementById("advanced3ProductImage").src = productBlurbs[moisturiserProductPool[0]]?.imgURL;
-                  document.getElementById("advanced3ProductLink").href = productBlurbs[moisturiserProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
-
-                const advancedSuggestionResult =
-                  document.getElementById("advanced4");
-
-                const advancedProductPool =
-                  productCategoryLists.advanced.filter((value) =>
-                    currentProductPool.includes(value)
-                  );
-                advancedProductPool.length = 1; // Limit to 1 product
-                if (advancedProductPool.length > 0) {
-                  advancedSuggestionResult.innerHTML =
-                    advancedSuggestionResult.innerHTML +
-                    advancedProductPool
-                      .map(
-                        (product) => `
-                      <h3>${product}</h3>
-                      <p>${productBlurbs[product]?.blurb || ""}</p>
-                      <p>${productBlurbs[product]?.directions || ""}</p>
-                      `
-                      )
-                      .join("");
-                  document.getElementById("advanced4ProductImage").src = productBlurbs[advancedProductPool[0]]?.imgURL;
-                  document.getElementById("advanced4ProductLink").href = productBlurbs[advancedProductPool[0]]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
+                document.getElementById("advanced5").innerHTML = 
+                document.getElementById("advanced5").innerHTML +
+                `
+                  <h3>${advanced5}</h3>
+                  <p>${productBlurbs[advanced5]?.blurb || "No description"}</p>
+                  <p>${productBlurbs[advanced5]?.directions || "No directions"}</p>
+                `;
+                document.getElementById("advanced5ProductImage").src = productBlurbs[advanced5]?.imgURL;
+                document.getElementById("advanced5ProductLink").href = productBlurbs[advanced5]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
               }
 
               if (currentProductPool.length <= 0) {
                 // Handle case where no products are left after filtering
-                suggestionResultContainer.innerHTML =
-                  "<h2>No products match your criteria.</h2>";
+                suggestionResultContainer.innerHTML = "<h2>No products match your criteria.</h2>";
               }
 
               // Ensure the result container is initially visible for the animation
@@ -2760,9 +2695,33 @@
           }
         }
 
-        // Initial display adjustments
-        // Directly display the first question without sliding in
-        document.getElementById("questionBasedUK").style.display = "block";
+        /*
+        function displayProducts(products, detailIds, imageIds, linkIds) {
+          products.forEach((product, index) => {
+            const detailElement = document.getElementById(detailIds[index]);
+            const imageElement = document.getElementById(imageIds[index]);
+            const linkElement = document.getElementById(linkIds[index]);
+
+            if (detailElement && imageElement && linkElement) {
+              detailElement.innerHTML =
+              detailElement.innerHTML +
+              `
+                <h3>${product}</h3>
+                <p>${productBlurbs[product]?.blurb || "No description"}</p>
+                <p>${productBlurbs[product]?.directions || "No directions"}</p>
+              `;
+              imageElement.src = productBlurbs[product]?.imgURL;
+              console.log(imageElement);
+              linkElement.href = productBlurbs[product]?.prodURL;
+            } else {
+              console.error(`Element not found for product: ${product}`);
+            }
+          });
+        }
+
+        //perhaps could rework this function in the future
+
+        */
 
         let selectedConcernArea = [];
         selectConcernArea = function (selectedArea) {
