@@ -119,12 +119,12 @@
           onchange="filterProducts('skinConcern', this.value)"
         >
           <option value="">Select...</option>
-          <option value="dullDryness">Dull / Dryness</option>
-          <option value="acne">Acne</option>
-          <option value="wrinklesFinelines">Wrinkles / Finelines</option>
-          <option value="rosacea">Rosacea</option>
-          <option value="darkSpotsHyperpigmentation">Dark Spots / Hyperpigmentation</option>
-          <option value="texturedSkin">Textured Skin</option>
+          <option value="dryDehydrated">Dry/Dehydrated</option>
+          <option value="acne">Spot-Prone</option>
+          <option value="wrinklesFinelines">Maturing</option>
+          <option value="rosacea">Rosacea/Sensitive</option>
+          <option value="unevenSkinTone">Uneven Skin Tone</option>
+          <option value="improvements">Improvements</option>
         </select>
 
         <div>
@@ -860,10 +860,8 @@
           onchange="filterProducts('sunscreenUse', this.value)"
         >
           <option value="">Select...</option>
-          <option value="everyDay">Everyday</option>
-          <option value="onlyWhenExposed">
-            Only when I'm going to be exposed to the sun
-          </option>
+          <option value="frequently">Frequently</option>
+
           <option value="rarely">Rarely</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
@@ -1133,18 +1131,18 @@
       const modalContents = {
         skinConcern: `
           <h2>Which skin concern is my priority?</h2>
-            <h3>Dull / Dryness</h3>
+            <h3>Dry/Dehydrated</h3>
               <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
-            <h3>Acne</h3>
+            <h3>Spot-Prone</h3>
               <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
-            <h3>Wrinkles / Fine Lines</h3>
+            <h3>Maturing</h3>
               <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
-            <h3>Rosacea</h3>
+            <h3>Rosacea/Sensitive</h3>
               <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
-            <h3>Dark Spots/ Hyperpigmentation</h3>
+            <h3>Uneven Skin Tones</h3>
               <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
-            <h3>Textured Skin</h3>
-              <p>Rough or uneven skin texture can occur from dead skin buildup, scarring, or environmental damage. We can help smooth and refine your skin for a polished look</p>
+            <h3>Improvements</h3>
+              <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow</p>
         `,
         level: `
           <h2>What level of complexity should you choose?</h2>
@@ -1204,6 +1202,7 @@
           "Blemish Control Pen",
           "Purifying Skin Spray",
           "Phenomenal Eye Cream",
+          "Prepare – Cleansing Lotion",
           "SPF 50 sunscreen FTT Skin Clinics Protect",
           "Vitamin C Serum 10%",
           "Vitamin C Serum 20%",
@@ -1214,7 +1213,7 @@
           "Eye Lift Gel - Refine",
           "Daily Cleanser",
           "Foaming Wash",
-          "Luxury Exfoliant Cleanser",
+          "Luxury Exfoliator Cleanser",
           "Neck Firming Cream - Lift",
           "Endurance Moisturiser - FTT H2O",
           "Rejuvenating Serum - Rejuvenate",
@@ -1273,7 +1272,7 @@
             ], // Exclude products with tag: tretinoin, retinol, retinoids Exclude anti-aging
           },
           skinConcern: {
-            dullDryness: [
+            dryDehydrated: [
               "Oil Control Serum",
               "Oil Control Pads",
               "Blemish Control Pen",
@@ -1421,7 +1420,7 @@
               "Obagi CLENZIderm Daily Care Foaming Cleanser",
               "Prepare – Cleansing Lotion",
             ],
-            darkSpotsHyperpigmentation: [
+            unevenSkinTone: [
               "Oil Control Serum",
               "Oil Control Pads",
               "Blemish Control Pen",
@@ -1456,7 +1455,7 @@
               "Obagi Vitamin C Serum 20%",
               "Obagi CLENZIderm Daily Care Foaming Cleanser",
             ],
-            texturedSkin: [],
+            improvements: [],
           },
           wrinklesFinelines: {
             finelines: [],
@@ -1588,8 +1587,13 @@
             no: [],
           },
           sunscreenUse: {
-            everyDay: [],
-            onlyWhenExposed: [],
+            frequently: [
+              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "Obagi 360 Hydrofactor SPF 30",
+              "Obagi Sun Shield Cool",
+              "Obagi Sun Shield Matte",
+              "Obagi Sun Shield Warm",
+            ],
             rarely: [],
           },
           routineComplexity: {
@@ -2248,7 +2252,7 @@
               break;
             case "skinConcern":
               switch (selection) {
-                case "dullDryness":
+                case "dryDehydrated":
                   nextQuestionId = "UsesVitaminC"; // Assuming direct to allergies if not acne or wrinkles
                   break;
                 case "acne":
@@ -2260,10 +2264,10 @@
                 case "rosacea":
                   nextQuestionId = "allergy";
                   break;
-                case "darkSpotsHyperpigmentation":
+                case "unevenSkinTone":
                   nextQuestionId = "typeOfHyperpigmentation";
                   break;
-                case "texturedSkin":
+                case "improvements":
                   nextQuestionId = "usesVitaminC";
                   break;
                 default:
