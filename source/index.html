@@ -819,36 +819,6 @@
         </div>
       </div>
 
-      <!-- Question: Vegan Products Preference -->
-      <div id="questionVegan" class="question" style="display: none">
-        <label for="veganSelect"
-          >Do you have a preference for vegan products?</label
-        >
-
-        <div>
-          <button onclick="filterProducts('vegan', 'no')" class="btn-option">No</button>
-          <button onclick="filterProducts('vegan', 'yes')" class="btn-option">Yes</button>
-         </div>
-
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
-        
-        <!-- Dot container under each question -->
-        <div class="dot-container">
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotlight"></span>
-          <span class="dotlight"></span>
-          <span class="dotlight"></span>
-        </div>
-      </div>
-
       <!-- Question: Sunscreen Use -->
       <div id="questionSunscreenUse" class="question" style="display: none">
         <label for="sunscreenUseSelect">What is your sunscreen use?</label>
@@ -1602,10 +1572,6 @@
               "Eye Lift Gel - Refine",
             ],
             neck:[],
-          },
-          vegan: {
-            yes: [],
-            no: [],
           },
           sunscreenUse: {
             frequently: [
@@ -2361,9 +2327,6 @@
               nextQuestionId = "concernArea";
               break;
             case "concernArea":
-              nextQuestionId = "vegan";
-              break;
-            case "vegan":
               nextQuestionId = "sunscreenUse";
               break;
             case "sunscreenUse":
