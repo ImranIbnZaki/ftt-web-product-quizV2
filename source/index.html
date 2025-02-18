@@ -380,6 +380,13 @@
           <option value="moderate">Moderate</option>
           <option value="severe">Severe</option>
         </select>
+
+        <div>
+          <button class="modal-trigger" data-modal-content="severity">
+            What do these severity levels mean?
+          </button> 
+        </div>
+
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container">
@@ -1068,7 +1075,16 @@
               <p>3 products that work together for better effects</p>
             <h3>Advanced</h3>
               <p>5 products that provides the best combination for optimal results</p>
-        `
+        `,
+        severity: `
+          <h2>What do these severity levels mean?</h2>
+            <h3>Mild</h3>
+              <p>Minor breakouts, blackheads, and whiteheads</p>
+            <h3>Moderate</h3>
+              <p>More frequent breakouts, blackheads, whiteheads, and papules</p>
+            <h3>Severe</h3>
+              <p>Deep, painful cysts, nodules, and scarring</p>
+        `,
       };
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -1157,7 +1173,6 @@
           "Obagi Nu-Derm Exfoderm Forte",
           "Obagi Professional-C Peptide Complex",
           "Obagi Retinol 0.5 Cream",
-          "Obagi Retinol 1.0 Cream",
           "Obagi Retivance Skin Rejuvenating Complex",
           "Obagi Sun Shield Cool",
           "Obagi Sun Shield Matte",
@@ -1175,6 +1190,8 @@
           "Clear Advanced Gel Cleanser",
           "Oil Control Serum",
           "Retinol Serum - FTT Skin Clinics R+",
+          "Foaming Wash - Reveal",
+          "Quench Advanced Hyaluronic Serum",
           "Hypo21 Purifying Skin Spray",
           "Obagi Nu-Derm Foaming Gel",
           "Obagi Foaming Cleanser",
@@ -1306,7 +1323,6 @@
               "Obagi NU-CIL Eyelash Serum",
               "Obagi Nu-Derm Foaming Gel",
               "Obagi Retinol 0.5 Cream",
-              "Obagi Retinol 1.0 Cream",
               "Obagi Retivance Skin Rejuvenating Complex",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
@@ -1411,7 +1427,6 @@
               "Obagi NU-CIL Eyelash Serum",
               "Obagi Nu-Derm Foaming Gel",
               "Obagi Retinol 0.5 Cream",
-              "Obagi Retinol 1.0 Cream",
               "Obagi Retivance Skin Rejuvenating Complex",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
@@ -1450,7 +1465,6 @@
               "Obagi NU-CIL Eyelash Serum",
               "Obagi Nu-Derm Foaming Gel",
               "Obagi Retinol 0.5 Cream",
-              "Obagi Retinol 1.0 Cream",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
               "Obagi Sun Shield Warm",
@@ -1489,7 +1503,6 @@
               "Obagi CLENZIderm Daily Care Foaming Cleanser",
               "Retinol Serum - FTT Skin Clinics R+",
               "Obagi Hydrate Facial Moisturiser",
-              "Obagi Retinol 1.0 Cream",
               "Obagi Retivance Skin Rejuvenating Complex",
             ],
             moderate: [
@@ -1508,7 +1521,6 @@
             niacinamide: ["Calm Night Cream"],
             retinolRetinoids: [
               "Obagi Retinol 0.5 Cream",
-              "Obagi Retinol 1.0 Cream",
               "Retinol Serum - FTT Skin Clinics R+",
               "Vitamin C Serum 20%",
               "Night Cream - Recover",
@@ -1533,12 +1545,11 @@
           },
           retinoidUse: {
             yes: [],
-            no: ["Obagi Retinol 1.0 Cream"],
+            no: [],
           },
           retinoidIrritation: {
             yes: [
               "Obagi Retinol 0.5 Cream",
-              "Obagi Retinol 1.0 Cream",
               "Retinol Serum - FTT Skin Clinics R+",
               "Night Cream - Recover",
               "Obagi Medical Cleansing Wipes",
@@ -1568,7 +1579,6 @@
               "Vitamin C Serum 20%",
               "Obagi Vitamin C Serum 20%",
               "Clear Advanced Gel Cleanser",
-              "Obagi Retinol 1.0 Cream",
               "Obagi Nu-Derm Exfoderm Forte",
               "Obagi Professional-C Microdermabrasion Polish Mask",
               "Retinol Serum - FTT Skin Clinics R+",
@@ -1608,104 +1618,6 @@
             essentials: [], // output 3 products (Cleanser, active, lotion)
             advanced: [], //output 5 products (cleanser, active, moisturiser/lotion/cream, extra, spf)
           },
-        };
-
-        const productCategoryLists = {
-          hero: [
-            "Oil Control Serum",
-            "Phenomenal Eyelash Serum",
-            "Vitamin C Serum 10%",
-            "Vitamin C Serum 20%",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Clear Advanced Gel Cleanser",
-            "Thrive Menopausal Skin Serum",
-            "Foaming Wash - Reveal",
-            "Rejuvenating Serum - Rejuvenate",
-            "Retinol Serum - FTT Skin Clinics R+",
-            "Skin Brightening Serum - Illuminate",
-            "Night Cream - Recover",
-            "Obagi Hydro Drops Facial Serum",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi Daily Intensive Repair",
-            "Obagi Professional-C Peptide Complex",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Retinol 1.0 Cream",
-            "Obagi Retivance Skin Rejuvenating Complex",
-            "Obagi Vitamin C Serum 10%",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-          ],
-
-          cleanser: [
-            "Clear Advanced Gel Cleanser",
-            "Purify Micellar Water",
-            "Daily Cleanser",
-            "Foaming Wash - Reveal",
-            "Luxury Exfoliator Cleanser",
-            "Obagi Foaming Cleanser",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Nu-Derm 1 Gentle Cleanser",
-            "Obagi Nu-Derm Exfoderm",
-            "Obagi Nu-Derm Exfoderm Forte",
-            "Obagi-C Rx Cleaning Gel",
-            "Obagi CLENZIderm Daily Care Foaming Cleanser",
-            "Prepare – Cleansing Lotion",
-          ],
-
-          serum: [
-            "Oil Control Serum",
-            "Phenomenal Eyelash Serum",
-            "Vitamin C Serum 10%",
-            "Vitamin C Serum 20%",
-            "Quench Advanced Hyaluronic Serum",
-            "Thrive Menopausal Skin Serum",
-            "Rejuvenating Serum - Rejuvenate",
-            "Retinol Serum - FTT Skin Clinics R+",
-            "Skin Brightening Serum - Illuminate",
-            "Obagi Hydro Drops Facial Serum",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Vitamin C Serum 10%",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi Professional-C Peptide Complex",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Retinol 1.0 Cream",
-            "Obagi Retivance Skin Rejuvenating Complex",
-          ],
-
-          moisturiser: [
-            "Calm Night Cream",
-            "Eye Lift Gel - Refine",
-            "Neck Firming Cream - Lift",
-            "Endurance Moisturiser - FTT H2O",
-            "Night Cream - Recover",
-            "Obagi Hydrate Facial Moisturiser",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi-C Rx Exfoliating Day Lotion",
-          ],
-
-          advanced: [
-            "Phenomenal Eye Cream",
-            "Oil Control Pads",
-            "Blemish Control Pen",
-            "Hypo21 Purifying Skin Spray",
-            "SPF 50 sunscreen FTT Skin Clinics Protect",
-            "Obagi Professional-C Microdermabrasion Polish Mask",
-            "Obagi 360 Hydrofactor SPF 30",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi Nu-Derm Toner",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi-C Rx Balancing Toner",
-          ],
         };
 
         const productBlurbs = {
@@ -2039,14 +1951,6 @@
               "Uncap the airless pump and apply 1 pump, or a pearl-sized amount to your face. Massage until fully absorbed. Use once daily in the evenings.",
             imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2023/11/Obagi_Retinol_uk.jpg",
             prodURL: "https://www.francesturnertraill.co.uk/shop/obagi-medical/obagi-retinol/",
-          },
-          "Obagi Retinol 1.0 Cream": {
-            blurb:
-              "Retinol 1.0 is a potent, slow-release formula that gently promotes skin turnover, evens skin tone, and minimizes signs of aging like fine lines and wrinkles, effectively resurfacing the skin with minimal irritation for visibly younger-looking skin.",
-            directions:
-              "Uncap the airless pump and apply 1 pump, or a pearl-sized amount to your face. Massage until fully absorbed. Use once daily in the evenings.",
-            imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2020/04/OBAGI_Retinol_1.0_UK.jpg",
-            prodURL: "https://www.francesturnertraill.co.uk/shop/obagi-medical/obagi-retinol-1-0-cream/",
           },
           "Obagi Retivance Skin Rejuvenating Complex": {
             blurb:
