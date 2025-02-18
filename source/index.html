@@ -2186,13 +2186,17 @@
         };
 
         filterProductsMultiple = function (questionType, selections) {
+          console.log(selections);
           // Check if selections array is empty or not provided
-          if (!selections || selections.length === 0) return;
+          if (!selections || selections.length === 0) {
+            navigateToNextQuestion(questionType, "none");
+            return;
+          }
 
-          if (selections.includes("fragrances")) {
-            goToExitPoint(
-              "Our products contain low allergenic profiles. Please consult with your dermatologist for further advice."
-            );
+          // Check if 'fragrances' is selected
+          if (selections.includes('fragrances')) {
+            navigateToNextQuestion(questionType, "fragrances");
+            return;
           }
 
           let combinedEliminationList = [];
@@ -2227,14 +2231,7 @@
           const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
           const selectedValues= Array.from(checkboxes).map(checkbox => checkbox.value);
 
-          // Filter out the 'none' selection if other options are selected
-          const filteredSelections =
-            selectedValues.includes("none") && selectedValues.length > 1
-              ? selectedValues.filter((value) => value !== "none")
-              : selectedValues;
-
-          // Call filterProductsMultiple with the correct questionType and selections
-          filterProductsMultiple("allergy", filteredSelections);
+          filterProductsMultiple("allergy", selectedValues);
 
         };
 
@@ -2319,7 +2316,7 @@
               nextQuestionId = "usesVitaminC";
               break;
             case "allergy":
-              if (selection === "fragrances") {
+              if (selection.includes('fragrances')) {
                 goToExitPoint("Our products contain low  allergenic profiles ");
                 nextQuestionId = "exitPoint";
                 break;
