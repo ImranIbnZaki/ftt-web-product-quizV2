@@ -63,6 +63,8 @@
           <button onclick="filterProducts('basedUK', 'yes')" class="btn-option">Yes</button>
         </div>
 
+        <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+
         <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotlight"></span>
@@ -87,7 +89,7 @@
         <div>
           <button onclick="filterProducts('overTwentyFive', 'no')" class="btn-option">No</button>
           <button onclick="filterProducts('overTwentyFive', 'yes')" class="btn-option">Yes</button>
-         </div>
+        </div>
 
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
@@ -298,11 +300,6 @@
 
         <div class="options-wrapper">
           <div class="option-container">
-            <img
-              src="wrinkles_image.jpg"
-              alt="Cystic"
-              onclick="filterProducts('typeOfAcne', 'cystic')"
-            />
             <div class="text-container">
               <b>Cystic</b>
               <p>
@@ -312,11 +309,6 @@
           </div>
 
           <div class="option-container">
-            <img
-              src="wrinkles_image.jpg"
-              alt="Blackheads"
-              onclick="filterProducts('typeOfAcne', 'blackheads')"
-            />
             <div class="text-container">
               <b>Blackheads</b>
               <p>
@@ -328,11 +320,6 @@
 
         <div class="options-wrapper">
           <div class="option-container">
-            <img
-              src="wrinkles_image.jpg"
-              alt="Papules"
-              onclick="filterProducts('typeOfAcne', 'papules')"
-            />
             <div class="text-container">
               <b>Papules</b>
               <p>
@@ -342,11 +329,6 @@
           </div>
 
           <div class="option-container">
-            <img
-              src="wrinkles_image.jpg"
-              alt="Whiteheads"
-              onclick="filterProducts('typeOfAcne', 'whiteheads')"
-            />
             <div class="text-container">
               <b>Whiteheads</b>
               <p>
@@ -497,7 +479,12 @@
           
           <label for="retinolsRetinoids">
             <input type="checkbox" id="retinolsRetinoids" name="allergy" value="retinolsRetinoids">
-            Retinols / Retinoids
+            Retinols/Retinoids
+          </label>
+
+          <label for="salicylicAcid">
+            <input type="checkbox" id="salicylicAcid" name="allergy" value="salicylicAcid">
+            Salicylic Acid
           </label>
           
           <label for="azelaicAcid">
@@ -1189,7 +1176,9 @@
           "Oil Control Serum",
           "Retinol Serum - FTT Skin Clinics R+",
           "Hypo21 Purifying Skin Spray",
+          "Obagi Nu-Derm Foaming Gel",
           "Obagi Foaming Cleanser",
+          "Obagi Hydrate Luxe Facial Moisturiser",
           "Vitamin C Serum 10%",
           "Obagi 360 Hydrofactor SPF 30",
           "Blemish Control Pen",
@@ -1525,6 +1514,14 @@
               "Night Cream - Recover",
               "Obagi Medical Cleansing Wipes",
               "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            salicylicAcid:[
+              "Oil Control Pads",
+              "Oil Control Serum",
+              "Clear Advanced Gel Cleanser",
+              "Retinol Serum - FTT Skin Clinics R+",
+              "Obagi Foaming Cleanser",
+              "Blemish Control Pen"
             ],
             azelaicAcid: ["Skin Brightening Serum - Illuminate"],
             fragrances: [], // out “most of our products contain mild natural fragrances”
@@ -2275,7 +2272,11 @@
           let nextQuestionId;
           switch (questionType) {
             case "skinConcern":
-              nextQuestionId = "basedUK";
+              if (selection === "acne") {
+                nextQuestionId = "typeOfAcne";
+              } else {
+                nextQuestionId = "basedUK";
+              }
               break;
             case "basedUK":
               if (selection === "yes") {
@@ -2296,7 +2297,14 @@
               nextQuestionId = "allergy";
               break;
             case "typeOfAcne":
+              if (selection === "cystic") {
+                goToExitPoint(
+                  "We recommend you book a consultation to provide you with professional advice"
+                );
+                nextQuestionId = "exitPoint";
+              } else {
               nextQuestionId = "severityOfAcne";
+              }
               break;
             case "usesVitaminC":
               nextQuestionId = "allergy";
@@ -2309,7 +2317,7 @@
                 nextQuestionId = "exitPoint";
                 break;
               } else {
-                nextQuestionId = "allergy";
+                nextQuestionId = "basedUK";
                 break;
               }
             case "typeOfHyperpigmentation":
