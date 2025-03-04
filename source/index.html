@@ -260,7 +260,7 @@
       <!-- Question: Type of Acne -->
       <div id="questionTypeOfAcne" class="question" style="display: none">
         <h2>What type of acne do you have?</h2>
-
+        <!--
         <div class="options-wrapper">
           <div class="option-container">
             <div class="text-container">
@@ -300,6 +300,7 @@
             </div>
           </div>
         </div>
+        -->
 
         <select
           id="TypeOfAcneSelect"
@@ -312,6 +313,11 @@
           <option value="papules">Papules</option>
           <option value="whiteheads">Whiteheads</option>
         </select>
+        <div>
+          <button class="modal-trigger" data-modal-content="acneType">
+            What is my acne type?
+          </button> 
+        </div>
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
 
         <div class="dot-container" id="dotAcne"></div>
@@ -989,20 +995,31 @@
           level: `
             <h2>What level of complexity should you choose?</h2>
               <h3>Hero</h3>
-                <p>1 product that suits your needs best</p>
+                <p>Your ultimate go-to product, carefully selected to deliver maximum impact with minimal effort</p>
               <h3>Essentials</h3>
-                <p>3 products that work together for better effects</p>
+                <p>A power trio of expertly chosen products that work in harmony to elevate your skincare</p>
               <h3>Advanced</h3>
-                <p>5 products that provides the best combination for optimal results</p>
+                <p>The ultimate skincare experience of five products meticulously curated to provide the perfect synergy for radiant and healthy skin</p>
           `,
           severity: `
             <h2>What do these severity levels mean?</h2>
               <h3>Mild</h3>
-                <p>Minor breakouts, blackheads, and whiteheads</p>
+                <p>Occasional breakouts with small, surface-level blemishes like blackheads and whiteheads. Skin may appear slightly congested, but inflammation is minimal.</p>
               <h3>Moderate</h3>
-                <p>More frequent breakouts, blackheads, whiteheads, and papules</p>
+                <p>Frequent breakouts with a mix of blackheads, whiteheads, and inflamed red bumps (papules and pustules). Skin may feel more sensitive, and post-breakout marks can take longer to fade.</p>
               <h3>Severe</h3>
-                <p>Deep, painful cysts, nodules, and scarring</p>
+                <p>Persistent, deep, and painful acne, including large cysts and nodules. This level of acne is often accompanied by significant redness, inflammation, and an increased risk of scarring.</p>
+          `,
+          acneType: `
+            <h2> What is my acne type? <h2>
+              <h3>Cystic</h3>
+                <p>Inflammatory acne that causes painful, pus-filled pimples to form deep under the skin.</p>
+              <h3>Blackheads</h3>
+                <p>Open bumps on the skin that fill with excess oil and dead skin cells.</p>
+              <h3>Papules</h3>
+                <p> Papules are solid, inflamed bumps in your skin that may be the same color as your skin or red, brown or purple.</p>
+              <h3>Whiteheads</h3>
+                <p>Oil and dead skin close off hair follicles or oil glands and form a closed bump on your skin.</p>
           `,
         };
 
@@ -1063,6 +1080,7 @@
             document.getElementById("questionSkinConcern").style.display = "block"; // Start the questions
           }
         });
+
 
         startButton.addEventListener("mouseover", function () {
           if (!checkbox.checked) {
