@@ -660,38 +660,6 @@
         <div class="dot-container" id="dotSunscreen"></div>
       </div>
 
-      <!-- Organic Products Question (from your example) -->
-      <div
-        id="questionOrganicPreference"
-        class="question"
-        style="display: none"
-      >
-        <label for="organicPreferenceSelect"
-          >Do you prefer organic products?</label
-        >
-
-        <div>
-          <button onclick="filterProducts('organicPreference', 'no')" class="btn-option">No</button>
-          <button onclick="filterProducts('organicPreference', 'yes')" class="btn-option">Yes</button>
-         </div>
-        <!-- Adjust the previous question ID as needed based on your actual question flow -->
-        <button
-          onclick="goToPreviousQuestion('questionOrganic', 'questionSkinConcern')"
-        >
-          Back
-        </button>
-        <!-- Dot container under each question -->
-        <div class="dot-container">
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotdark"></span>
-          <span class="dotlight"></span>
-          <!-- Add more or fewer dots based on your design -->
-        </div>
-      </div>
-
       <!-- Question: Skincare Routine Complexity -->
       <div
         id="questionRoutineComplexity"
@@ -2266,7 +2234,7 @@
 
           // Prepare for the slide-out animation of the last question
           const lastQuestionElement = document.getElementById(
-            "questionOrganicPreference"
+            "questionRoutineComplexity"
           );
           if (lastQuestionElement) {
             lastQuestionElement.classList.add("question-slide-out");
