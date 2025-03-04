@@ -54,6 +54,35 @@
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
       </div>
 
+      <!-- Question: Skin Concern -->
+      <div id="questionSkinConcern" class="question" style="display: none">
+        <label for="skinConcernSelect"
+          >What is your primary skin concern?</label
+        >
+        <select
+          id="skinConcernSelect"
+          name="skinConcernSelect"
+          onchange="filterProducts('skinConcern', this.value)"
+        >
+          <option value="">Select...</option>
+          <option value="dryDehydrated">Dry/Dehydrated</option>
+          <option value="acne">Spot-Prone</option>
+          <option value="wrinklesFinelines">Maturing</option>
+          <option value="rosacea">Rosacea/Sensitive</option>
+          <option value="unevenSkinTone">Uneven Skin Tone</option>
+          <option value="improvements">Improvements</option>
+        </select>
+
+        <div>
+          <button class="modal-trigger" data-modal-content="skinConcern">
+            What is my primary skin concern?
+          </button> 
+        </div>
+
+        <!-- Dot container under each question -->
+        <div class="dot-container" id="dotConcern"></div>
+      </div>
+
       <!-- Question: Based in UK -->
       <div id="questionBasedUK" class="question" style="display: none">
         <label for="basedUKSelect">Are you based in the UK?</label>
@@ -82,35 +111,6 @@
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dot25"></div>
-      </div>
-
-      <!-- Question: Skin Concern -->
-      <div id="questionSkinConcern" class="question" style="display: none">
-        <label for="skinConcernSelect"
-          >What is your primary skin concern?</label
-        >
-        <select
-          id="skinConcernSelect"
-          name="skinConcernSelect"
-          onchange="filterProducts('skinConcern', this.value)"
-        >
-          <option value="">Select...</option>
-          <option value="dryDehydrated">Dry/Dehydrated</option>
-          <option value="acne">Spot-Prone</option>
-          <option value="wrinklesFinelines">Maturing</option>
-          <option value="rosacea">Rosacea/Sensitive</option>
-          <option value="unevenSkinTone">Uneven Skin Tone</option>
-          <option value="improvements">Improvements</option>
-        </select>
-
-        <div>
-          <button class="modal-trigger" data-modal-content="skinConcern">
-            What is my primary skin concern?
-          </button> 
-        </div>
-
-        <!-- Dot container under each question -->
-        <div class="dot-container" id="dotConcern"></div>
       </div>
 
       <!-- Question: Wrinkles or Fine Lines 
@@ -313,6 +313,8 @@
           <option value="whiteheads">Whiteheads</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+
+        <div class="dot-container" id="dotAcne"></div>
       </div>
 
       <!-- Question: Severity of Acne -->
@@ -336,6 +338,7 @@
         </div>
 
         <button onclick="goToPreviousQuestion()" class="btn-navigation">Back</button>
+        <div class="dot-container" id="dotSeverity"></div>
       </div>
 
       <!-- Question: Have You Used Vitamin C Before -->
@@ -830,6 +833,8 @@
       }
 
       generateDots("dotConcern", 0);
+      generateDots("dotAcne", 0);
+      generateDots("dotSeverity", 0);
       generateDots("dotUK", 1);
       generateDots("dot25", 2);
       generateDots("dotVitC", 3);
