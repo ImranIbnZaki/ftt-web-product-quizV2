@@ -783,38 +783,6 @@
 
     <script>
 
-      document.addEventListener("DOMContentLoaded", function () {
-        const checkbox = document.getElementById("termsCheckbox");
-        const startButton = document.getElementById("startConsultationButton");
-        const errorNotification = document.getElementById("errorNotification");
-        const startButtonDisabled = document.getElementById("startButtonDisabled");
-
-        // Listen for changes to the checkbox
-        checkbox.addEventListener("change", function () {
-          if (checkbox.checked) {
-            startButton.disabled = false;
-            errorNotification.style.display = "none"; // Hide error if previously shown
-          } else {
-            startButton.disabled = true;
-          }
-        });
-
-        // Handle the start button click
-        startButton.addEventListener("click", function () {
-          if (checkbox.checked) {
-            document.getElementById("welcomeScreen").style.display = "none";
-            document.getElementById("questionsContainer").style.display = "flex"; // Proceed with starting the consultation
-            document.getElementById("questionSkinConcern").style.display = "block"; // Start the questions
-          }
-        });
-
-        startButton.addEventListener("mouseover", function () {
-          if (!checkbox.checked) {
-            errorNotification.style.display = "block";
-          }
-        });
-      });
-
       function generateDots(containerId, numDark) {
         const container = document.getElementById(containerId);
         container.innerHTML = "";
@@ -847,79 +815,6 @@
       generateDots("dotArea", 10);
       generateDots("dotSunscreen", 11);
       generateDots("dotComplexity", 12);
-
-      // Modals
-
-      const modalContents = {
-        skinConcern: `
-          <h2>Which skin concern is my priority?</h2>
-            <h3>Dry/Dehydrated</h3>
-              <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
-            <h3>Spot-Prone</h3>
-              <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
-            <h3>Maturing</h3>
-              <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
-            <h3>Rosacea/Sensitive</h3>
-              <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
-            <h3>Uneven Skin Tones</h3>
-              <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
-            <h3>Improvements</h3>
-              <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow</p>
-        `,
-        level: `
-          <h2>What level of complexity should you choose?</h2>
-            <h3>Hero</h3>
-              <p>1 product that suits your needs best</p>
-            <h3>Essentials</h3>
-              <p>3 products that work together for better effects</p>
-            <h3>Advanced</h3>
-              <p>5 products that provides the best combination for optimal results</p>
-        `,
-        severity: `
-          <h2>What do these severity levels mean?</h2>
-            <h3>Mild</h3>
-              <p>Minor breakouts, blackheads, and whiteheads</p>
-            <h3>Moderate</h3>
-              <p>More frequent breakouts, blackheads, whiteheads, and papules</p>
-            <h3>Severe</h3>
-              <p>Deep, painful cysts, nodules, and scarring</p>
-        `,
-      };
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("genericModal");
-        const modalContent = document.getElementById("modalDynamicContent");
-        const modalClose = document.querySelector("#genericModal .close");
-
-        // Function to open the modal with dynamic content
-        function openModal(contentKey) {
-          modalContent.innerHTML = modalContents[contentKey]; // Inject the content
-          modal.style.display = "block";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-          modal.style.display = "none";
-        }
-
-        // Close modal on "X" click
-        modalClose.onclick = closeModal;
-
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            closeModal();
-          }
-        };
-
-        // Example: Attach to a button
-        document.querySelectorAll(".modal-trigger").forEach((button) => {
-          button.addEventListener("click", function () {
-            const contentKey = button.getAttribute("data-modal-content");
-            openModal(contentKey);
-          });
-        });
-      });
 
       document.addEventListener("DOMContentLoaded", function () {
         // Full pool of products
@@ -1072,7 +967,108 @@
           "Obagi Professional-C Peptide Complex",
           "Hypo21 Purifying Skin Spray",
           "Obagi 360 Exfoliating Cleanser",
-        ]
+        ];
+
+        // Modals
+        const modalContents = {
+          skinConcern: `
+            <h2>Which skin concern is my priority?</h2>
+              <h3>Dry/Dehydrated</h3>
+                <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
+              <h3>Spot-Prone</h3>
+                <p>Acne is a skin condition where your pores are blocked oil, bacteria, dead skin cells, and dirt, and we can help provide a smoother skin for you.</p>
+              <h3>Maturing</h3>
+                <p>If you're noticing fine lines or deeper wrinkles, we can help reduce their appearance and prevent new ones from forming with targeted treatments.</p>
+              <h3>Rosacea/Sensitive</h3>
+                <p>A long-term skin condition where you have redness across your face that may feel hot or painful. Our treatments can help with symptoms.</p>
+              <h3>Uneven Skin Tones</h3>
+                <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
+              <h3>Improvements</h3>
+                <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow</p>
+          `,
+          level: `
+            <h2>What level of complexity should you choose?</h2>
+              <h3>Hero</h3>
+                <p>1 product that suits your needs best</p>
+              <h3>Essentials</h3>
+                <p>3 products that work together for better effects</p>
+              <h3>Advanced</h3>
+                <p>5 products that provides the best combination for optimal results</p>
+          `,
+          severity: `
+            <h2>What do these severity levels mean?</h2>
+              <h3>Mild</h3>
+                <p>Minor breakouts, blackheads, and whiteheads</p>
+              <h3>Moderate</h3>
+                <p>More frequent breakouts, blackheads, whiteheads, and papules</p>
+              <h3>Severe</h3>
+                <p>Deep, painful cysts, nodules, and scarring</p>
+          `,
+        };
+
+        const modal = document.getElementById("genericModal");
+        const modalContent = document.getElementById("modalDynamicContent");
+        const modalClose = document.querySelector("#genericModal .close");
+
+        // Function to open the modal with dynamic content
+        function openModal(contentKey) {
+          modalContent.innerHTML = modalContents[contentKey]; // Inject the content
+          modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+          modal.style.display = "none";
+        }
+
+        // Close modal on "X" click
+        modalClose.onclick = closeModal;
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        };
+
+        // Example: Attach to a button
+        document.querySelectorAll(".modal-trigger").forEach((button) => {
+          button.addEventListener("click", function () {
+            const contentKey = button.getAttribute("data-modal-content");
+            openModal(contentKey);
+          });
+        });
+
+        // first page t&c
+        const checkbox = document.getElementById("termsCheckbox");
+        const startButton = document.getElementById("startConsultationButton");
+        const errorNotification = document.getElementById("errorNotification");
+        const startButtonDisabled = document.getElementById("startButtonDisabled");
+
+        // Listen for changes to the checkbox
+        checkbox.addEventListener("change", function () {
+          if (checkbox.checked) {
+            startButton.disabled = false;
+            errorNotification.style.display = "none"; // Hide error if previously shown
+          } else {
+            startButton.disabled = true;
+          }
+        });
+
+        // Handle the start button click
+        startButton.addEventListener("click", function () {
+          if (checkbox.checked) {
+            document.getElementById("welcomeScreen").style.display = "none";
+            document.getElementById("questionsContainer").style.display = "flex"; // Proceed with starting the consultation
+            document.getElementById("questionSkinConcern").style.display = "block"; // Start the questions
+          }
+        });
+
+        startButton.addEventListener("mouseover", function () {
+          if (!checkbox.checked) {
+            errorNotification.style.display = "block";
+          }
+        });
 
         // Map of all elimination lists by question type
         const eliminationLists = {
@@ -1832,7 +1828,6 @@
         };
 
         // Use a stack to track changes in product pool for each question
-        // let productPoolStack = [initialProductPool.slice()]; // Clone initial pool
 
         // Expose the filter functions to the global scope
         filterProducts = function (questionType, selection) {
