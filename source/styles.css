@@ -3,7 +3,7 @@ body {
     background: linear-gradient(330deg, #d1ab4f, #fff4cf);
     color: #333;
     line-height: 1.3;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .title-large {
@@ -39,7 +39,7 @@ body {
     text-align: center;
     color: #000000;
     margin-bottom: 0;
-    margin-top: 175px;
+    margin-top: 10vh;
   }
 
   .dot-container {
@@ -67,7 +67,6 @@ body {
   /* Question container styles */
   #questionsContainer {
     display: none;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -143,27 +142,19 @@ body {
   }
 
   /* Select styles */
-  /* Select styles */
   select {
     width: 100%;
-    padding: 0;
-    /* Adjusted padding for more height */
-    margin-bottom: 0;
-    /* Space below each select element */
-    border-radius: 0;
-    border: 0px solid #ddd;
-    background-color: #e0e0e0;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #f1d89c;
     color: #000000;
     font-size: 15px;
+    font-weight: 550;
     text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* Adding height property if needed */
     height: auto;
     min-height: 50px;
-    max-height: 1000px;
-    /* Adjust this value as needed for your design */
+    max-height: 10px;
+    cursor: pointer;
   }
 
   .full-width-bar {
@@ -208,17 +199,13 @@ body {
     cursor: pointer;
     font-size: 12px;
     font-weight: 600;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    /* More space above the button */
+    margin: 10px 0px;
     outline: 2px solid #000000;
     width: 50px;
     height: 30px;
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    /* Allows the button to size according to its content */
   }
 
   .btn-navigation:hover {
@@ -233,12 +220,14 @@ body {
   }
 
 .btn-option {
-    background-color: #d1ab4f;
-    color: #fff;
+    background-color: #f1d89c;
+    color: #000;
     margin: 10px;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    outline: 2px solid #000;
+    padding: 10px 20px;
+    font-weight: 550;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
