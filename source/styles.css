@@ -143,7 +143,7 @@ body {
 
   /* Select styles */
   select {
-    width: 100%;
+    width: 80%;
     border-radius: 5px;
     border: 1px solid #000;
     background-color: #f1d89c;
@@ -428,11 +428,17 @@ body {
   .hero-product-details {
     text-align: left;
     max-width: 400px;
-    padding: 20px; /* Padding inside the details section */
+    padding: 30px; /* Padding inside the details section */
     box-sizing: border-box;
     background-color: #ffffff; /* White background */
     border-radius: 15px; /* Rounded corners */
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  }
+
+  #heroProductImage {
+    width: 150px;
+    margin-right: 20px;
+    border-radius: 15px;
   }
 
   #essentialsSection {
@@ -449,8 +455,8 @@ body {
 
   .essentials-container {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: center; /* Center the items */
     gap: 20px; /* Add space between items */
   }
 
