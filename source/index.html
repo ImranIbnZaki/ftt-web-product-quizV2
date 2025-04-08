@@ -1931,12 +1931,28 @@
 
         submitSelectedConcernAreas = function () {
           document.getElementById("questionConcernArea").style.display = "none";
-          if (!selectedConcernArea.includes("undereye")) {
+
+
+          if (selectedConcernArea.includes("undereyeWhiteList")) {
+            const index = selectedConcernArea.indexOf("undereyeWhiteList");
+            if (index > -1) {
+              selectedConcernArea.splice(index, 1);
+            }
+          }
+          if (selectedConcernArea.includes("neckWhiteList")) {
+            const index2 = selectedConcernArea.indexOf("neckWhiteList");
+            if (index2 > -1) {
+              selectedConcernArea.splice(index2, 1);
+            }
+          }
+
+          if (!selectedConcernArea.includes("undereye") && !selectedConcernArea.includes("undereyeWhiteList")) {
             selectedConcernArea.push("undereyeWhiteList");
           }
-          if (!selectedConcernArea.includes("neck")) {
+          if (!selectedConcernArea.includes("neck") && !selectedConcernArea.includes("neckWhiteList")) {
             selectedConcernArea.push("neckWhiteList");
           }
+
           console.log("Selected concern areas: ", selectedConcernArea);
           filterProductsMultiple("concernArea", selectedConcernArea);
         };
