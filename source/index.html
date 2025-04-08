@@ -2112,7 +2112,7 @@
               break;
             case "routineComplexity":
               console.log(selection);
-              setRoutineSize(selection);
+              setComplexity(selection);
               suggestProduct(); // This is the end of the questionnaire, leading to product suggestion
               return; // Exit the function early
             // Add additional cases as necessary based on your flowchart's specific paths and outcomes
@@ -2262,15 +2262,15 @@
           };
         }
 
-        function setRoutineSize(newRoutineSize) {
-          if (newRoutineSize === "hero") {
-            routineSize = 1;
-          } else if (newRoutineSize === "essentials") {
-            routineSize = 3;
-          } else if (newRoutineSize === "advanced") {
-            routineSize = 5;
+        function setComplexity(newComplexity) {
+          if (newComplexity === "hero") {
+            complexity = "hero";
+          } else if (newComplexity === "essentials") {
+            complexity = "essentials";
+          } else if (newComplexity === "advanced") {
+            complexity = "advanced";
           }
-          console.log("Set routine size to " + routineSize);
+          console.log("Set complexity to " + complexity);
         }
         function suggestProduct() {
           // Access the current product pool from the top of the stack
@@ -2295,7 +2295,7 @@
               document.getElementById("essentialsSection").style.display = "none";
               document.getElementById("advancedSection").style.display = "none";
 
-              if (routineSize == 1) {
+              if (complexity == "hero") {
                 document.getElementById("heroSection").style.display = "block";
                 const heroProduct = currentProductPool.slice(0, 1);
 
@@ -2311,7 +2311,7 @@
                 document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
                 document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-              } else if (routineSize == 3) {
+              } else if (complexity == "essentials") {
                 document.getElementById("essentialsSection").style.display = "block";
                 const essentialsProducts = currentProductPool.slice(0, 3);
 
@@ -2349,7 +2349,7 @@
                 document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
                 document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-              } else if (routineSize == 5) {
+              } else if (complexity == "advanced") {
                 document.getElementById("advancedSection").style.display = "block";
                 const advancedProducts = currentProductPool.slice(0, 5);
 
