@@ -25,7 +25,7 @@
 
     <div class="subtitle-medium">
       Give us a moment of your time and we will formulate a unique skin care
-      regiment just for you
+      regime just for you
     </div>
     <div id="welcomeScreen" style="text-align: center; padding: 20px">
       <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
@@ -364,7 +364,7 @@
         <div class="dot-container" id="dotVitC"></div>
       </div>
 
-      <!-- Question: What Concentration of Vitamin C Do You Use -->
+      <!-- Question: What Concentration of Vitamin C Do You Use 
       <div
         id="questionVitaminCConcentrate"
         class="question"
@@ -382,8 +382,6 @@
           <option value="20">20%</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr;</button>
-        <!-- Dot container under each question -->
-        <!-- Dot container under each question -->
         <div class="dot-container">
           <span class="dotdark"></span>
           <span class="dotdark"></span>
@@ -398,7 +396,7 @@
           <span class="dotlight"></span>
           <span class="dotlight"></span>
         </div>
-      </div>
+      </div> -->
 
       <!-- Question: Are You Allergic To The Following? -->
       <div id="questionAllergy" class="question" style="display: none">
@@ -675,19 +673,18 @@
         class="question"
         style="display: none"
       >
-        <label for="routineComplexitySelect"
-          >What level of complexity in your skincare routine are you comfortable
-          with?</label
-        >
+        <label for="routineComplexitySelect">
+          How committed are you in your skincare routine?
+        </label>
         <select
           id="routineComplexitySelect"
           name="routineComplexitySelect"
           onchange="filterProducts('routineComplexity', this.value)"
         >
           <option value="">Select...</option>
-          <option value="hero">Hero</option>
-          <option value="essentials">Essentials</option>
-          <option value="advanced">Advanced</option>
+          <option value="hero">Slightly Commited - Hero</option>
+          <option value="essentials">Committed - Essentials</option>
+          <option value="advanced">Very Committed - Advanced</option>
         </select>
 
         <div>
@@ -825,6 +822,8 @@
 
         let rountineSize = 0;
 
+        /* legacy codes
+
         let initialProductPool = [
           "Oil Control Serum",
           "Oil Control Pads",
@@ -883,6 +882,8 @@
           "Obagi-C Rx Cleaning Gel",
         ];
 
+        */ 
+
         let spotProneProductPool = [
           "Oil Control Pads",
           "Clear Advanced Gel Cleanser",
@@ -938,10 +939,12 @@
           "SPF 50 sunscreen FTT Skin Clinics Protect",
           "Phenomenal Eye Cream",
           "Luxury Exfoliator Cleanser",
+          /*
           "Obagi ELASTIderm Facial Serum",
           "Obagi ELASTIderm Eye Serum",
           "Obagi ELASTIderm Eye Cream",
           "Obagi Hydrate Luxe Facial Moisturiser",
+          */
         ];
 
         let rosaceaProductPool = [
@@ -952,11 +955,13 @@
           "SPF 50 sunscreen FTT Skin Clinics Protect",
           "Prepare – Cleansing Lotion",
           "Hypo21 Purifying Skin Spray",
+          /*
           "Obagi Rebalance",
           "Obagi Nu-Derm 1 Gentle Cleanser",
           "Obagi Hydrate Facial Moisturiser",
           "Obagi Professional-C Peptide Complex",
           "Obagi Vitamin C Serum 15%",
+          */
         ];
 
         let improvementsProductPool = [
