@@ -485,7 +485,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-    width: 300px;
+    max-width: 400px;
     text-align: center;
     box-sizing: border-box; /* Ensures padding is included in the width */
   }
@@ -531,7 +531,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-    width: 250px; /* Adjust width for better responsiveness */
+    max-width: 400px;
     text-align: center;
     box-sizing: border-box; /* Ensures padding is included in the width */
   }
