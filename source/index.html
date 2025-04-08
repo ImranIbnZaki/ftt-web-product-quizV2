@@ -1437,6 +1437,9 @@
               "Eye Lift Gel - Refine",
             ],
             neck:[],
+            neckWhiteList: [
+              "Neck Firming Cream - Lift",
+            ],
           },
           sunscreenUse: {
             frequently: [
@@ -1915,6 +1918,9 @@
           document.getElementById("questionConcernArea").style.display = "none";
           if (!selectedConcernArea.includes("undereye")) {
             selectedConcernArea.push("undereyeWhiteList");
+          }
+          if (!selectedConcernArea.includes("neck")) {
+            selectedConcernArea.push("neckWhiteList");
           }
           console.log("Selected concern areas: ", selectedConcernArea);
           filterProductsMultiple("concernArea", selectedConcernArea);
