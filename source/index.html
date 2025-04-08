@@ -30,7 +30,7 @@
     <div id="welcomeScreen" style="text-align: center; padding: 20px">
       <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
       <p>Today I’ll create a personalised skincare routine for you!</p>
-      <button id="startConsultationButton" class="btn-navigation" disabled>Start</button>
+      <button id="startConsultationButton" class="btn-start" disabled>Start</button>
       <label class="confirmTerms">
         <input type="checkbox" id="termsCheckbox" />
         Please tick here to confirm that you agree to us managing the personal data you share with us.
@@ -711,7 +711,7 @@
         <div style="text-align: center; margin: 20px">
           <h2 class="title-large">Hero Product</h2>
           <div
-            style="display: flex; align-items: center; justify-content: center"
+            id="heroContainer"
           >
             <a href="" target="_blank" id="heroProductLink">
               <img
@@ -1466,7 +1466,7 @@
           },
           "SPF 50 sunscreen FTT Skin Clinics Protect": {
             blurb:
-              "Prime & Protect spf50 sunscreen contains clinically proven UVA and UVB filters to protect your skin from the damage that can be caused by radiation from sun exposure.",
+              "Prime & Protect SPF50 sunscreen contains clinically proven UVA and UVB filters to protect your skin from the damage that can be caused by radiation from sun exposure.",
             directions:
               "Apply liberally before exposure to the sun. Can be used as a moisturiser with or without makeup. Apply regularly. For external use only.",
             imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_SPF50_Sun_Screen.jpg",
