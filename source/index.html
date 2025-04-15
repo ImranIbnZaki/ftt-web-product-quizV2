@@ -1027,16 +1027,16 @@
               <h3>Uneven Skin Tones</h3>
                 <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
               <h3>Improvements</h3>
-                <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow</p>
+                <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow.</p>
           `,
           level: `
             <h2>What level of complexity should you choose?</h2>
               <h3>Hero</h3>
-                <p>Your ultimate go-to product, carefully selected to deliver maximum impact with minimal effort</p>
+                <p>Your ultimate go-to product, carefully selected to deliver maximum impact with minimal effort.</p>
               <h3>Essentials</h3>
-                <p>A power trio of expertly chosen products that work in harmony to elevate your skincare</p>
+                <p>A power trio of expertly chosen products that work in harmony to elevate your skincare.</p>
               <h3>Advanced</h3>
-                <p>The ultimate skincare experience meticulously curated to provide the perfect synergy for radiant and healthy skin</p>
+                <p>The ultimate skincare experience meticulously curated to provide the perfect synergy for radiant and healthy skin.</p>
           `,
           severity: `
             <h2>What do these severity levels mean?</h2>
@@ -2061,7 +2061,7 @@
                 // Handle "No" case, assuming there's a message or action for non-UK users
                 // For the purpose of this switch, assume it ends the questionnaire or suggests an action
                 goToExitPoint(
-                  "Apologies, but we currently only ship products within the UK"
+                  "Apologies, but we currently only ship products within the UK."
                 );
                 nextQuestionId = "exitPoint";
               }
@@ -2075,7 +2075,7 @@
             case "typeOfAcne":
               if (selection === "cystic") {
                 goToExitPoint(
-                  "We recommend you book a consultation to provide you with professional advice"
+                  "We recommend you book a consultation to provide you with professional advice."
                 );
                 nextQuestionId = "exitPoint";
               } else {
@@ -2088,7 +2088,7 @@
             case "severityOfAcne":
               if (selection === "severe") {
                 goToExitPoint(
-                  "We recommend you book a consultation to provide you with prescription only products"
+                  "We recommend you book a consultation to provide you with prescription-only products."
                 );
                 nextQuestionId = "exitPoint";
                 break;
@@ -2101,7 +2101,7 @@
               break;
             case "allergy":
               if (selection.includes('fragrances')) {
-                goToExitPoint("Our products contain low  allergenic profiles ");
+                goToExitPoint("Our products contain low allergenic profiles.");
                 nextQuestionId = "exitPoint";
                 break;
               } else {
@@ -2111,7 +2111,7 @@
             case "takePrescription":
               if (selection === "yes") {
                 goToExitPoint(
-                  "It is not recommended to use skincare products with active ingredients while on topical medication so please wait until your treatment ends and try again"
+                  "It is not recommended to use skincare products with active ingredients while on topical medication so please wait until your treatment ends and try again."
                 );
                 nextQuestionId = "exitPoint";
                 break;

@@ -136,10 +136,6 @@ body {
     font-weight: bold;
   }
 
-  label:hover {
-    color: #d1ab4f;
-  }
-
   /* Select styles */
   select {
     width: 88%;
