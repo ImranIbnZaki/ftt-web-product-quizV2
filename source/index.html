@@ -2297,7 +2297,13 @@
                 input.value = '';
               });
 
-              var listItems = "";
+              if (previousElement.id === "questionConcernArea") {
+                // Reset the array
+                selectedConcernArea = [];
+                // Clear the UI list
+                const listContainer = document.getElementById("stringList");
+                listContainer.innerHTML = "";
+              }
 
               // You could similarly reset any relevant variables in your JS data if needed
             }, 500); // Match the animation duration
