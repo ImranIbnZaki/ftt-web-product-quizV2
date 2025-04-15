@@ -74,8 +74,8 @@ body {
 
   .concern-area-highlight {
     position: absolute;
-    border-radius: 50%; /* makes it a circle */
-    background-color: rgba(255, 0, 0, 0.5); /* semi-transparent red */
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.5);
     pointer-events: none; /* ensures the click goes through the highlight */
   }
 
@@ -85,11 +85,8 @@ body {
     padding-bottom: 0;
     /* Adds padding around the content inside the question panel */
     margin-bottom: 40px;
-    /* Space between questions */
     width: 80%;
-
     max-width: 450px;
-    /* Adjust width as needed */
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -97,9 +94,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    /* Optional: Adds rounded corners for a softer look */
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-    /* Optional: Adds a subtle shadow for depth */
     min-height: 175px;
     position: relative;
   }
@@ -204,8 +199,7 @@ body {
 
   .btn-start:hover {
     background: #E1D9D1;
-    width: 200px;
-    height: 100px;
+    width: 300px;
   }
 
   .btn-navigation {

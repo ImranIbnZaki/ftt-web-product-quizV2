@@ -2215,8 +2215,7 @@
             // Now pop the current pool since we're going back
             productPoolStack.pop();
             console.log(
-              "Navigating back to " +
-                navigationStack[navigationStack.length - 1]
+              "Navigating back to " + navigationStack[navigationStack.length - 1]
             );
 
             // Log or update UI with the differences
@@ -2241,20 +2240,22 @@
             return;
           }
 
-          const previousQuestionId = navigationStack.pop(); // Correctly manage the navigation stack
+          const previousQuestionId = navigationStack.pop(); // manage the navigation stack properly
 
+          // Find the currently displayed question
           const currentElement = document.querySelector(
             '.question:not([style*="display: none"])'
           );
 
           console.log("Previous element is " + previousQuestionId);
 
+          // Find the previous question element
           const previousElement = document.getElementById(previousQuestionId);
 
           // Ensure we have elements to work with
           if (!currentElement || !previousElement) return;
 
-          // Apply slide-out reverse animation to the current element
+          // Slide-out animation for current question
           currentElement.classList.add("question-slide-out-reverse");
 
           // Wait for the slide-out animation to finish
@@ -2265,16 +2266,42 @@
             // Prepare the previous element for sliding in from the left
             previousElement.style.display = "block";
 
-            // Force reflow to guarantee the animation plays
+            // Force a reflow to ensure the slide-in animation definitely occurs
             void previousElement.offsetWidth;
 
             previousElement.classList.add("question-slide-in-reverse");
 
-            // Clean up by removing the class after animation ends
+            // Clean up by removing the animation class after it ends
             setTimeout(() => {
               previousElement.classList.remove("question-slide-in-reverse");
+              
+              // -------------------------------
+              // RESET LOGIC FOR PREVIOUS QUESTION
+              // -------------------------------
+              
+              // For example, clear any <select> in the previous question
+              const allSelects = previousElement.querySelectorAll('select');
+              allSelects.forEach(selectEl => {
+                selectEl.value = '';           // or selectEl.selectedIndex = 0
+              });
+
+              // Clear any checkboxes or radio buttons if needed
+              const allInputs = previousElement.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+              allInputs.forEach(input => {
+                input.checked = false;
+              });
+
+              // If you want to reset text fields:
+              const allTextInputs = previousElement.querySelectorAll('input[type="text"]');
+              allTextInputs.forEach(input => {
+                input.value = '';
+              });
+
+              var listItems = "";
+
+              // You could similarly reset any relevant variables in your JS data if needed
             }, 500); // Match the animation duration
-          }, 250); // Wait for the slide-out animation to complete before showing the previous question
+          }, 250); // Wait for slide-out to complete before showing the previous question
         };
 
         // Update your HTML accordingly, replacing direct calls to goToPreviousQuestion with just goToPreviousQuestion() without parameters.
