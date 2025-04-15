@@ -136,6 +136,15 @@ body {
     font-weight: bold;
   }
 
+  .allergyCheckbox {
+    color: #000000;
+    transition: color 0.5s;
+  }
+
+  .allergyCheckbox:hover {
+    color: #d1ab4f;
+  }
+
   /* Select styles */
   select {
     width: 88%;
@@ -150,6 +159,12 @@ body {
     min-height: 50px;
     max-height: 10px;
     cursor: pointer;
+  }
+
+  select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0 #000000;
+    background-color: #f1d89c;
   }
 
   .full-width-bar {
@@ -176,12 +191,6 @@ body {
   .full-width-bar:hover,
   .full-width-bar:focus {
     background-color: #ccc; /* Slightly darker grey on hover and focus */
-  }
-
-  select:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 0 #000000;
-    background-color: #f1d89c;
   }
 
   .btn-start {
