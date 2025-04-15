@@ -136,12 +136,16 @@ body {
     font-weight: bold;
   }
 
+  label:hover {
+    color: #d1ab4f;
+  }
+
   /* Select styles */
   select {
     width: 88%;
     border-radius: 5px;
     border: 1px solid #000;
-    background-color: #f1d89c;
+    background-color: #d6b36e;
     color: #000000;
     font-size: 15px;
     font-weight: 550;
@@ -181,6 +185,7 @@ body {
   select:focus {
     outline: none !important;
     box-shadow: 0 0 0 0 #000000;
+    background-color: #f1d89c;
   }
 
   .btn-start {
@@ -194,12 +199,12 @@ body {
     outline: 2px solid #000000;
     width: 150px;
     height: 50px;
-    transition: background-color .3s, width .3s, height.3s;
+    transition: background-color .5s, width .5s;
   }
 
   .btn-start:hover {
     background: #E1D9D1;
-    width: 300px;
+    width: 450px;
   }
 
   .btn-navigation {
@@ -209,14 +214,13 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin: 10px 0px;
-    outline: 2px solid #000000;
     width: 100px;
     height: 30px;
-    transition: background-color 0.3s;
+    transition: background-color .5s;
   }
 
   .btn-navigation:hover {
-    background: #E1D9D1;
+    background: #f1d89c;
   }
 
   .button-space {
@@ -224,7 +228,7 @@ body {
     margin-left: 100px;
   }
 
-.btn-option {
+  .btn-option {
     background-color: #f1d89c;
     color: #000;
     margin: 10px;
@@ -234,20 +238,26 @@ body {
     padding: 10px 20px;
     font-weight: 550;
     font-size: 16px;
+    width: 100px;
     cursor: pointer;
     text-align: center;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
-}
+    transition: background-color .5s, width .5s;
+  }
 
-.btn-option:hover {
+  .btn-option:hover {
     background-color: #b0893d;
-}
+    width: 300px;
+  }
 
-#allergyForm {
-  accent-color: #d1ab4f;
-}
+  #exitPointParagraph {
+    padding: 0px 40px;
+  }
+
+  #allergyForm {
+    accent-color: #d1ab4f;
+  }
 
   /* Slide in from the right */
   @keyframes slideInRight {
@@ -382,7 +392,7 @@ body {
     max-width: 100%;
     border: 1px solid #ccc; /* Example border */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
   }
 
   .option-container img:hover {
@@ -552,6 +562,7 @@ body {
     padding-left: 15%;
     padding-right: 15%;
     font-weight: normal;
+    color:#000000 !important;
   }
 
   .modal-container {
