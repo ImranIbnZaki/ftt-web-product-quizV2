@@ -72,11 +72,6 @@ body {
     justify-content: center;
   }
 
-  #question {
-    padding: 20px;
-  }
-
-
   .concern-area-highlight {
     position: absolute;
     border-radius: 50%; /* makes it a circle */
