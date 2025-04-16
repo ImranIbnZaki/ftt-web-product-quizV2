@@ -40,9 +40,12 @@
       </label>
       
       <!-- Error message container -->
-      <p id="errorNotification" style="color: red; display: none; font-weight: bold;">
-        Please tick the box to agree before proceeding
-      </p>
+      <div id="errorMessageContainer">
+        <p id="errorNotification">
+          Please tick the box to consent before proceeding.
+        </p>
+      </div>
+
     </div>
     
     <div id="questionsContainer">
@@ -1099,14 +1102,14 @@
         // first page t&c
         const checkbox = document.getElementById("termsCheckbox");
         const startButton = document.getElementById("startConsultationButton");
-        const errorNotification = document.getElementById("errorNotification");
+        const errorNotification = document.getElementById("errorMessageContainer");
         const startButtonDisabled = document.getElementById("startButtonDisabled");
 
         // Listen for changes to the checkbox
         checkbox.addEventListener("change", function () {
           if (checkbox.checked) {
             startButton.disabled = false;
-            errorNotification.style.display = "none"; // Hide error if previously shown
+            errorMessageContainer.style.display = "none"; // Hide error if previously shown
           } else {
             startButton.disabled = true;
           }
@@ -1124,7 +1127,7 @@
 
         startButton.addEventListener("mouseover", function () {
           if (!checkbox.checked) {
-            errorNotification.style.display = "block";
+            errorMessageContainer.style.display = "block";
           }
         });
 
