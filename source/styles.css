@@ -227,7 +227,7 @@ body {
     width: 450px;
   }
 
-  .btn-navigation {
+  .btnBack {
     background:#ffffff;
     color:#000000;
     border: none;
@@ -239,8 +239,24 @@ body {
     transition: background-color .5s;
   }
 
-  .btn-navigation:hover {
+  .btnBack:hover {
     background: #f1d89c;
+  }
+
+  .btnNext {
+    background:#f1d89c;
+    color:#000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0px;
+    width: 100px;
+    height: 30px;
+    transition: background-color .5s;
+  }
+
+  .btnNext:hover {
+    background: #b0893d;
   }
 
   .button-space {
@@ -249,7 +265,7 @@ body {
   }
 
   .btn-option {
-    background-color: #f1d89c;
+    background: #f1d89c;
     color: #000;
     margin: 10px;
     border: none;

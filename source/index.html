@@ -57,7 +57,7 @@
         <p id="exitPointParagraph">
           Today I’ll create a personalised skincare routine for you!
         </p>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
       </div>
 
       <!-- Question: Skin Concern -->
@@ -98,7 +98,7 @@
           <button onclick="filterProducts('basedUK', 'yes')" class="btn-option">Yes</button>
         </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotUK"></div>
@@ -113,7 +113,7 @@
           <button onclick="filterProducts('overTwentyFive', 'yes')" class="btn-option">Yes</button>
         </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dot25"></div>
@@ -167,7 +167,7 @@
           <option value="wrinkles">Wrinkles</option>
           <option value="finelines">Fine lines</option>
         </select>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
          Dot container under each question
         <div class="dot-container">
@@ -242,7 +242,7 @@
           <option value="melasma">Melasma</option>
           <option value="undereyeDarkness">Undereye Darkness</option>
         </select>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
          Dot container under each question 
         <div class="dot-container">
@@ -324,7 +324,7 @@
             What is my acne type?
           </button> 
         </div>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <div class="dot-container" id="dotAcne"></div>
       </div>
@@ -349,7 +349,7 @@
           </button> 
         </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
         <div class="dot-container" id="dotSeverity"></div>
       </div>
 
@@ -364,7 +364,7 @@
           <button onclick="filterProducts('usesVitaminC', 'yes')" class="btn-option">Yes</button>
          </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotVitC"></div>
@@ -387,7 +387,7 @@
           <option value="15">15%</option>
           <option value="20">20%</option>
         </select>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
         <div class="dot-container">
           <span class="dotdark"></span>
           <span class="dotdark"></span>
@@ -441,8 +441,8 @@
         
         <!-- In your HTML, directly call gatherMultipleFilters() without passing questionType -->
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
-        <button onclick="gatherMultipleFilters('allergyForm')" class="btn-navigation">
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
+        <button onclick="gatherMultipleFilters('allergyForm')" class="btnNext">
           Proceed &#8594;
         </button>
        
@@ -462,24 +462,23 @@
           <button onclick="filterProducts('takePrescription', 'yes')" class="btn-option">Yes</button>
          </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <div class="dot-container" id="dotPrescription"></div>
       </div>
 
       <!-- Question: Non-prescription Retinoids Use -->
       <div id="questionRetinoidUse" class="question" style="display: none">
-        <label for="retinoidUseSelect"
-          >Are you using any non-prescription retinoids (such as
-          retinol)?</label
-        >
+        <label for="retinoidUseSelect" style="padding:0px 40px;">
+          Are you using any non-prescription retinoids (such as retinol)?
+        </label>
 
         <div>
           <button onclick="filterProducts('retinoidUse', 'no')" class="btn-option">No</button>
           <button onclick="filterProducts('retinoidUse', 'yes')" class="btn-option">Yes</button>
          </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
         <div class="dot-container" id="dotRetinoid"></div>
       </div>
 
@@ -489,16 +488,16 @@
         class="question"
         style="display: none"
       >
-        <label for="retinoidIrritationSelect"
-          >Have you experienced irritation while using these products?</label
-        >
+        <label for="retinoidIrritationSelect" style="padding:0px 40px;">
+          Have you experienced irritation while using these products?
+        </label>
 
         <div>
           <button onclick="filterProducts('retinoidIrritation', 'no')" class="btn-option">No</button>
           <button onclick="filterProducts('retinoidIrritation', 'yes')" class="btn-option">Yes</button>
-         </div>
+        </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotIrritation"></div>
@@ -518,7 +517,7 @@
           <option value="dry">Dry</option>
           <option value="combination">Combination</option>
         </select>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotSkinType"></div>
@@ -533,7 +532,7 @@
           <button onclick="filterProducts('skinSensitivity', 'yes')" class="btn-option">Yes</button>
          </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotSensitivity"></div>
@@ -542,6 +541,7 @@
       <!-- Question: skinConcernArea -->
       <div id="questionConcernArea" class="question" style="display: none">
         <label for="ConcernAreaSelect">Select your areas of concern</label>
+        <p style="font-size: 14px;">(Simply click "proceed" if none)</p>
         <div
           style="
             display: flex;
@@ -660,8 +660,8 @@
             <ul id="stringList"></ul>
           </div>
         </div>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
-        <button onclick="submitSelectedConcernAreas()" class="btn-navigation">Proceed &#8594;</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
+        <button onclick="submitSelectedConcernAreas()" class="btnNext">Proceed &#8594;</button>
 
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotArea"></div>
@@ -680,7 +680,7 @@
 
           <option value="rarely">Rarely</option>
         </select>
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotSunscreen"></div>
       </div>
@@ -711,7 +711,7 @@
           </button> 
         </div>
 
-        <button onclick="goToPreviousQuestion()" class="btn-navigation">&larr; Go Back</button>
+        <button onclick="goToPreviousQuestion()" class="btnBack">&larr; Go Back</button>
         <!-- Dot container under each question -->
         <div class="dot-container" id="dotComplexity"></div>
       </div>
@@ -2117,7 +2117,7 @@
             case "takePrescription":
               if (selection === "yes") {
                 goToExitPoint(
-                  "It is not recommended to use skincare products with active ingredients while on topical medication so please wait until your treatment ends and try again."
+                  "It is not recommended to use skincare products with active ingredients while on topical medication. Please wait until your treatment ends and try again."
                 );
                 nextQuestionId = "exitPoint";
                 break;
