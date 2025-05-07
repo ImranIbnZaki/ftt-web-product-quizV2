@@ -1893,7 +1893,7 @@
 
         // Expose the filter functions to the global scope
         filterProducts = function (questionType, selection) {
-          if (!selection.trim()) return; // Ignore if default 'Select...' is chosen
+          if (!selection.trim()) return;
 
           if (questionType === 'skinConcern') {
             // Initialize the product pool based on the selected skin concern
@@ -1920,7 +1920,7 @@
                 initialProductPool = [];
                 break;
             }
-            productPoolStack = [initialProductPool.slice()]; // Reset the product pool stack
+            productPoolStack = [initialProductPool.slice()];
           } else {
             const eliminationList = eliminationLists[questionType][selection];
             if (eliminationList) {
@@ -1964,13 +1964,12 @@
 
         filterProductsMultiple = function (questionType, selections) {
           console.log(selections);
-          // Check if selections array is empty or not provided
+
           if (!selections || selections.length === 0) {
             navigateToNextQuestion(questionType, "none");
             return;
           }
 
-          // Check if 'fragrances' is selected
           if (selections.includes('fragrances')) {
             navigateToNextQuestion(questionType, "fragrances");
             return;
@@ -2062,8 +2061,6 @@
               if (selection === "yes") {
                 nextQuestionId = "overTwentyFive";
               } else {
-                // Handle "No" case, assuming there's a message or action for non-UK users
-                // For the purpose of this switch, assume it ends the questionnaire or suggests an action
                 goToExitPoint(
                   "Apologies, but we currently only ship products within the UK."
                 );
@@ -2175,7 +2172,6 @@
         };
 
         // Function to show the next question
-        // Modified showNextQuestion function
         showNextQuestion = function (currentQuestionId, nextQuestionId) {
           const currentElement = document.getElementById(currentQuestionId);
           const nextElement = document.getElementById(nextQuestionId);
@@ -2188,7 +2184,7 @@
           setTimeout(
             () => {
               if (currentElement) {
-                currentElement.style.display = "none"; // Hide after animation
+                currentElement.style.display = "none";
                 currentElement.classList.remove("question-slide-out"); // Clean up class
               }
 
@@ -2239,8 +2235,6 @@
 
           // Pop the current navigation state off as we're navigating back
           if (navigationStack.length === 0) {
-            // If the stack is empty, we're at the start; handle accordingly
-            // Example: document.getElementById('questionsContainer').style.display = 'none';
             return;
           }
 
@@ -2351,7 +2345,7 @@
             lastQuestionElement.classList.add("question-slide-out");
             setTimeout(() => {
               // Once the slide-out is complete, proceed to display suggestions
-              lastQuestionElement.style.display = "none"; // Ensure the element is hidden
+              lastQuestionElement.style.display = "none";
               lastQuestionElement.classList.remove("question-slide-out"); // Clean up class
 
               const suggestionResultContainer =
@@ -2536,7 +2530,6 @@
                 }
 
               if (currentProductPool.length <= 0) {
-                // Handle case where no products are left after filtering
                 suggestionResultContainer.innerHTML = "<h2>No products match your criteria.</h2>";
               }
             }
@@ -2562,6 +2555,8 @@
         }
 
         /*
+        legacy codes
+
         function displayProducts(products, detailIds, imageIds, linkIds) {
           products.forEach((product, index) => {
             const detailElement = document.getElementById(detailIds[index]);
@@ -2586,7 +2581,6 @@
         }
 
         //perhaps could rework this function in the future
-
         */
 
         let selectedConcernArea = [];
@@ -2603,17 +2597,14 @@
 
           var listContainer = document.getElementById("stringList");
 
-          // Initialize an empty string that will hold the list items
           var listItems = "";
 
-          // Loop through the list of strings
           for (var i = 0; i < selectedConcernArea.length; i++) {
             // For each string, add a list item to the listItems string
             listItems +=
               "<li>" + capitalizeFirstLetter(selectedConcernArea[i]) + "</li>";
           }
 
-          // Set the innerHTML of the list container to the listItems string
           listContainer.innerHTML = listItems;
         };
 
