@@ -78,7 +78,6 @@ body {
     display: inline-block;
   }
 
-  /* Question container styles */
   #questionsContainer {
     display: none;
     flex-direction: column;
@@ -90,14 +89,13 @@ body {
     position: absolute;
     border-radius: 50%;
     background-color: rgba(255, 0, 0, 0.5);
-    pointer-events: none; /* ensures the click goes through the highlight */
+    pointer-events: none;
   }
 
   .question {
     background-color: #ffffff;
     padding-top: 20px;
     padding-bottom: 0;
-    /* Adds padding around the content inside the question panel */
     margin-bottom: 40px;
     width: 80%;
     max-width: 450px;
@@ -129,7 +127,7 @@ body {
   }
 
   .option-container img {
-    width: 80%; /* Or set a max-width if the images are too large */
+    width: 80%;
     margin-bottom: 10px;
   }
 
@@ -140,12 +138,10 @@ body {
     justify-content: center;
   }
 
-  /* Label styles */
   label {
     display: block;
     margin-top: 5px;
     margin-bottom: 25px;
-    /* Adjust as needed */
     color: #000000;
     font-weight: bold;
   }
@@ -159,7 +155,6 @@ body {
     color: #d1ab4f;
   }
 
-  /* Select styles */
   select {
     width: 88%;
     border-radius: 5px;
@@ -182,29 +177,29 @@ body {
   }
 
   .full-width-bar {
-    display: block; /* Ensures the button takes up the full width of the container */
-    width: 100%; /* Button takes the full width of its container */
+    display: block;
+    width: 100%;
     height: 50px;
-    margin: 10px 0; /* Add some space above and below the button */
-    padding: 10px 0; /* Padding to increase the height of the button */
-    background-color: #e0e0e0; /* Grey background */
-    color: #000; /* Black text color */
-    font-size: 15px; /* Text size */
-    font-weight: normal; /* Make text bold */
-    border: none; /* Removes the border */
-    border-radius: 0; /* No rounded corners */
-    cursor: pointer; /* Hand cursor on hover */
-    font-size: 15px; /* Text size */
-    text-align: center; /* Center the text inside the button */
-    outline: none; /* Remove the focus outline */
-    -webkit-appearance: none; /* Removes the default webkit button styling */
-    -moz-appearance: none; /* Removes the default Mozilla button styling */
-    appearance: none; /* Removes the default button styling */
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: #e0e0e0;
+    color: #000;
+    font-size: 15px;
+    font-weight: normal;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   .full-width-bar:hover,
   .full-width-bar:focus {
-    background-color: #ccc; /* Slightly darker grey on hover and focus */
+    background-color: #ccc;
   }
 
   .btn-start {
@@ -367,13 +362,9 @@ body {
     padding: 0;
     margin: 0 auto;
     padding-top: 5px;
-    /* Adjust this value as needed */
-    /* Center the section with some margin */
     border-radius: 15px;
-    /* Rounded corners */
     width: 100%;
     text-align: center;
-    /* Center the text */
     justify-content: center;
     align-items: center;
     padding-bottom: 30px;
@@ -381,9 +372,7 @@ body {
 
   #suggestionResult h2 {
     color: #333;
-    /* Dark color for the title */
     margin-bottom: 15px;
-    /* Space between title and list */
   }
 
   #suggestionResult ul {
@@ -394,22 +383,13 @@ body {
 
   #suggestionResult li {
     margin: 10px auto;
-    /* Top and bottom margin 10px, left and right margin auto to center the items */
     padding-top: 10px;
     padding-bottom: 10px;
-    /* Rounded corners for each item */
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          /* Subtle shadow for each item */
-    color: #333;
-    /* Text color */
     font-weight: medium;
     font-family: "Times New Roman", serif;
-    /* Make the product names stand out */
     width: 100%;
-    /* Set a specific width for each item */
     display: block;
-    /* Ensure the items are block-level for margin auto to work */
-    overflow: hidden; /* Add this line to prevent overflow */
+    overflow: hidden;
   }
 
   /* Adjustments for animations */
@@ -420,18 +400,18 @@ body {
 
   .option-container {
     text-align: center;
-    margin-bottom: 20px; /* Adjust as needed */
+    margin-bottom: 20px;
   }
 
   .option-container img {
     max-width: 100%;
-    border: 1px solid #ccc; /* Example border */
+    border: 1px solid #ccc;
     cursor: pointer;
     transition: all .4s ease;
   }
 
   .option-container img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1);
   }
 
   .select-button {
@@ -447,7 +427,7 @@ body {
   }
 
   .select-button:hover {
-    background: #f8f8f8; /* Light grey background on hover */
+    background: #f8f8f8;
   }
 
   rect:hover {
@@ -478,11 +458,11 @@ body {
   .hero-product-details {
     text-align: left;
     max-width: 400px;
-    padding: 30px; /* Padding inside the details section */
+    padding: 30px;
     box-sizing: border-box;
-    background-color: #ffffff; /* White background */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
   }
 
   #heroContainer {
@@ -514,9 +494,9 @@ body {
 
   .essentials-container {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: center; /* Center the items */
-    gap: 20px; /* Add space between items */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
 
   .essentials-item {
@@ -526,7 +506,7 @@ body {
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
     max-width: 400px;
     text-align: center;
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    box-sizing: border-box;
   }
 
   .essentials-item img.product-image {
@@ -560,9 +540,9 @@ body {
 
   .advanced-container {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: center; /* Center the items */
-    gap: 20px; /* Add space between items */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
 
   .advanced-item {
@@ -572,7 +552,7 @@ body {
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
     max-width: 400px;
     text-align: center;
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    box-sizing: border-box;
   }
 
   .advanced-item img.product-image {
@@ -601,13 +581,13 @@ body {
   }
 
   .modal-container {
-    position: fixed; /* Stay in place */
+    position: fixed;
     left: 0;
     top: 0;
     z-index: 1;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
   }
 
   .modal {
@@ -615,7 +595,7 @@ body {
     max-height: 80%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     position: fixed;
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto;
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%);
