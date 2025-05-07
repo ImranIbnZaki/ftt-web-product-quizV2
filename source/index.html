@@ -17,7 +17,7 @@
       <div class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
-          <div id="modalDynamicContent"></div> <!-- Placeholder for dynamic content -->
+          <div id="modalDynamicContent"></div>
         </div>
       </div>
     </div>
@@ -41,7 +41,6 @@
         Please tick here to confirm that you agree to us managing the personal data you share with us.
       </label>
       
-      <!-- Error message container -->
       <div id="errorMessageContainer">
         <p id="errorNotification">
           Please tick the box to consent before proceeding.
@@ -87,7 +86,6 @@
           </button> 
         </div>
 
-        <!-- Dot container under each question -->
         <div class="dot-container" id="dotConcern"></div>
       </div>
 
@@ -852,13 +850,12 @@
       generateDots("dotComplexity", 12);
 
       document.addEventListener("DOMContentLoaded", function () {
-        // Full pool of products
+
         let navigationStack = []; // This will store the IDs of the questions as the user navigates through them.
 
         let rountineSize = 0;
 
         /* legacy codes
-
         let initialProductPool = [
           "Oil Control Serum",
           "Oil Control Pads",
@@ -1022,7 +1019,8 @@
 
         // Modals
         const modalContents = {
-          skinConcern: `
+          skinConcern:
+          `
             <h2>Which skin concern is my priority?</h2>
               <h3>Dry/Dehydrated</h3>
                 <p>If your facial skin is rough, flaky, or thirsty, we can help rehydrate and prevent dry skin from taking over.</p>
@@ -1037,7 +1035,8 @@
               <h3>Improvements</h3>
                 <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow.</p>
           `,
-          level: `
+          level:
+          `
             <h2>What level of complexity should you choose?</h2>
               <h3>Hero</h3>
                 <p>Your ultimate go-to product, carefully selected to deliver maximum impact with minimal effort.</p>
@@ -1046,7 +1045,8 @@
               <h3>Advanced</h3>
                 <p>The ultimate skincare experience meticulously curated to provide the perfect synergy for radiant and healthy skin.</p>
           `,
-          severity: `
+          severity:
+          `
             <h2>What do these severity levels mean?</h2>
               <h3>Mild</h3>
                 <p>Occasional breakouts with small, surface-level blemishes like blackheads and whiteheads. Skin may appear slightly congested, but inflammation is minimal.</p>
@@ -1055,7 +1055,8 @@
               <h3>Severe</h3>
                 <p>Persistent, deep, and painful acne, including large cysts and nodules. This level of acne is often accompanied by significant redness, inflammation, and an increased risk of scarring.</p>
           `,
-          acneType: `
+          acneType:
+          `
             <h2> What is my acne type? <h2>
               <h3>Cystic</h3>
                 <p>Inflammatory acne that causes painful, pus-filled pimples to form deep under the skin.</p>
@@ -1074,26 +1075,22 @@
 
         // Function to open the modal with dynamic content
         function openModal(contentKey) {
-          modalContent.innerHTML = modalContents[contentKey]; // Inject the content
+          modalContent.innerHTML = modalContents[contentKey];
           modal.style.display = "block";
         }
 
-        // Function to close the modal
         function closeModal() {
           modal.style.display = "none";
         }
 
-        // Close modal on "X" click
         modalClose.onclick = closeModal;
 
-        // Close modal when clicking outside of it
         window.onclick = function (event) {
           if (event.target == modal) {
             closeModal();
           }
         };
 
-        // Example: Attach to a button
         document.querySelectorAll(".modal-trigger").forEach((button) => {
           button.addEventListener("click", function () {
             const contentKey = button.getAttribute("data-modal-content");
@@ -1476,9 +1473,9 @@
             rarely: [],
           },
           routineComplexity: {
-            hero: [], //output 1 product (has to be active cream, serum, lotion, exfoliant)
-            essentials: [], // output 3 products (Cleanser, active, lotion)
-            advanced: [], //output 5 products (cleanser, active, moisturiser/lotion/cream, extra, spf)
+            hero: [], //output 1 product
+            essentials: [], // output top 3 products
+            advanced: [], //output max products
           },
         };
 
@@ -1893,7 +1890,6 @@
           },
         };
 
-        // Use a stack to track changes in product pool for each question
 
         // Expose the filter functions to the global scope
         filterProducts = function (questionType, selection) {
@@ -2282,10 +2278,6 @@
             // Clean up by removing the animation class after it ends
             setTimeout(() => {
               previousElement.classList.remove("question-slide-in-reverse");
-              
-              // -------------------------------
-              // RESET LOGIC FOR PREVIOUS QUESTION
-              // -------------------------------
               
               // For example, clear any <select> in the previous question
               const allSelects = previousElement.querySelectorAll('select');
