@@ -8,7 +8,6 @@ body {
 
   .title-large {
     font-family: "Bodoni Moda", serif;
-    font-weight: 300;
     font-size: 45px;
     text-align: center;
     color: #000000;
@@ -153,7 +152,7 @@ body {
 
   .allergyCheckbox {
     color: #000000;
-    transition: color 0.5s;
+    transition: color .4s;
   }
 
   .allergyCheckbox:hover {
@@ -219,7 +218,7 @@ body {
     outline: 2px solid #000000;
     width: 150px;
     height: 50px;
-    transition: background-color .5s, width .5s;
+    transition: background-color .4s, width .4s;
   }
 
   .btn-start:hover {
@@ -236,7 +235,7 @@ body {
     margin: 10px 0px;
     width: 100px;
     height: 30px;
-    transition: background-color .5s;
+    transition: background-color .4s;
   }
 
   .btnBack:hover {
@@ -252,7 +251,7 @@ body {
     margin: 10px 0px;
     width: 100px;
     height: 30px;
-    transition: background-color .5s;
+    transition: background-color .4s;
   }
 
   .btnNext:hover {
@@ -279,7 +278,7 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
-    transition: background-color .5s, width .5s;
+    transition: background-color .4s, width .4s;
   }
 
   .btn-option:hover {
@@ -428,7 +427,7 @@ body {
     max-width: 100%;
     border: 1px solid #ccc; /* Example border */
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all .4s ease;
   }
 
   .option-container img:hover {
