@@ -281,6 +281,12 @@ body {
     width: 300px;
   }
 
+  .btn-buyNow {
+    border-radius: 10px;
+    background: #262820;
+    color: #b0893d;
+  }
+
   #exitPointParagraph {
     padding: 0px 40px;
   }
