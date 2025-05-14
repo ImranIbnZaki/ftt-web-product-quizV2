@@ -725,22 +725,24 @@
       <div id="heroSection" style="display: none">
         <div style="text-align: center; margin: 20px">
           <h2 class="title-large">Hero Product</h2>
-          <div
-            id="heroContainer"
-          >
-            <a href="" target="_blank" id="heroProductLink">
-              <img
-                id="heroProductImage"
-                src=""
-                alt="Hero Product"
-              />
-            </a>
-            <div
-              id="heroProductDetails"
-              style="text-align: left; max-width: 400px"
-              \
-              class="hero-product-details"
-            ></div>
+          <div id="heroContainer">
+            <img
+              id="heroProductImage"
+              src=""
+              alt="Hero Product"
+            />
+            <div>
+              <div
+                id="heroProductDetails"
+                style="text-align: left; max-width: 400px"
+                \
+                class="hero-product-details"
+              >
+                <button>
+                  <a href="" target="_blank" id="heroProductLink">Buy Now</a>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2370,6 +2372,7 @@
                 `;
                 document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
                 document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
+
 
               } else if (complexity == "essentials") {
                 document.getElementById("essentialsSection").style.display = "block";
