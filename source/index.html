@@ -2363,13 +2363,12 @@
 
                 const hero1 = heroProduct[0];
 
-                document.getElementById("heroProductDetails").innerHTML = 
-                document.getElementById("heroProductDetails").innerHTML +
+                document.getElementById("heroProductDetails").innerHTML =
                 `
                   <h3>${hero1}</h3>
                   <p>${productBlurbs[hero1]?.blurb || "No description"}</p>
                   <p>${productBlurbs[hero1]?.directions || "No directions"}</p>
-                `;
+                ` +  document.getElementById("heroProductDetails").innerHTML;
                 document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
                 document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
