@@ -282,9 +282,18 @@ body {
   }
 
   .btn-buyNow {
-    border-radius: 10px;
+    border-radius: 20px;
+    background: #f1d89c;
+    color: #262820;
+    width: 150px;
+    height: 40px;
+    transition: background .4s, color .4s, width 0.4s
+  }
+
+  .btn-buyNow:hover {
     background: #262820;
-    color: #b0893d;
+    color: #f1d89c;
+    width: 250px;
   }
 
   #exitPointParagraph {
@@ -462,7 +471,6 @@ body {
   }
 
   .hero-product-details {
-    text-align: left;
     max-width: 400px;
     padding: 30px;
     box-sizing: border-box;
