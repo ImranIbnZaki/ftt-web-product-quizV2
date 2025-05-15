@@ -50,7 +50,7 @@ body {
     height: 60px;
     width: 450px;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 15px;
     align-content: center;
   }
 
@@ -234,6 +234,8 @@ body {
 
   .btnBack:hover {
     background: #f1d89c;
+    transform: translate(0, -5px);
+    
   }
 
   .btnNext {
@@ -250,6 +252,7 @@ body {
 
   .btnNext:hover {
     background: #b0893d;
+    transform: translate(0, -5px);
   }
 
   .button-space {
@@ -262,7 +265,7 @@ body {
     color: #000;
     margin: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     outline: 2px solid #000;
     padding: 10px 20px;
     font-weight: 550;
@@ -278,24 +281,6 @@ body {
 
   .btn-option:hover {
     background: #b0893d;
-    width: 300px;
-  }
-
-  .btn-buyNowHero {
-    border-radius: 20px;
-    background: #f1d89c;
-    color: #262820;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 200px;
-    height: 40px;
-    transition: all .4s;
-  }
-
-  .btn-buyNowHero:hover {
-    background: #262820;
-    color: #f1d89c;
     width: 300px;
   }
 
@@ -659,7 +644,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
   }
 
   .close {
