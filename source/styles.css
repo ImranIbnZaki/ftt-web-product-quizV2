@@ -585,6 +585,11 @@ body {
     max-width: 400px;
     text-align: center;
     box-sizing: border-box;
+    transition: all .4s;
+  }
+
+  .advanced-item:hover {
+    transform: translate(0, -15px);
   }
 
   .advanced-item img.product-image {
