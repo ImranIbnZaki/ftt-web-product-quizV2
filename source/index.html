@@ -2390,6 +2390,10 @@
               document.getElementById("essentialsSection").style.display = "none";
               document.getElementById("advancedSection").style.display = "none";
 
+              if (currentProductPool.length <= 0) {
+                suggestionResultContainer.innerHTML = "<h2>No products match your criteria.</h2>";
+              }
+
               if (complexity == "hero") {
                 document.getElementById("heroSection").style.display = "block";
                 const heroProduct = currentProductPool.slice(0, 1);
@@ -2435,15 +2439,21 @@
                 document.getElementById("essentials2ProductImage").src = productBlurbs[essentials2]?.imgURL;
                 document.getElementById("essentials2ProductLink").href = productBlurbs[essentials2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                document.getElementById("essentials3").innerHTML =
-                document.getElementById("essentials3").innerHTML +
-                `
-                  <h3>${essentials3}</h3>
-                  <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
-                document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                if (poolLength> 2) {
+                  document.getElementById("essentials3").innerHTML =
+                  document.getElementById("essentials3").innerHTML +
+                  `
+                    <h3>${essentials3}</h3>
+                    <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
+                    <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
+                  `;
+                  document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
+                  document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                }
+
+                if (poolLength < 3) {
+                  document.getElementById("essentials3").remove();
+                }
 
               } else if (complexity == "advanced") {
                 document.getElementById("advancedSection").style.display = "block";
@@ -2479,74 +2489,80 @@
                 document.getElementById("advanced2ProductImage").src = productBlurbs[advanced2]?.imgURL;
                 document.getElementById("advanced2ProductLink").href = productBlurbs[advanced2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                document.getElementById("advanced3").innerHTML = 
-                document.getElementById("advanced3").innerHTML +
-                `
-                  <h3>${advanced3}</h3>
-                  <p>${productBlurbs[advanced3]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[advanced3]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("advanced3ProductImage").src = productBlurbs[advanced3]?.imgURL;
-                document.getElementById("advanced3ProductLink").href = productBlurbs[advanced3]?.prodURL || "https://www.francesturnertraill.co.uk/";
-
-                if (poolLength > 3) {
-                  document.getElementById("advanced4").innerHTML = 
-                  document.getElementById("advanced4").innerHTML +
+                if (poolLength > 2) {
+                  document.getElementById("advanced3").innerHTML = 
+                  document.getElementById("advanced3").innerHTML +
                   `
-                    <h3>${advanced4}</h3>
-                    <p>${productBlurbs[advanced4]?.blurb || "No description"}</p>
-                    <p>${productBlurbs[advanced4]?.directions || "No directions"}</p>
+                    <h3>${advanced3}</h3>
+                    <p>${productBlurbs[advanced3]?.blurb || "No description"}</p>
+                    <p>${productBlurbs[advanced3]?.directions || "No directions"}</p>
                   `;
-                  document.getElementById("advanced4ProductImage").src = productBlurbs[advanced4]?.imgURL;
-                  document.getElementById("advanced4ProductLink").href = productBlurbs[advanced4]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                  document.getElementById("advanced3ProductImage").src = productBlurbs[advanced3]?.imgURL;
+                  document.getElementById("advanced3ProductLink").href = productBlurbs[advanced3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                  if (poolLength > 4) {
-                    document.getElementById("advanced5").innerHTML = 
-                    document.getElementById("advanced5").innerHTML +
+                  if (poolLength > 3) {
+                    document.getElementById("advanced4").innerHTML = 
+                    document.getElementById("advanced4").innerHTML +
                     `
-                      <h3>${advanced5}</h3>
-                      <p>${productBlurbs[advanced5]?.blurb || "No description"}</p>
-                      <p>${productBlurbs[advanced5]?.directions || "No directions"}</p>
+                      <h3>${advanced4}</h3>
+                      <p>${productBlurbs[advanced4]?.blurb || "No description"}</p>
+                      <p>${productBlurbs[advanced4]?.directions || "No directions"}</p>
                     `;
-                    document.getElementById("advanced5ProductImage").src = productBlurbs[advanced5]?.imgURL;
-                    document.getElementById("advanced5ProductLink").href = productBlurbs[advanced5]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                    document.getElementById("advanced4ProductImage").src = productBlurbs[advanced4]?.imgURL;
+                    document.getElementById("advanced4ProductLink").href = productBlurbs[advanced4]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                    if (poolLength > 5) {
-                      document.getElementById("advanced6").innerHTML = 
-                      document.getElementById("advanced6").innerHTML +
+                    if (poolLength > 4) {
+                      document.getElementById("advanced5").innerHTML = 
+                      document.getElementById("advanced5").innerHTML +
                       `
-                        <h3>${advanced6}</h3>
-                        <p>${productBlurbs[advanced6]?.blurb || "No description"}</p>
-                        <p>${productBlurbs[advanced6]?.directions || "No directions"}</p>
+                        <h3>${advanced5}</h3>
+                        <p>${productBlurbs[advanced5]?.blurb || "No description"}</p>
+                        <p>${productBlurbs[advanced5]?.directions || "No directions"}</p>
                       `;
-                      document.getElementById("advanced6ProductImage").src = productBlurbs[advanced6]?.imgURL;
-                      document.getElementById("advanced6ProductLink").href = productBlurbs[advanced6]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                      document.getElementById("advanced5ProductImage").src = productBlurbs[advanced5]?.imgURL;
+                      document.getElementById("advanced5ProductLink").href = productBlurbs[advanced5]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                      if (poolLength > 6) {
-                        document.getElementById("advanced7").innerHTML = 
-                        document.getElementById("advanced7").innerHTML +
+                      if (poolLength > 5) {
+                        document.getElementById("advanced6").innerHTML = 
+                        document.getElementById("advanced6").innerHTML +
                         `
-                          <h3>${advanced7}</h3>
-                          <p>${productBlurbs[advanced7]?.blurb || "No description"}</p>
-                          <p>${productBlurbs[advanced7]?.directions || "No directions"}</p>
+                          <h3>${advanced6}</h3>
+                          <p>${productBlurbs[advanced6]?.blurb || "No description"}</p>
+                          <p>${productBlurbs[advanced6]?.directions || "No directions"}</p>
                         `;
-                        document.getElementById("advanced7ProductImage").src = productBlurbs[advanced7]?.imgURL;
-                        document.getElementById("advanced7ProductLink").href = productBlurbs[advanced7]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                        document.getElementById("advanced6ProductImage").src = productBlurbs[advanced6]?.imgURL;
+                        document.getElementById("advanced6ProductLink").href = productBlurbs[advanced6]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
-                        if (poolLength > 7) {
-                          document.getElementById("advanced8").innerHTML = 
-                          document.getElementById("advanced8").innerHTML +
+                        if (poolLength > 6) {
+                          document.getElementById("advanced7").innerHTML = 
+                          document.getElementById("advanced7").innerHTML +
                           `
-                            <h3>${advanced8}</h3>
-                            <p>${productBlurbs[advanced8]?.blurb || "No description"}</p>
-                            <p>${productBlurbs[advanced8]?.directions || "No directions"}</p>
+                            <h3>${advanced7}</h3>
+                            <p>${productBlurbs[advanced7]?.blurb || "No description"}</p>
+                            <p>${productBlurbs[advanced7]?.directions || "No directions"}</p>
                           `;
-                          document.getElementById("advanced8ProductImage").src = productBlurbs[advanced8]?.imgURL;
-                          document.getElementById("advanced8ProductLink").href = productBlurbs[advanced8]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                          document.getElementById("advanced7ProductImage").src = productBlurbs[advanced7]?.imgURL;
+                          document.getElementById("advanced7ProductLink").href = productBlurbs[advanced7]?.prodURL || "https://www.francesturnertraill.co.uk/";
+
+                          if (poolLength > 7) {
+                            document.getElementById("advanced8").innerHTML = 
+                            document.getElementById("advanced8").innerHTML +
+                            `
+                              <h3>${advanced8}</h3>
+                              <p>${productBlurbs[advanced8]?.blurb || "No description"}</p>
+                              <p>${productBlurbs[advanced8]?.directions || "No directions"}</p>
+                            `;
+                            document.getElementById("advanced8ProductImage").src = productBlurbs[advanced8]?.imgURL;
+                            document.getElementById("advanced8ProductLink").href = productBlurbs[advanced8]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                          }
                         }
                       }
                     }
                   }
+                }
+
+                if (poolLength < 3) {
+                  document.getElementById("advanced3").remove();
                 }
 
                 if (poolLength < 4) {
@@ -2564,10 +2580,6 @@
                 if (poolLength < 8) {
                   document.getElementById("advanced8").remove();
                 }
-
-              if (currentProductPool.length <= 0) {
-                suggestionResultContainer.innerHTML = "<h2>No products match your criteria.</h2>";
-              }
             }
 
               // Ensure the result container is initially visible for the animation
