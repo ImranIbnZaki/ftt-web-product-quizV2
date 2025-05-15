@@ -50,7 +50,7 @@ body {
     height: 60px;
     width: 450px;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 15px;
     align-content: center;
   }
 
@@ -147,7 +147,7 @@ body {
 
   .allergyCheckbox {
     color: #000000;
-    transition: color .4s;
+    transition: all .4s;
   }
 
   .allergyCheckbox:hover {
@@ -156,7 +156,7 @@ body {
 
   select {
     width: 88%;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid #000;
     background-color: #d6b36e;
     color: #000000;
@@ -205,14 +205,14 @@ body {
     background:#ffffff;
     color:#000000;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: 600;
     margin: 10px 0px;
     outline: 2px solid #000000;
     width: 150px;
     height: 50px;
-    transition: background-color .4s, width .4s;
+    transition: all .4s;
   }
 
   .btn-start:hover {
@@ -220,36 +220,39 @@ body {
     width: 450px;
   }
 
-  .btnBack {
+  .btn-back {
     background:#ffffff;
     color:#000000;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     margin: 10px 0px;
     width: 100px;
     height: 40px;
-    transition: background-color .4s;
+    transition: all .4s;
   }
 
-  .btnBack:hover {
+  .btn-back:hover {
     background: #f1d89c;
+    transform: translate(0, -5px);
+    
   }
 
-  .btnNext {
+  .btn-next {
     background:#f1d89c;
     color:#000000;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     margin: 10px 0px;
     width: 100px;
     height: 40px;
-    transition: background-color .4s;
+    transition: all .4s;
   }
 
-  .btnNext:hover {
+  .btn-next:hover {
     background: #b0893d;
+    transform: translate(0, -5px);
   }
 
   .button-space {
@@ -262,7 +265,7 @@ body {
     color: #000;
     margin: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     outline: 2px solid #000;
     padding: 10px 20px;
     font-weight: 550;
@@ -273,11 +276,31 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
-    transition: background-color .4s, width .4s;
+    transition: all .4s;
   }
 
   .btn-option:hover {
-    background-color: #b0893d;
+    background: #b0893d;
+    width: 300px;
+  }
+
+  .btn-buyNow {
+    border-radius: 20px;
+    background: #f1d89c;
+    color: #262820;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    margin: 0 50px;
+    transition: all .4s;
+  }
+
+  .btn-buyNow:hover {
+    background: #262820;
+    color: #f1d89c;
+    margin: 0 0;
     width: 300px;
   }
 
@@ -456,13 +479,17 @@ body {
   }
 
   .hero-product-details {
-    text-align: left;
     max-width: 400px;
     padding: 30px;
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all .4s;
+  }
+
+  .hero-product-details:hover {
+     transform: translate(0, -15px);
   }
 
   #heroContainer {
@@ -481,7 +508,7 @@ body {
   }
 
   #essentialsSection {
-    padding: 40px;
+    padding: 0 40px;
     border-radius: 15px;
     text-align: center;
   }
@@ -507,6 +534,11 @@ body {
     max-width: 400px;
     text-align: center;
     box-sizing: border-box;
+    transition: all .4s;
+  }
+
+  .essentials-item:hover {
+     transform: translate(0, -15px);
   }
 
   .essentials-item img.product-image {
@@ -553,6 +585,11 @@ body {
     max-width: 400px;
     text-align: center;
     box-sizing: border-box;
+    transition: all .4s;
+  }
+
+  .advanced-item:hover {
+    transform: translate(0, -15px);
   }
 
   .advanced-item img.product-image {
@@ -612,7 +649,7 @@ body {
     text-decoration: underline;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
   }
 
   .close {
