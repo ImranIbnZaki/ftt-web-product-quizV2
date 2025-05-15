@@ -737,7 +737,7 @@
                 class="hero-product-details"
               >
                 <a href="" target="_blank" id="heroProductLink">
-                  <button class="btn-buyNow">
+                  <button class="btn-buyNowHero">
                     Buy Now
                   </button>
                 </a>
@@ -752,18 +752,27 @@
         <h2 class="title-large">Essentials</h2>
         <div class="essentials-container">
           <div id="essentials1" class="essentials-item">
+            <img id="essentials1ProductImage" src="" alt="Essentials Product 1" class="product-image" />
             <a href="" target="_blank" id="essentials1ProductLink">
-              <img id="essentials1ProductImage" src="" alt="Essentials Product 1" class="product-image" />
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
             </a>
           </div>
           <div id="essentials2" class="essentials-item">
+            <img id="essentials2ProductImage" src="" alt="Essentials Product 1" class="product-image" />
             <a href="" target="_blank" id="essentials2ProductLink">
-              <img id="essentials2ProductImage" src="" alt="Essentials Product 2" class="product-image" />
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
             </a>
           </div>
           <div id="essentials3" class="essentials-item">
+            <img id="essentials3ProductImage" src="" alt="Essentials Product 1" class="product-image" />
             <a href="" target="_blank" id="essentials3ProductLink">
-              <img id="essentials3ProductImage" src="" alt="Essentials Product 3" class="product-image" />
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
             </a>
           </div>
         </div>
@@ -2381,33 +2390,30 @@
                 const essentials2 = essentialsProducts[1];
                 const essentials3 = essentialsProducts[2];
 
-                document.getElementById("essentials1").innerHTML = 
-                document.getElementById("essentials1").innerHTML +
+                document.getElementById("essentials1").innerHTML =
                 `
                   <h3>${essentials1}</h3>
                   <p>${productBlurbs[essentials1]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials1]?.directions || "No directions"}</p>
-                `;
+                ` + document.getElementById("essentials1").innerHTML;
                 document.getElementById("essentials1ProductImage").src = productBlurbs[essentials1]?.imgURL;
                 document.getElementById("essentials1ProductLink").href = productBlurbs[essentials1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
                 document.getElementById("essentials2").innerHTML =
-                document.getElementById("essentials2").innerHTML +
                 `
                   <h3>${essentials2}</h3>
                   <p>${productBlurbs[essentials2]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials2]?.directions || "No directions"}</p>
-                `;
+                ` + document.getElementById("essentials2").innerHTML;
                 document.getElementById("essentials2ProductImage").src = productBlurbs[essentials2]?.imgURL;
                 document.getElementById("essentials2ProductLink").href = productBlurbs[essentials2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
                 document.getElementById("essentials3").innerHTML =
-                document.getElementById("essentials3").innerHTML +
                 `
                   <h3>${essentials3}</h3>
                   <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
-                `;
+                ` + document.getElementById("essentials3").innerHTML;
                 document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
                 document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 

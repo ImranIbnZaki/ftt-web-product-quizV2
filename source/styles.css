@@ -281,7 +281,7 @@ body {
     width: 300px;
   }
 
-  .btn-buyNow {
+  .btn-buyNowHero {
     border-radius: 20px;
     background: #f1d89c;
     color: #262820;
@@ -293,9 +293,29 @@ body {
     transition: all .4s;
   }
 
+  .btn-buyNowHero:hover {
+    background: #262820;
+    color: #f1d89c;
+    width: 300px;
+  }
+
+  .btn-buyNow {
+    border-radius: 20px;
+    background: #f1d89c;
+    color: #262820;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    margin: 0 50px;
+    transition: all .4s;
+  }
+
   .btn-buyNow:hover {
     background: #262820;
     color: #f1d89c;
+    margin: 0 0;
     width: 300px;
   }
 
@@ -529,6 +549,11 @@ body {
     max-width: 400px;
     text-align: center;
     box-sizing: border-box;
+    transition: all .4s;
+  }
+
+  .essentials-item:hover {
+     transform: translate(0, -15px);
   }
 
   .essentials-item img.product-image {
