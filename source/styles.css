@@ -153,6 +153,14 @@ body {
   .allergyCheckbox:hover {
     color: #d1ab4f;
     transform: translate(0, -2px);
+    font-size: 18px;
+  }
+
+  select,
+  ::picker(select) {
+    appearance: base-select;
+    border: none;
+    background: transparent;
   }
 
   select {
@@ -162,9 +170,8 @@ body {
     background-color: #d6b36e;
     color: #000000;
     font-size: 15px;
-    font-weight: 550;
-    text-align: center;
-    height: auto;
+    align-items: center;
+    padding: 10px 20px;
     min-height: 50px;
     max-height: 10px;
     cursor: pointer;
@@ -175,6 +182,50 @@ body {
     outline: none !important;
     background-color: #f1d89c;
   }
+
+  select::picker-icon {
+    color: #000000;
+    transition: 0.4s rotate;
+  }
+
+  select:open::picker-icon {
+    rotate: 180deg;
+  }
+
+  option {
+    gap: 20px;
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 5px 10px;
+    padding-right: 35px;
+    justify-content: center;
+    height: 35px;
+    transition: all 0.4s;
+  }
+
+  option:first-of-type {
+    border-radius: 8px 8px 0 0;
+  }
+
+  option:last-of-type {
+    border-radius: 0 0 8px 8px;
+  }
+
+  option:not(option:last-of-type) {
+    border-bottom: none;
+  }
+
+  option:nth-of-type(odd) {
+  background: #fff;
+  }
+
+  option:hover {
+    background: #525A4F;
+    font-weight: bold;
+    font-size: 18px;
+    color: #f1d89c;
+  }
+
 
   .full-width-bar {
     display: block;
@@ -300,7 +351,7 @@ body {
   }
 
   .btn-buyNow:hover {
-    background: #262820;
+    background: #525A4F;
     color: #f1d89c;
     margin: 0 0;
     width: 300px;
@@ -623,6 +674,11 @@ body {
     padding-right: 15%;
     font-weight: normal;
     color:#000000 !important;
+    transition: all .4s;
+  }
+
+  .confirmTerms:hover {
+    font-size: 18px;
   }
 
   .modal-container {
