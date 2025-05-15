@@ -527,7 +527,7 @@ body {
   }
 
   .essentials-item {
-    background-color: #fff;
+    background-color: #ffffffb3;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
@@ -539,11 +539,14 @@ body {
 
   .essentials-item:hover {
      transform: translate(0, -15px);
+     background-color: #ffffffff;
+     box-shadow: 2px 4px 10px #000000;
   }
 
   .essentials-item img.product-image {
     width: 100px;
     margin-bottom: 20px;
+    border-radius: 15px;
   }
 
   .essentials-item h3 {
@@ -578,7 +581,7 @@ body {
   }
 
   .advanced-item {
-    background-color: #fff;
+    background-color: #ffffffb3;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
@@ -590,11 +593,14 @@ body {
 
   .advanced-item:hover {
     transform: translate(0, -15px);
+    background-color: #ffffffff;
+    box-shadow: 2px 4px 10px #000000;
   }
 
   .advanced-item img.product-image {
     width: 100px;
     margin-bottom: 20px;
+    border-radius: 15px;
   }
 
   .advanced-item h3 {
