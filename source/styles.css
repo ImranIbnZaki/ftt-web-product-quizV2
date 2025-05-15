@@ -485,7 +485,7 @@ body {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all .4s ease;
+    transition: all .4s;
   }
 
   .hero-product-details:hover {
