@@ -2396,12 +2396,13 @@
 
                 const hero1 = heroProduct[0];
 
-                document.getElementById("heroProductDetails").innerHTML =
+                document.getElementById("heroProductDetails").innerHTML = 
+                document.getElementById("heroProductDetails").innerHTML +
                 `
                   <h3>${hero1}</h3>
                   <p>${productBlurbs[hero1]?.blurb || "No description"}</p>
                   <p>${productBlurbs[hero1]?.directions || "No directions"}</p>
-                ` +  document.getElementById("heroProductDetails").innerHTML;
+                `;
                 document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
                 document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
@@ -2415,29 +2416,32 @@
                 const essentials3 = essentialsProducts[2];
 
                 document.getElementById("essentials1").innerHTML =
+                document.getElementById("essentials1").innerHTML +
                 `
                   <h3>${essentials1}</h3>
                   <p>${productBlurbs[essentials1]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials1]?.directions || "No directions"}</p>
-                ` + document.getElementById("essentials1").innerHTML;
+                `;
                 document.getElementById("essentials1ProductImage").src = productBlurbs[essentials1]?.imgURL;
                 document.getElementById("essentials1ProductLink").href = productBlurbs[essentials1]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
                 document.getElementById("essentials2").innerHTML =
+                document.getElementById("essentials2").innerHTML +
                 `
                   <h3>${essentials2}</h3>
                   <p>${productBlurbs[essentials2]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials2]?.directions || "No directions"}</p>
-                ` + document.getElementById("essentials2").innerHTML;
+                `;
                 document.getElementById("essentials2ProductImage").src = productBlurbs[essentials2]?.imgURL;
                 document.getElementById("essentials2ProductLink").href = productBlurbs[essentials2]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
                 document.getElementById("essentials3").innerHTML =
+                document.getElementById("essentials3").innerHTML +
                 `
                   <h3>${essentials3}</h3>
                   <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
                   <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
-                ` + document.getElementById("essentials3").innerHTML;
+                `;
                 document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
                 document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
 
