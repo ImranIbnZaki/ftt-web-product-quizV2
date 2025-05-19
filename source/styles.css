@@ -671,22 +671,23 @@ body {
   }
 
   .confirmTerms {
-    padding-top: 20px;
-    padding-left: 15%;
-    padding-right: 15%;
+    margin: 10px 20%;
+    border-radius: 5px;
+    padding: 10px;
     font-weight: normal;
     color:#000000 !important;
     transition: all .4s;
   }
 
   .confirmTerms:hover {
-    font-size: 18px;
+    background:#ffffff;
+    border: 1px solid;
+    box-shadow: 0px 4px 20px #00000033;
   }
 
   .terms {
     font-size: 12px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding: 0px 20%;
   }
 
   .modal-container {
