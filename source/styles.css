@@ -9,6 +9,7 @@ body {
   .title-large {
     font-family: "Bodoni Moda", serif;
     font-size: 45px;
+    font-weight: bold;
     text-align: center;
     color: #000000;
   }
