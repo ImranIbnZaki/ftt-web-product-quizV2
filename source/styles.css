@@ -28,7 +28,7 @@ body {
     text-align: center;
     color: #000000;
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     width: 80%;
     max-width: 350px;
     display: block;
@@ -172,8 +172,6 @@ body {
     font-size: 15px;
     align-items: center;
     padding: 10px 20px;
-    min-height: 50px;
-    max-height: 10px;
     cursor: pointer;
   }
 
@@ -199,7 +197,6 @@ body {
     padding: 5px 10px;
     padding-right: 35px;
     justify-content: center;
-    height: 35px;
     transition: all 0.4s;
   }
 
