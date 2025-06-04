@@ -33,13 +33,29 @@
       regime just for you
     </div>
     <div id="welcomeScreen">
-      <h2>Hello, My name is Frances. I’m an aesthetic nurse.</h2>
+      <div style="display: flex">
+        <img id="fttHeadshot" src="images/ftt_headshot.webp" alt="Frances Turner-Traill"/>
+        <div id="fttHeadshotCaption">
+          <h2>Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience.</h2>
+          <p>
+            I have created this script to help you find the best products for your skin type and concerns.
+          </p>
+          <p>
+            The recommendations are based on the latest dermatological research and my personal experience with various skincare products.
+          </p>
+        </div>
+        
+      </div>
+      
       <button id="startConsultationButton" class="btn-start" disabled>Start</button>
       <label class="confirmTerms">
         <input type="checkbox" id="termsCheckbox"/>
-        Please click here to confirm that you agree to us managing the personal data you share with us.
+        Please click here to confirm that you are above 16, UK-based, and agree to us managing the personal data you share with us.
       </label>
       <div class="terms">
+        <p>
+          We require you to be at least 16 years old and based in the UK to ensure that our recommendations are appropriate for your age and location.
+        </p>
         <p>
           We will be asking questions regarding your skin type, skin concerns, and more to help us tailor the best products for you. These data will not be stored or shared with any third parties. The collected data will be deleted after the consultation is completed.
         </p>
@@ -81,7 +97,7 @@
           <option value="acne">Spot-Prone</option>
           <option value="wrinklesFinelines">Maturing</option>
           <option value="rosacea">Rosacea/Sensitive</option>
-          <option value="unevenSkinTone">Uneven Skin Tone</option>
+          <option value="unevenSkinTone">Uneven Skin Tone/Pigmentation</option>
           <option value="improvements">Improvements</option>
         </select>
 
