@@ -94,11 +94,10 @@
           <option value="">Select...</option>
           <option value="dryDehydrated">Dry/Dehydrated</option>
           <option value="acne">Spot-Prone</option>
-          <option value="acne">Oily</option><option value="acne">Spot-Prone</option>
+          <option value="oily">Oily</option>
           <option value="wrinklesFinelines">Maturing</option>
           <option value="rosacea">Rosacea/Sensitive</option>
           <option value="unevenSkinTone">Uneven Skin Tone/Pigmentation</option>
-
           <option value="improvements">Improvements</option>
         </select>
 
@@ -109,21 +108,6 @@
         </div>
 
         <div class="dot-container" id="dotConcern"></div>
-      </div>
-
-      <!-- Question: Based in UK -->
-      <div id="questionBasedUK" class="question" style="display: none">
-        <label for="basedUKSelect">Are you based in the UK?</label>
-
-        <div>
-          <button onclick="filterProducts('basedUK', 'no')" class="btn-option">No</button>
-          <button onclick="filterProducts('basedUK', 'yes')" class="btn-option">Yes</button>
-        </div>
-
-        <button onclick="goToPreviousQuestion()" class="btn-back">&larr; Go Back</button>
-
-        <!-- Dot container under each question -->
-        <div class="dot-container" id="dotUK"></div>
       </div>
 
       <!-- Question: Age over 25 -->
@@ -1189,10 +1173,6 @@
 
         // Map of all elimination lists by question type
         const eliminationLists = {
-          basedUK: {
-            yes: [],
-            no: [], //out
-          },
           overTwentyFive: {
             yes: [],
             no: [
@@ -1952,25 +1932,28 @@
         filterProducts = function (questionType, selection) {
           if (!selection.trim()) return;
 
-          if (questionType === 'skinConcern') {
+          if (questionType === "skinConcern") {
             // Initialize the product pool based on the selected skin concern
             switch (selection) {
-              case 'dryDehydrated':
+              case "dryDehydrated":
                 initialProductPool = dryDehydratedProductPool.slice();
                 break;
-              case 'acne':
+              case "acne":
                 initialProductPool = spotProneProductPool.slice();
                 break;
-              case 'wrinklesFinelines':
+              case "oily":
+                initialProductPool = spotProneProductPool.slice();
+                break;
+              case "wrinklesFinelines":
                 initialProductPool = maturingProductPool.slice();
                 break;
-              case 'rosacea':
+              case "rosacea":
                 initialProductPool = rosaceaProductPool.slice();
                 break;
-              case 'unevenSkinTone':
+              case "unevenSkinTone":
                 initialProductPool = unevenSkinToneProductPool.slice();
                 break;
-              case 'improvements':
+              case "improvements":
                 initialProductPool = improvementsProductPool.slice();
                 break;
               default:
@@ -2111,17 +2094,7 @@
               if (selection === "acne") {
                 nextQuestionId = "typeOfAcne";
               } else {
-                nextQuestionId = "basedUK";
-              }
-              break;
-            case "basedUK":
-              if (selection === "yes") {
                 nextQuestionId = "overTwentyFive";
-              } else {
-                goToExitPoint(
-                  "Apologies, but we currently only ship products within the UK."
-                );
-                nextQuestionId = "exitPoint";
               }
               break;
             case "overTwentyFive":
@@ -2151,7 +2124,7 @@
                 nextQuestionId = "exitPoint";
                 break;
               } else {
-                nextQuestionId = "basedUK";
+                nextQuestionId = "overTwentyFive";
                 break;
               }
             case "typeOfHyperpigmentation":
