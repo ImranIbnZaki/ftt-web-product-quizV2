@@ -51,13 +51,18 @@ body {
   }
 
   #fttHeadshotCaption {
-    padding: 10px 30px;
+    padding: 10px 30px 0px;
   }
 
   #linkToBio {
     color: black;
     font-size:16px;
     font-weight: regular;
+    transition: all .4s;
+  }
+
+  #linkToBio:hover {
+    font-weight: bolder;
   }
 
   #errorMessageContainer {
