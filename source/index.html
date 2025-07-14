@@ -60,7 +60,7 @@
 
       <!-- Exit Point -->
       <div id="questionExitPoint" class="question" style="display: none">
-        <label for="exitPointLabel">SORRY</label>
+        <label for="exitPointLabel">SORRY ⚠️</label>
         <p id="exitPointParagraph">
           Today I’ll create a personalised skincare routine for you!
         </p>
@@ -1077,13 +1077,31 @@
           severity:
           `
             <h2>What do these severity levels mean?</h2>
-              <h3>Mild</h3>
-                <p>Occasional breakouts with small, surface-level blemishes like blackheads and whiteheads. Skin may appear slightly congested, but inflammation is minimal.</p>
-              <h3>Moderate</h3>
-                <p>Frequent breakouts with a mix of blackheads, whiteheads, and inflamed red bumps (papules and pustules). Skin may feel more sensitive, and post-breakout marks can take longer to fade.</p>
-              <h3>Severe</h3>
-                <p>Persistent, deep, and painful acne, including large cysts and nodules. This level of acne is often accompanied by significant redness, inflammation, and an increased risk of scarring.</p>
-          `,
+              <h3>Grade 1: Mild 🟢 </h3>
+                <p>
+                  <ul>
+                    <li>Occasional blackheads and whiteheads.</li>
+                    <li>A few small spots appearing mostly on the face.</li>
+                    <li>Minimal inflammation or discomfort.</li>
+                  </ul>
+                </p>
+              <h3>Grade 2: Moderate 🟡</h3>
+                <p>
+                  <ul>
+                    <li>More inflamed spots are present.</li>
+                    <li>Breakouts include papules and pustules, mainly on the face and possibly extending to the neck.</li>
+                    <li>Skin may feel more sensitive.</li>
+                  </ul>
+                </p>
+              <h3>Grade 3: Severe 🟠</h3>
+                <p>
+                  <ul>
+                    <li>Numerous red and inflamed spots.</li>
+                    <li>Often painful to touch</li>
+                    <li>Breakouts may cover larger areas, including the back and chest.</li>
+                  </ul>
+                </p>
+            `,
           acneType:
           `
             <h2> What is my acne type? <h2>
@@ -2088,7 +2106,7 @@
             case "typeOfAcne":
               if (selection === "cystic") {
                 goToExitPoint(
-                  "We recommend you book a consultation to provide you with professional advice."
+                  "Cystic acne often requires targeted care. We strongly recommend booking a consultation so we can provide you with professional, personalised advice and support your skin's recovery journey."
                 );
                 nextQuestionId = "exitPoint";
               } else {
@@ -2101,7 +2119,7 @@
             case "severityOfAcne":
               if (selection === "severe") {
                 goToExitPoint(
-                  "We recommend you book a consultation to provide you with prescription-only products."
+                  "For severe acne concerns, it's important to take a tailored approach. Please book a consultation so we can assess your skin and recommend prescription-only treatments that suit your needs."
                 );
                 nextQuestionId = "exitPoint";
                 break;
@@ -2118,7 +2136,7 @@
             case "takePrescription":
               if (selection === "yes") {
                 goToExitPoint(
-                  "It is not recommended to use skincare products with active ingredients while on topical medication. Please wait until your treatment ends and try again."
+                  "We advise against using products with active ingredients while you're on prescribed topical medication. Please reach out for a personalised consultation and we’ll guide you on the best time and approach to restart your skincare routine."
                 );
                 nextQuestionId = "exitPoint";
                 break;
