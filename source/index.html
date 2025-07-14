@@ -425,10 +425,6 @@
             Azelaic Acid
           </label>
 
-          <label for="fragrances" class="allergyCheckbox">
-            <input type="checkbox" id="fragrances" name="allergy" value="fragrances">
-            Fragrances
-          </label>
         </form>
         
         <!-- In your HTML, directly call gatherMultipleFilters() without passing questionType -->
@@ -1414,7 +1410,6 @@
               "Blemish Control Pen"
             ],
             azelaicAcid: ["Skin Brightening Serum - Illuminate"],
-            fragrances: [], // out “most of our products contain mild natural fragrances”
             none: [],
           },
           takePrescription: {
@@ -1995,11 +1990,6 @@
             return;
           }
 
-          if (selections.includes('fragrances')) {
-            navigateToNextQuestion(questionType, "fragrances");
-            return;
-          }
-
           let combinedEliminationList = [];
 
           // Iterate over each selection and combine elimination lists
@@ -2116,14 +2106,8 @@
               nextQuestionId = "usesVitaminC";
               break;
             case "allergy":
-              if (selection.includes('fragrances')) {
-                goToExitPoint("Our products contain low allergenic profiles.");
-                nextQuestionId = "exitPoint";
-                break;
-              } else {
-                nextQuestionId = "takePrescription";
-                break;
-              }
+              nextQuestionId = "takePrescription";
+              break;
             case "takePrescription":
               if (selection === "yes") {
                 goToExitPoint(
