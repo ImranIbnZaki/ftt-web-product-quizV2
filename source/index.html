@@ -33,22 +33,38 @@
       regime just for you
     </div>
     <div id="welcomeScreen">
-      <div style="display: flex; align-items: center">
-        <div>
-          <img id="fttHeadshot" src="images/ftt_headshot.webp" alt="Frances Turner-Traill"/>
-          <a href="https://www.francesturnertraill.co.uk/about-us/" target="_blank">
-            <button id="btn-bio">
-              My Bio
-            </button>
-          </a>
-        </div>
-        <div>
-          <h2 id="fttHeadshotCaption">
-            Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience. I have created this script to help you find the best products for your skin type and concerns.
-          </h2>
-          <button id="startConsultationButton" class="btn-start" disabled>Start</button>
-        </div>
+      <img id="fttHeadshot" src="images/ftt_headshot.webp" alt="Frances Turner-Traill"/>
+      <div>
+        <a href="https://www.francesturnertraill.co.uk/about-us/" target="_blank">
+          <button id="btn-bio">
+            My Bio
+          </button>
+        </a>
       </div>
+      
+      <div>
+        <h2 id="fttHeadshotCaption">
+          Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience. I have created this script to help you find the best products for your skin type and concerns.
+        </h2>
+        <button id="startConsultationButton" class="btn-start" disabled>Start</button>
+      </div>
+
+      <div id="errorMessageContainer">
+        <p id="errorNotification">
+          Please tick the box to consent before proceeding.
+        </p>
+      </div>
+
+      <label class="confirmTerms">
+        <input type="checkbox" id="termsCheckbox"/>
+        Please click here to confirm that you read and agree to the terms provided below.
+      </label>
+      <div class="terms">
+        <p>
+          We require you to be at least 16 years old and based in the UK to ensure that our recommendations are appropriate for your age and location. All of our products contain mild fragrances so make sure you are not allergic to them We will be asking questions regarding your skin type, skin concerns, and more to help us tailor the best products for you. These data will not be stored or shared with any third parties. The collected data will be deleted after the consultation is completed.
+        </p>
+      </div>
+
       <div style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
 
         <div class="icon-item">
@@ -79,20 +95,6 @@
           </div>
           
         </div>
-      </div>
-      <label class="confirmTerms">
-        <input type="checkbox" id="termsCheckbox"/>
-        Please click here to confirm that you read and agree to the terms provided below.
-      </label>
-      <div class="terms">
-        <p>
-          We require you to be at least 16 years old and based in the UK to ensure that our recommendations are appropriate for your age and location. All of our products contain mild fragrances so make sure you are not allergic to them We will be asking questions regarding your skin type, skin concerns, and more to help us tailor the best products for you. These data will not be stored or shared with any third parties. The collected data will be deleted after the consultation is completed.
-        </p>
-      </div>
-      <div id="errorMessageContainer">
-        <p id="errorNotification">
-          Please tick the box to consent before proceeding.
-        </p>
       </div>
     </div>
     
