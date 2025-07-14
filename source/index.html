@@ -33,15 +33,25 @@
       regime just for you
     </div>
     <div id="welcomeScreen">
-      <div style="display: flex">
-        <img id="fttHeadshot" src="images/ftt_headshot.webp" alt="Frances Turner-Traill"/>
-          <h2 id="fttHeadshotCaption">Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience. <a href="https://www.francesturnertraill.co.uk/about-us/" target="_blank" id="linkToBio">More about me here!</a>  I have created this script to help you find the best products for your skin type and concerns.
+      <div style="display: flex; align-items: center">
+        <div>
+          <img id="fttHeadshot" src="images/ftt_headshot.webp" alt="Frances Turner-Traill"/>
+          <a href="https://www.francesturnertraill.co.uk/about-us/" target="_blank">
+            <button id="btn-bio">
+              My Bio
+            </button>
+          </a>
+        </div>
+        <div>
+          <h2 id="fttHeadshotCaption">
+            Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience. I have created this script to help you find the best products for your skin type and concerns.
           </h2>
+          <button id="startConsultationButton" class="btn-start" disabled>Start</button>
+        </div>
       </div>
-      <button id="startConsultationButton" class="btn-start" disabled>Start</button>
       <label class="confirmTerms">
         <input type="checkbox" id="termsCheckbox"/>
-        Please click here to confirm that you are above 16, UK-based, and agree to us managing the personal data you share with us.
+        Please click here to confirm that you read and agree to the terms provided below.
       </label>
       <div class="terms">
         <p>
