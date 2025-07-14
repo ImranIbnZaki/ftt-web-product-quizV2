@@ -817,3 +817,102 @@ body {
   #stringList {
     font-size:small;
   }
+
+@media (max-width: 768px) {
+  .heading-small img {
+    width: 100%;
+    height: auto;
+  }
+
+  .title-large {
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .subtitle-medium {
+    font-size: 1rem;
+    padding: 10px;
+    width: 90%;
+  }
+
+  #welcomeScreen {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #fttHeadshot {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  #fttHeadshotCaption {
+    font-size: 1rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .confirmTerms {
+    font-size: 0.9rem;
+    padding: 10px;
+    text-align: center;
+    display: block;
+  }
+
+  .terms {
+    font-size: 0.85rem;
+    padding: 10px;
+    text-align: justify;
+  }
+
+  .icon-item {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-background {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-text {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  #btn-bio {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+    transition: all 500000s;
+  }
+
+  .btn-start {
+    width: 90%;
+    font-size: 1rem;
+    padding: 12px;
+    transition: all 500000s;
+  }
+
+  #errorMessageContainer {
+    width: 90%;
+    font-size: 0.9rem;
+    height: auto;
+    padding: 10px;
+  }
+
+  #btn-enquiry {
+    transition: all 500000s;
+  }
+}
