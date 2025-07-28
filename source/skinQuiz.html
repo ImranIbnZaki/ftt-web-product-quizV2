@@ -43,10 +43,35 @@
       </div>
       
       <div>
-        <h2 id="fttHeadshotCaption">
-          Hello, My name is Frances. I am a dermatology qualified medical aesthetics nurse with 20 years experience. I have created this script to help you find the best products for your skin type and concerns.
-        </h2>
-        <button id="startConsultationButton" class="btn-start" disabled>Start</button>
+        <div id="fttHeadshotCaption">
+          <h2>
+            Welcome to FTT & Me – Your Personal Skin Journey Starts Here!
+          </h2>
+          <p>
+             Hi, I’m Frances – your guide on this phenomenal skincare adventure. 💫
+          </p>
+          <p>
+            With a background as a Registered General and Mental Health Nurse, my journey has taken me from hospital wards to lecture halls and
+            into the heart of aesthetic medicine. Along the way, I’ve picked up a few credentials – like a Master’s from the University of
+            Glasgow, a BSc in Dermatology from Stirling, and a Postgraduate Certificate in Aesthetic Medicine from Northumbria.
+          </p>
+          <p>
+            I also founded and led the British Association of Medical Aesthetic Nurses (Scotland) for seven years and continue to serve as an
+            honorary board member. I’ve trained and consulted for global aesthetic powerhouses like Prollenium, Evolus, and Mastelli – and I
+            mentor the next generation of aesthetic talent.
+          </p>
+          <p>
+            And because beautiful skin deserves beautiful science, I’ve developed my own luxury skincare range: results-driven, evidence-based,
+            and a joy to use every single day.
+          </p>
+          <p>
+            But enough about me – this quiz is all about you. Let’s discover your skin’s unique story, so we can help it look and feel its absolute best.
+          </p>
+          <p>
+            Ready to begin? Let’s glow.
+          </p>
+        </div>
+        <button id="startConsultationButton" class="btn-start" disabled onclick="topFunction()">Start</button>
       </div>
 
       <div id="errorMessageContainer">
@@ -887,6 +912,11 @@
       </div>
 
     <script>
+
+      function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
 
       function generateDots(containerId, numDark) {
         const container = document.getElementById(containerId);

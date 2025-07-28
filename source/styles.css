@@ -49,7 +49,12 @@ body {
         }
 
         #fttHeadshotCaption {
-          padding: 10px 30px 0px;
+            border-radius: 50px;
+            border: solid 2px #d1ab4f;
+            text-align: center;
+            padding: 10px;
+            margin: 20px;
+            background: #ffffff;
         }
 
         .icon-item {
@@ -744,7 +749,7 @@ body {
 
         .confirmTerms {
           margin: 10px 20%;
-          border-radius: 5px;
+          border-radius: 10px;
           padding: 10px;
           font-weight: normal;
           color:#000000 !important;
@@ -849,8 +854,7 @@ body {
 
         #fttHeadshotCaption {
           font-size: 1rem;
-          padding: 0 10px;
-          text-align: center;
+          padding: 10px 30px;
         }
 
         .confirmTerms {
@@ -862,7 +866,7 @@ body {
 
         .terms {
           font-size: 0.85rem;
-          padding: 10px;
+          padding: 30px;
           text-align: justify;
         }
 
@@ -904,8 +908,9 @@ body {
         }
 
         #errorMessageContainer {
-          width: 90%;
-          font-size: 0.9rem;
+            width:auto;
+            height: auto;
+          font-size: 0.7rem;
           height: auto;
           padding: 10px;
         }
