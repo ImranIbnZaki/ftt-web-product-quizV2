@@ -910,9 +910,9 @@ body {
         #errorMessageContainer {
             width:auto;
             height: auto;
-          font-size: 0.7rem;
-          height: auto;
-          padding: 10px;
+            font-size: 0.7rem;
+            height: auto;
+            padding: 10px;
         }
 
         #btn-enquiry {
@@ -921,13 +921,9 @@ body {
 
         .modal {
           width: 80%;
-          max-height: 80%;
-          box-shadow: 0px 4px 20px #00000033;
-          position: fixed;
-          overflow: auto;
-          border-radius: 15px;
-          right: 50%;
-          bottom: 50%;
-          transform: translate(50%, 50%);
+        }
+
+        .hero-product-details {
+          margin: 10px 10vw;
         }
       }
