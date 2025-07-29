@@ -754,24 +754,10 @@
         style="display: none"
       >
         <label for="routineComplexitySelect">
-          How committed are you in your skincare routine?
+          Are you ready to get your skincare routine?
         </label>
-        <select
-          id="routineComplexitySelect"
-          name="routineComplexitySelect"
-          onchange="filterProducts('routineComplexity', this.value)"
-        >
-          <option value="">My Commitment Level</option>
-          <option value="hero">Slightly Committed - Hero</option>
-          <option value="essentials">Committed - Essentials</option>
-          <option value="advanced">Very Committed - Advanced</option>
-        </select>
 
-        <div>
-          <button class="modal-trigger" data-modal-content="level">
-            What do these commitment levels mean?
-          </button> 
-        </div>
+        <button onclick="filterProducts('routineComplexity', 'advanced')" id="btn-answer">Show Me My Products</button>
 
         <button onclick="goToPreviousQuestion()" class="btn-back">&larr; Go Back</button>
         <!-- Dot container under each question -->

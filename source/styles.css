@@ -437,6 +437,25 @@ body {
           width: 350px;
         }
 
+        #btn-answer {
+          border-radius: 20px;
+          background: #f1d89c;
+          color: #262820;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          width: 250px;
+          height: 40px;
+          margin: 0 50px;
+          transition: all .4s;
+        }
+
+        #btn-answer:hover {
+          background: #525A4F;
+          color: #f1d89c;
+          width: 350px;
+        }
+
         #exitPointParagraph {
           padding: 0px 40px;
         }
@@ -916,6 +935,10 @@ body {
         }
 
         #btn-enquiry {
+          transition: all 500000s;
+        }
+
+        #btn-answer {
           transition: all 500000s;
         }
 
