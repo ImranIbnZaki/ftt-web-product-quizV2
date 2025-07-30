@@ -860,17 +860,32 @@
           </div>
         </div>
 
-        <h2 class="title-large">The Basics</h2>
+        <div id="basicSection">
 
-        <div class="basics-container">
-          <div id="basics1" class="basics-item">
-            <img id="basics1ProductImage" src="" alt="Basics Product 1" class="product-image" />
-            <a href="" target="_blank" id="basics1ProductLink">
-              <button class="btn-buyNow">
-                Buy Now
-              </button>
-            </a>
+          <h3 class="title-large">The Basics</h3>
+
+          <div class="advanced-container">
+
+            <div id="basic1" class="advanced-item">
+              <img id="basic1ProductImage" src="" alt="Basic Product 1" class="product-image" />
+              <a href="" target="_blank" id="basic1ProductLink">
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
+              </a>
+            </div>
+
+            <div id="basic2" class="advanced-item">
+              <img id="basic2ProductImage" src="" alt="Basic Product 2" class="product-image" />
+              <a href="" target="_blank" id="basic2ProductLink">
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
+              </a>
+            </div>
+
           </div>
+
         </div>
 
       </div>
@@ -1001,8 +1016,6 @@
           "Quench Advanced Hyaluronic Serum",
           "Endurance Moisturiser - FTT H2O",
           "Night Cream - Recover",
-          "SPF 50 Sunscreen - Prime & Protect",
-          "Prepare – Cleansing Lotion",
           "Vitamin C Serum 10%",
           /*
           "Obagi Hydrate Luxe Facial Moisturiser",
@@ -1014,7 +1027,6 @@
         let unevenSkinToneProductPool = [
           "Skin Brightening Serum - Illuminate",
           "Vitamin C Serum 20%",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Foaming Wash - Reveal",
           "Rejuvenating Serum - Rejuvenate",
           "Quench Advanced Hyaluronic Serum",
@@ -1036,7 +1048,6 @@
           "Neck Firming Cream - Lift",
           "Endurance Moisturiser - FTT H2O",
           "Skin Brightening Serum - Illuminate",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Phenomenal Eye Cream",
           "Luxury Exfoliator Cleanser - Glasglow",
           /*
@@ -1066,7 +1077,6 @@
         let improvementsProductPool = [
           "Foaming Wash - Reveal",
           "Vitamin C Serum 20%",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Retinol Serum - FTT Skin Clinics R+",
           "Luxury Exfoliator Cleanser - Glasglow",
           /*
@@ -1934,25 +1944,31 @@
             switch (selection) {
               case "dryDehydrated":
                 initialProductPool = dryDehydratedProductPool.slice();
-                basicPool= [];
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
                 break;
               case "acne":
                 initialProductPool = spotProneProductPool.slice();
+                basicPool= [];
                 break;
               case "oily":
                 initialProductPool = spotProneProductPool.slice();
+                basicPool= [];
                 break;
               case "wrinklesFinelines":
                 initialProductPool = ageingProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "rosacea":
                 initialProductPool = rosaceaProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "unevenSkinTone":
                 initialProductPool = unevenSkinToneProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "improvements":
                 initialProductPool = improvementsProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               default:
                 initialProductPool = [];
@@ -2489,28 +2505,36 @@
                 const basic1 = basicPool[0];
                 const basic2 = basicPool[1];
 
-                document.getElementById("basic1").innerHTML = 
-                document.getElementById("basic1").innerHTML +
-                `
-                  <h3>${basic1}</h3>
-                  <p>${productBlurbs[basic1]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[basic1]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("basic1ProductImage").src = productBlurbs[basic1]?.imgURL;
-                document.getElementById("basic1ProductLink").href = productBlurbs[basic1]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                if (basicPoolLength > 0) {
+      
+                  document.getElementById("basic1").innerHTML = 
+                  document.getElementById("basic1").innerHTML +
+                  `
+                    <h3>${basic1}</h3>
+                    <p>${productBlurbs[basic1]?.blurb || "No description"}</p>
+                    <p>${productBlurbs[basic1]?.directions || "No directions"}</p>
+                  `;
+                  document.getElementById("basic1ProductImage").src = productBlurbs[basic1]?.imgURL;
+                  document.getElementById("basic1ProductLink").href = productBlurbs[basic1]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                  
+                  if (basicPoolLength > 1) {
 
-                if (basicPoolLength > 1) {
+                  document.getElementById("basic2").innerHTML = 
+                  document.getElementById("basic2").innerHTML +
+                  `
+                    <h3>${basic2}</h3>
+                    <p>${productBlurbs[basic2]?.blurb || "No description"}</p>
+                    <p>${productBlurbs[basic2]?.directions || "No directions"}</p>
+                  `;
+                  document.getElementById("basic2ProductImage").src = productBlurbs[basic2]?.imgURL;
+                  document.getElementById("basic2ProductLink").href = productBlurbs[basic2]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                  } else {
+                    document.getElementById("basic2").remove();
+                  }
 
-                document.getElementById("basic2").innerHTML = 
-                document.getElementById("basic2").innerHTML +
-                `
-                  <h3>${basic2}</h3>
-                  <p>${productBlurbs[basic2]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[basic2]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("basic2ProductImage").src = productBlurbs[basic2]?.imgURL;
-                document.getElementById("basic2ProductLink").href = productBlurbs[basic2]?.prodURL || "https://www.francesturnertraill.co.uk/";
                 } else {
+                  document.getElementById("basicSection").style.display = "none";
+                  document.getElementById("basic1").remove();
                   document.getElementById("basic2").remove();
                 }
 
