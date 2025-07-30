@@ -739,8 +739,9 @@
           onchange="filterProducts('sunscreenUse', this.value)"
         >
           <option value="">My Sunscreen Use</option>
-          <option value="frequently">Frequently</option>
-          <option value="rarely">Rarely</option>
+          <option value="everyday">Everyday</option>
+          <option value="sometimes">Sometimes</option>
+          <option value="sometimes">Never</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-back">&larr; Go Back</button>
         <!-- Dot container under each question -->
@@ -1576,14 +1577,14 @@
             ],
           },
           sunscreenUse: {
-            frequently: [
+            everyday: [
               "SPF 50 sunscreen FTT Skin Clinics Protect",
               "Obagi 360 Hydrofactor SPF 30",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
               "Obagi Sun Shield Warm",
             ],
-            rarely: [],
+            sometimes: [],
           },
           routineComplexity: {
             hero: [], //output 1 product
