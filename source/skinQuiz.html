@@ -739,8 +739,9 @@
           onchange="filterProducts('sunscreenUse', this.value)"
         >
           <option value="">My Sunscreen Use</option>
-          <option value="frequently">Frequently</option>
-          <option value="rarely">Rarely</option>
+          <option value="everyday">Everyday</option>
+          <option value="sometimes">Sometimes</option>
+          <option value="sometimes">Never</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-back">&larr; Go Back</button>
         <!-- Dot container under each question -->
@@ -949,7 +950,7 @@
           "Blemish Control Pen - Zap",
           "Hypo21 Purifying Skin Spray",
           "Phenomenal Eye Cream",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Vitamin C Serum 10%",
           "Vitamin C Serum 20%",
           "Prepare – Cleansing Lotion",
@@ -1025,7 +1026,7 @@
           "Quench Advanced Hyaluronic Serum",
           "Endurance Moisturiser - FTT H2O",
           "Night Cream - Recover",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Prepare – Cleansing Lotion",
           "Vitamin C Serum 10%",
           "Thrive Menopausal Skin Serum",
@@ -1039,7 +1040,7 @@
         let unevenSkinToneProductPool = [
           "Skin Brightening Serum - Illuminate",
           "Vitamin C Serum 20%",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Foaming Wash - Reveal",
           "Rejuvenating Serum - Rejuvenate",
           "Quench Advanced Hyaluronic Serum",
@@ -1061,9 +1062,9 @@
           "Neck Firming Cream - Lift",
           "Endurance Moisturiser - FTT H2O",
           "Skin Brightening Serum - Illuminate",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Phenomenal Eye Cream",
-          "Luxury Exfoliator Cleanser - c",
+          "Luxury Exfoliator Cleanser - Glasglow",
           /*
           "Obagi ELASTIderm Facial Serum",
           "Obagi ELASTIderm Eye Serum",
@@ -1077,7 +1078,7 @@
           "Vitamin C Serum 10%",
           "Quench Advanced Hyaluronic Serum",
           "Thrive Menopausal Skin Serum",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Prepare – Cleansing Lotion",
           "Hypo21 Purifying Skin Spray",
           /*
@@ -1092,7 +1093,7 @@
         let improvementsProductPool = [
           "Foaming Wash - Reveal",
           "Vitamin C Serum 20%",
-          "SPF 50 sunscreen FTT Skin Clinics Protect",
+          "SPF 50 Sunscreen - Prime & Protect",
           "Retinol Serum - FTT Skin Clinics R+",
           "Luxury Exfoliator Cleanser - Glasglow",
           /*
@@ -1256,7 +1257,7 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1294,7 +1295,7 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Thrive Menopausal Skin Serum",
@@ -1331,7 +1332,7 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1362,7 +1363,7 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1401,7 +1402,7 @@
               "Blemish Control Pen - Zap",
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eyelash Serum",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1526,7 +1527,7 @@
             ],
             oily: [
               "Endurance Moisturiser - FTT H2O",
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+              "SPF 50 Sunscreen - Prime & Protect",
               "Obagi Nu-Derm Exfoderm",
             ],
           },
@@ -1562,14 +1563,14 @@
             ],
           },
           sunscreenUse: {
-            frequently: [
-              "SPF 50 sunscreen FTT Skin Clinics Protect",
+            everyday: [
+              "SPF 50 Sunscreen - Prime & Protect",
               "Obagi 360 Hydrofactor SPF 30",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
               "Obagi Sun Shield Warm",
             ],
-            rarely: [],
+            sometimes: [],
           },
           routineComplexity: {
             hero: [], //output 1 product
@@ -1611,7 +1612,7 @@
             imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2023/05/Hypo21-Purifying-skin-spray-600x600.webp",
             prodURL: "https://www.francesturnertraill.co.uk/shop/skincare/hypo21-purifying-skin-spray/",
           },
-          "SPF 50 sunscreen FTT Skin Clinics Protect": {
+          "SPF 50 Sunscreen - Prime & Protect": {
             blurb:
               "Prime & Protect SPF50 sunscreen contains clinically proven UVA and UVB filters to protect your skin from the damage that can be caused by radiation from sun exposure.",
             directions:
