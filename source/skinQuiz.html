@@ -770,63 +770,6 @@
     <div id="suggestionResult" style="display: none">
       <h3>Your perfect skincare routine:</h3>
 
-      <!-- Hero Section -->
-      <div id="heroSection" style="display: none">
-        <div style="text-align: center; margin: 20px">
-          <h2 class="title-large">Hero Product</h2>
-          <div id="heroContainer">
-            <img
-              id="heroProductImage"
-              src=""
-              alt="Hero Product"
-            />
-            <div>
-              <div
-                id="heroProductDetails"
-                class="hero-product-details"
-              >
-                <a href="" target="_blank" id="heroProductLink">
-                  <button class="btn-buyNow">
-                    Buy Now
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Essentials Section -->
-      <div id="essentialsSection" style="display: none">
-        <h2 class="title-large">Essentials</h2>
-        <div class="essentials-container">
-          <div id="essentials1" class="essentials-item">
-            <img id="essentials1ProductImage" src="" alt="Essentials Product 1" class="product-image" />
-            <a href="" target="_blank" id="essentials1ProductLink">
-                <button class="btn-buyNow">
-                  Buy Now
-                </button>
-            </a>
-          </div>
-          <div id="essentials2" class="essentials-item">
-            <img id="essentials2ProductImage" src="" alt="Essentials Product 1" class="product-image" />
-            <a href="" target="_blank" id="essentials2ProductLink">
-                <button class="btn-buyNow">
-                  Buy Now
-                </button>
-            </a>
-          </div>
-          <div id="essentials3" class="essentials-item">
-            <img id="essentials3ProductImage" src="" alt="Essentials Product 1" class="product-image" />
-            <a href="" target="_blank" id="essentials3ProductLink">
-                <button class="btn-buyNow">
-                  Buy Now
-                </button>
-            </a>
-          </div>
-        </div>
-      </div>
-
       <!-- Advanced Section -->
       <div id="advancedSection" style="display: none">
         <h2 class="title-large">Advanced</h2>
@@ -1118,16 +1061,6 @@
                 <p>Dark spots and hyperpigmentation can result from sun damage, acne scars, or hormonal changes. Our solutions aim to brighten and even out your skin tone.</p>
               <h3>Improvements</h3>
                 <p>This option is for those looking to improve their skin appearance and achieve the long-lasting glow.</p>
-          `,
-          level:
-          `
-            <h2>Which level of commitment should you choose?</h2>
-              <h3>Slightly Committed - Hero</h3>
-                <p>Your ultimate go-to product, carefully selected to deliver maximum impact with minimal effort.</p>
-              <h3>Commited - Essentials</h3>
-                <p>A power trio of expertly chosen products that work in harmony to elevate your skincare.</p>
-              <h3>Very Committed - Advanced</h3>
-                <p>The ultimate skincare experience meticulously curated to provide the perfect synergy for radiant and healthy skin.</p>
           `,
           severity:
           `
@@ -1558,8 +1491,6 @@
             sometimes: [],
           },
           routineComplexity: {
-            hero: [], //output 1 product
-            essentials: [], // output top 3 products
             advanced: [], //output max products
           },
         };
@@ -2373,11 +2304,7 @@
         }
 
         function setComplexity(newComplexity) {
-          if (newComplexity === "hero") {
-            complexity = "hero";
-          } else if (newComplexity === "essentials") {
-            complexity = "essentials";
-          } else if (newComplexity === "advanced") {
+          if (newComplexity === "advanced") {
             complexity = "advanced";
           }
           console.log("Set complexity to " + complexity);
@@ -2402,76 +2329,13 @@
               const suggestionResultContainer =
                 document.getElementById("suggestionResult");
 
-              document.getElementById("heroSection").style.display = "none";
-              document.getElementById("essentialsSection").style.display = "none";
               document.getElementById("advancedSection").style.display = "none";
 
               if (currentProductPool.length <= 0) {
                 suggestionResultContainer.innerHTML = "<h2>No products match your criteria.</h2>";
               }
 
-              if (complexity == "hero") {
-                document.getElementById("heroSection").style.display = "block";
-                const heroProduct = currentProductPool.slice(0, 1);
-
-                const hero1 = heroProduct[0];
-
-                document.getElementById("heroProductDetails").innerHTML = 
-                document.getElementById("heroProductDetails").innerHTML +
-                `
-                  <h3>${hero1}</h3>
-                  <p>${productBlurbs[hero1]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[hero1]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("heroProductImage").src = productBlurbs[hero1]?.imgURL;
-                document.getElementById("heroProductLink").href = productBlurbs[hero1]?.prodURL || "https://www.francesturnertraill.co.uk/";
-
-
-              } else if (complexity == "essentials") {
-                document.getElementById("essentialsSection").style.display = "block";
-                const essentialsProducts = currentProductPool.slice(0, 3);
-
-                const essentials1 = essentialsProducts[0];
-                const essentials2 = essentialsProducts[1];
-                const essentials3 = essentialsProducts[2];
-
-                document.getElementById("essentials1").innerHTML =
-                document.getElementById("essentials1").innerHTML +
-                `
-                  <h3>${essentials1}</h3>
-                  <p>${productBlurbs[essentials1]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[essentials1]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("essentials1ProductImage").src = productBlurbs[essentials1]?.imgURL;
-                document.getElementById("essentials1ProductLink").href = productBlurbs[essentials1]?.prodURL || "https://www.francesturnertraill.co.uk/";
-
-                document.getElementById("essentials2").innerHTML =
-                document.getElementById("essentials2").innerHTML +
-                `
-                  <h3>${essentials2}</h3>
-                  <p>${productBlurbs[essentials2]?.blurb || "No description"}</p>
-                  <p>${productBlurbs[essentials2]?.directions || "No directions"}</p>
-                `;
-                document.getElementById("essentials2ProductImage").src = productBlurbs[essentials2]?.imgURL;
-                document.getElementById("essentials2ProductLink").href = productBlurbs[essentials2]?.prodURL || "https://www.francesturnertraill.co.uk/";
-
-                if (poolLength> 2) {
-                  document.getElementById("essentials3").innerHTML =
-                  document.getElementById("essentials3").innerHTML +
-                  `
-                    <h3>${essentials3}</h3>
-                    <p>${productBlurbs[essentials3]?.blurb || "No description"}</p>
-                    <p>${productBlurbs[essentials3]?.directions || "No directions"}</p>
-                  `;
-                  document.getElementById("essentials3ProductImage").src = productBlurbs[essentials3]?.imgURL;
-                  document.getElementById("essentials3ProductLink").href = productBlurbs[essentials3]?.prodURL || "https://www.francesturnertraill.co.uk/";
-                }
-
-                if (poolLength < 3) {
-                  document.getElementById("essentials3").remove();
-                }
-
-              } else if (complexity == "advanced") {
+              if (complexity == "advanced") {
                 document.getElementById("advancedSection").style.display = "block";
                 const advancedProducts = currentProductPool
 
