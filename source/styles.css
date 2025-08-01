@@ -629,23 +629,29 @@ body {
           left: 0;
         }
 
-        #advancedSection {
+        #generalContainer {
           padding: 0 40px;
           border-radius: 15px;
           text-align: center;
         }
 
-        #advancedSection h2.title-large {
+        #generalContainer h2.title-large {
           font-size: 36px;
           font-weight: bold;
           margin-bottom: 40px;
         }
 
-        .advanced-container {
+        .complexity-container {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 20px;
+        }
+
+        .complexity-container h2.title-large {
+          font-size: 36px;
+          font-weight: bold;
+          margin-bottom: 40px;
         }
 
         .advanced-item {
