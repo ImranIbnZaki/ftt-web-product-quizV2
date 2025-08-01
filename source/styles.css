@@ -547,7 +547,9 @@ body {
 
         #suggestionResult h2 {
           color: #333;
-          margin-bottom: 15px;
+          font-size: 36px;
+          font-weight: bold;
+          margin-bottom: 40px;
         }
 
         #suggestionResult ul {
@@ -633,12 +635,6 @@ body {
           padding: 0 40px;
           border-radius: 15px;
           text-align: center;
-        }
-
-        #generalContainer h2.title-large {
-          font-size: 36px;
-          font-weight: bold;
-          margin-bottom: 40px;
         }
 
         .complexity-container {
