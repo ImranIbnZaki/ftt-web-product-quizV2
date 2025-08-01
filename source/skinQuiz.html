@@ -730,7 +730,7 @@
         <div class="dot-container" id="dotArea"></div>
       </div>
 
-      <!-- Question: Sunscreen Use -->
+      <!-- Question: Sunscreen Use 
       <div id="questionSunscreenUse" class="question" style="display: none">
         <label for="sunscreenUseSelect">What is your sunscreen use?</label>
         <select
@@ -744,9 +744,11 @@
           <option value="sometimes">Never</option>
         </select>
         <button onclick="goToPreviousQuestion()" class="btn-back">&larr; Go Back</button>
-        <!-- Dot container under each question -->
+
         <div class="dot-container" id="dotSunscreen"></div>
       </div>
+
+      -->
 
       <!-- Question: Skincare Routine Complexity -->
       <div
@@ -791,7 +793,7 @@
         <div id="essentialsContainer" style="display: none">
 
           <h2 class="title-large">Essentials</h2>
-          <p class="complexCaption">Products that would be a great addition to your routine</p>
+          <p class="complexCaption">Products that are great additions to your routine</p>
 
           <div class="complexity-container">
             <div id="advanced2" class="advanced-item">
@@ -817,7 +819,7 @@
         <div id="advancedContainer" style="display: none">
 
           <h2 class="title-large">Advanced</h2>
-          <p class="complexCaption">Products that would complete your routine</p>
+          <p class="complexCaption">Products that complete your routine</p>
 
           <div class="complexity-container">
             <div id="advanced4" class="advanced-item">
@@ -866,7 +868,7 @@
         <div id="basicSection" style="display: none">
 
            <h2 class="title-large">The Basics</h2>
-           <p class="complexCaption">Products that serves the foundation of your routine</p>
+           <p class="complexCaption">Products that serve as the foundation of your routine</p>
 
           <div class="complexity-container">
 
@@ -908,7 +910,7 @@
           container.appendChild(dot);
         }
 
-        for (let i = 0; i < 13 - numDark; i++) {
+        for (let i = 0; i < 10 - numDark; i++) {
           let dot = document.createElement("span");
           dot.classList.add("dotlight");
           container.appendChild(dot);
@@ -927,8 +929,8 @@
       generateDots("dotSkinType", 7);
       generateDots("dotSensitivity", 8);
       generateDots("dotArea", 9);
-      generateDots("dotSunscreen", 10);
-      generateDots("dotComplexity", 11);
+      //generateDots("dotSunscreen", 10);
+      generateDots("dotComplexity", 10);
 
       document.addEventListener("DOMContentLoaded", function () {
 
@@ -1518,6 +1520,7 @@
               "Neck Firming Cream - Lift",
             ],
           },
+          /*
           sunscreenUse: {
             everyday: [
               "Obagi 360 Hydrofactor SPF 30",
@@ -1527,6 +1530,7 @@
             ],
             sometimes: [],
           },
+          */
           routineComplexity: {
             advanced: [], //output max products
           },
@@ -2165,11 +2169,13 @@
               nextQuestionId = "concernArea";
               break;
             case "concernArea":
-              nextQuestionId = "sunscreenUse";
+              nextQuestionId = "routineComplexity";
               break;
+            /*
             case "sunscreenUse":
               nextQuestionId = "routineComplexity";
               break;
+            */
             case "routineComplexity":
               console.log(selection);
               setComplexity(selection);
