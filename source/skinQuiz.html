@@ -859,6 +859,32 @@
             </div>
           </div>
         </div>
+
+        <div id="basicSection" style="display: none">
+
+           <h3 class="title-large">The Basics</h3>
+
+          <div class="complexity-container">
+
+            <div id="basic1" class="advanced-item">
+              <img id="basic1ProductImage" src="" alt="Basic Product 1" class="product-image" />
+              <a href="" target="_blank" id="basic1ProductLink">
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
+              </a>
+            </div>
+
+            <div id="basic2" class="advanced-item">
+              <img id="basic2ProductImage" src="" alt="Basic Product 2" class="product-image" />
+              <a href="" target="_blank" id="basic2ProductLink">
+                <button class="btn-buyNow">
+                  Buy Now
+                </button>
+              </a>
+            </div>
+
+        </div>
       </div>
 
     <script>
@@ -913,7 +939,6 @@
           "Blemish Control Pen - Zap",
           "Hypo21 Purifying Skin Spray",
           "Phenomenal Eye Cream",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Vitamin C Serum 10%",
           "Vitamin C Serum 20%",
           "Prepare – Cleansing Lotion",
@@ -987,7 +1012,6 @@
           "Quench Advanced Hyaluronic Serum",
           "Endurance Moisturiser - FTT H2O",
           "Night Cream - Recover",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Prepare – Cleansing Lotion",
           "Vitamin C Serum 10%",
           /*
@@ -1000,7 +1024,6 @@
         let unevenSkinToneProductPool = [
           "Skin Brightening Serum - Illuminate",
           "Vitamin C Serum 20%",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Foaming Wash - Reveal",
           "Rejuvenating Serum - Rejuvenate",
           "Quench Advanced Hyaluronic Serum",
@@ -1022,7 +1045,6 @@
           "Neck Firming Cream - Lift",
           "Endurance Moisturiser - FTT H2O",
           "Skin Brightening Serum - Illuminate",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Phenomenal Eye Cream",
           "Luxury Exfoliator Cleanser - Glasglow",
           /*
@@ -1037,7 +1059,6 @@
           "Calm Night Cream",
           "Vitamin C Serum 10%",
           "Quench Advanced Hyaluronic Serum",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Prepare – Cleansing Lotion",
           "Hypo21 Purifying Skin Spray",
           /*
@@ -1052,7 +1073,6 @@
         let improvementsProductPool = [
           "Foaming Wash - Reveal",
           "Vitamin C Serum 20%",
-          "SPF 50 Sunscreen - Prime & Protect",
           "Retinol Serum - FTT Skin Clinics R+",
           "Luxury Exfoliator Cleanser - Glasglow",
           /*
@@ -1205,7 +1225,6 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1241,7 +1260,6 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Neck Firming Cream - Lift",
@@ -1276,7 +1294,6 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1305,7 +1322,6 @@
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eye Cream",
               "Phenomenal Eyelash Serum",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1342,7 +1358,6 @@
               "Blemish Control Pen - Zap",
               "Hypo21 Purifying Skin Spray",
               "Phenomenal Eyelash Serum",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Quench Advanced Hyaluronic Serum",
               "Calm Night Cream",
               "Clear Advanced Gel Cleanser",
@@ -1465,7 +1480,6 @@
             ],
             oily: [
               "Endurance Moisturiser - FTT H2O",
-              "SPF 50 Sunscreen - Prime & Protect",
               "Obagi Nu-Derm Exfoderm",
             ],
           },
@@ -1502,7 +1516,6 @@
           },
           sunscreenUse: {
             everyday: [
-              "SPF 50 Sunscreen - Prime & Protect",
               "Obagi 360 Hydrofactor SPF 30",
               "Obagi Sun Shield Cool",
               "Obagi Sun Shield Matte",
@@ -1920,27 +1933,35 @@
             switch (selection) {
               case "dryDehydrated":
                 initialProductPool = dryDehydratedProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
                 break;
               case "acne":
                 initialProductPool = spotProneProductPool.slice();
+                basicPool= [];
                 break;
               case "oily":
                 initialProductPool = spotProneProductPool.slice();
+                basicPool= [];
                 break;
               case "wrinklesFinelines":
                 initialProductPool = ageingProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "rosacea":
                 initialProductPool = rosaceaProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "unevenSkinTone":
                 initialProductPool = unevenSkinToneProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               case "improvements":
                 initialProductPool = improvementsProductPool.slice();
+                basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
                 break;
               default:
                 initialProductPool = [];
+                basicPool= [];
                 break;
             }
             productPoolStack = [initialProductPool.slice()];
@@ -2465,6 +2486,42 @@
                       }
                     }
                   }
+                }
+
+                //basics section
+                basicPoolLength = basicPool.length;
+
+                basic1 = basicPool[0];
+                basic2 = basicPool[1];
+
+                if (basicPoolLength > 0) {
+                  document.getElementById("basicSection").style.display = "block";
+                  document.getElementById("basic1").innerHTML = 
+                  document.getElementById("basic1").innerHTML +
+                  `
+                    <h3>${basic1}</h3>
+                    <p>${productBlurbs[basic1]?.blurb || "No description"}</p>
+                    <p>${productBlurbs[basic1]?.directions || "No directions"}</p>
+                  `;
+                  document.getElementById("basic1ProductImage").src = productBlurbs[basic1]?.imgURL;
+                  document.getElementById("basic1ProductLink").href = productBlurbs[basic1]?.prodURL || "https://www.francesturnertraill.co.uk/";
+
+                  if (basicPoolLength > 1) {
+                    document.getElementById("basic2").innerHTML = 
+                    document.getElementById("basic2").innerHTML +
+                    `
+                      <h3>${basic2}</h3>
+                      <p>${productBlurbs[basic2]?.blurb || "No description"}</p>
+                      <p>${productBlurbs[basic2]?.directions || "No directions"}</p>
+                    `;
+                    document.getElementById("basic2ProductImage").src = productBlurbs[basic2]?.imgURL;
+                    document.getElementById("basic2ProductLink").href = productBlurbs[basic2]?.prodURL || "https://www.francesturnertraill.co.uk/";
+                  } else {
+                    document.getElementById("basic2").remove();
+                  }
+                    
+                } else {
+                  document.getElementById("basicSection").remove();
                 }
 
                 if (poolLength < 3) {
