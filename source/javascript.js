@@ -1048,23 +1048,23 @@ document.addEventListener("DOMContentLoaded", function () {
             break;
             case "acne":
             initialProductPool = spotProneProductPool.slice();
-            basicPool= [];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
             break;
             case "oily":
             initialProductPool = spotProneProductPool.slice();
-            basicPool= [];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
             break;
             case "wrinklesFinelines":
             initialProductPool = ageingProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
             break;
             case "rosacea":
             initialProductPool = rosaceaProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
             break;
             case "unevenSkinTone":
             initialProductPool = unevenSkinToneProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
             break;
             case "improvements":
             initialProductPool = improvementsProductPool.slice();
