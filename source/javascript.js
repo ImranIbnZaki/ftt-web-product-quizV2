@@ -32,7 +32,6 @@ generateDots("dotIrritation", 6);
 generateDots("dotSkinType", 7);
 generateDots("dotSensitivity", 8);
 generateDots("dotArea", 9);
-//generateDots("dotSunscreen", 10);
 generateDots("dotComplexity", 10);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -988,11 +987,6 @@ document.addEventListener("DOMContentLoaded", function () {
         case "concernArea":
             nextQuestionId = "routineComplexity";
             break;
-        /*
-        case "sunscreenUse":
-            nextQuestionId = "routineComplexity";
-            break;
-        */
         case "routineComplexity":
             console.log(selection);
             setComplexity(selection);
