@@ -41,64 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let rountineSize = 0;
 
-    /* legacy codes
-    let initialProductPool = [
-        "Oil Control Serum - Control",
-        "Oil Control Pads - Remove",
-        "Blemish Control Pen - Zap",
-        "Hypo21 Purifying Skin Spray",
-        "Phenomenal Eye Cream",
-        "Vitamin C Serum 10%",
-        "Vitamin C Serum 20%",
-        "Prepare – Cleansing Lotion",
-        "Quench Advanced Hyaluronic Serum",
-        "Calm Night Cream",
-        "Clear Advanced Gel Cleanser",
-        "Eye Lift Gel - Refine",
-        "Foaming Wash - Reveal",
-        "Luxury Exfoliator Cleanser - Glasglow",
-        "Neck Firming Cream - Lift",
-        "Endurance Moisturiser - FTT H2O",
-        "Rejuvenating Serum - Rejuvenate",
-        "Retinol Serum - FTT Skin Clinics R+",
-        "Skin Brightening Serum - Illuminate",
-        "Night Cream - Recover",
-        "Purify Micellar Water",
-        "Hydrating Lip Balm",
-        "FTT Signature Lip Duo - lip balm and plumper kit",
-        "Obagi Foaming Cleanser",
-        "Obagi Hydrate Facial Moisturiser",
-        "Obagi Hydro Drops Facial Serum",
-        "Obagi Professional-C Microdermabrasion Polish Mask",
-        "Obagi 360 Exfoliating Cleanser",
-        "Obagi 360 Hydrofactor SPF 30",
-        "Obagi 360 system",
-        "Obagi ELASTIderm Eye Cream",
-        "Obagi ELASTIderm Eye Serum",
-        "Obagi ELASTIderm Facial Serum",
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        "Obagi Daily Intensive Repair",
-        "Obagi Nu-Derm Foaming Gel",
-        "Obagi Nu-Derm 1 Gentle Cleanser",
-        "Obagi Nu-Derm Toner",
-        "Obagi Nu-Derm Exfoderm",
-        "Obagi Nu-Derm Exfoderm Forte",
-        "Obagi Professional-C Peptide Complex",
-        "Obagi Retinol 0.5 Cream",
-        "Obagi Retivance Skin Rejuvenating Complex",
-        "Obagi Sun Shield Cool",
-        "Obagi Sun Shield Matte",
-        "Obagi Sun Shield Warm",
-        "Obagi Vitamin C Serum 10%",
-        "Obagi Vitamin C Serum 15%",
-        "Obagi Vitamin C Serum 20%",
-        "Obagi-C Rx Balancing Toner",
-        "Obagi-C Rx Exfoliating Day Lotion",
-        "Obagi-C Rx Cleaning Gel",
-    ];
-
-    */ 
-
     let spotProneProductPool = [
         "Oil Control Pads - Remove",
         "Clear Advanced Gel Cleanser",
@@ -106,14 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Retinol Serum - FTT Skin Clinics R+",
         "Quench Advanced Hyaluronic Serum",
         "Hypo21 Purifying Skin Spray",
-        /*
-        "Obagi Nu-Derm Foaming Gel",
-        "Obagi Foaming Cleanser",
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        "Vitamin C Serum 10%",
-        "Obagi 360 Hydrofactor SPF 30",
-        "Blemish Control Pen - Zap",
-        */
     ];
 
     let dryDehydratedProductPool = [
@@ -121,11 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Endurance Moisturiser - FTT H2O",
         "Night Cream - Recover",
         "Vitamin C Serum 10%",
-        /*
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        "Obagi Nu-Derm 1 Gentle Cleanser",
-        "Obagi Hydro Drops Facial Serum",
-        */
     ];
 
     let unevenSkinToneProductPool = [
@@ -134,13 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Rejuvenating Serum - Rejuvenate",
         "Quench Advanced Hyaluronic Serum",
         "Luxury Exfoliator Cleanser - Glasglow",
-        /*
-        "Obagi Professional-C Peptide Complex",
-        "Obagi-C Rx Exfoliating Day Lotion",
-        "Obagi-C Rx Cleaning Gel",
-        "Obagi Professional-C Microdermabrasion Polish Mask",
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        */
     ];
 
     let ageingProductPool = [
@@ -152,12 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Skin Brightening Serum - Illuminate",
         "Phenomenal Eye Cream",
         "Luxury Exfoliator Cleanser - Glasglow",
-        /*
-        "Obagi ELASTIderm Facial Serum",
-        "Obagi ELASTIderm Eye Serum",
-        "Obagi ELASTIderm Eye Cream",
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        */
     ];
 
     let rosaceaProductPool = [
@@ -165,13 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Vitamin C Serum 10%",
         "Quench Advanced Hyaluronic Serum",
         "Hypo21 Purifying Skin Spray",
-        /*
-        "Obagi Rebalance",
-        "Obagi Nu-Derm 1 Gentle Cleanser",
-        "Obagi Hydrate Facial Moisturiser",
-        "Obagi Professional-C Peptide Complex",
-        "Obagi Vitamin C Serum 15%",
-        */
     ];
 
     let improvementsProductPool = [
@@ -179,13 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Vitamin C Serum 20%",
         "Retinol Serum - FTT Skin Clinics R+",
         "Luxury Exfoliator Cleanser - Glasglow",
-        /*
-        "Obagi Nu-Derm 1 Gentle Cleanser",
-        "Obagi Hydrate Luxe Facial Moisturiser",
-        "Obagi Professional-C Peptide Complex",
-        "Hypo21 Purifying Skin Spray",
-        "Obagi 360 Exfoliating Cleanser",
-        */
     ];
 
     // Modals
@@ -322,189 +224,17 @@ document.addEventListener("DOMContentLoaded", function () {
         ], // Exclude products with tag: tretinoin, retinol, retinoids Exclude anti-aging
         },
         skinConcern: {
-        dryDehydrated: [
-            "Oil Control Serum - Control",
-            "Oil Control Pads - Remove",
-            "Blemish Control Pen - Zap",
-            "Hypo21 Purifying Skin Spray",
-            "Phenomenal Eye Cream",
-            "Phenomenal Eyelash Serum",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Clear Advanced Gel Cleanser",
-            "Neck Firming Cream - Lift",
-            "Endurance Moisturiser - FTT H2O",
-            "Rejuvenating Serum - Rejuvenate",
-            "Retinol Serum - FTT Skin Clinics R+",
-            "Night Cream - Recover",
-            "Hydrating Lip Balm",
-            "FTT Signature Lip Duo - lip balm and plumper kit",
-            "Obagi Foaming Cleanser",
-            "Obagi 360 system",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Retivance Skin Rejuvenating Complex",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi-C Rx Balancing Toner",
-            "Obagi CLENZIderm Daily Care Foaming Cleanser",
-            "Prepare – Cleansing Lotion",
-        ],
-        acne: [
-            "Hypo21 Purifying Skin Spray",
-            "Phenomenal Eye Cream",
-            "Phenomenal Eyelash Serum",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Neck Firming Cream - Lift",
-            "Endurance Moisturiser - FTT H2O",
-            "Rejuvenating Serum - Rejuvenate",
-            "Night Cream - Recover",
-            "Hydrating Lip Balm",
-            "FTT Signature Lip Duo - lip balm and plumper kit",
-            "Obagi Foaming Cleanser",
-            "Obagi 360 system",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Retivance Skin Rejuvenating Complex",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi-C Rx Balancing Toner",
-            "Prepare – Cleansing Lotion",
-        ],
-        wrinklesFinelines: [
-            "Oil Control Serum - Control",
-            "Oil Control Pads - Remove",
-            "Blemish Control Pen - Zap",
-            "Hypo21 Purifying Skin Spray",
-            "Phenomenal Eye Cream",
-            "Phenomenal Eyelash Serum",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Clear Advanced Gel Cleanser",
-            "Endurance Moisturiser - FTT H2O",
-            "Hydrating Lip Balm",
-            "FTT Signature Lip Duo - lip balm and plumper kit",
-            "Obagi Foaming Cleanser",
-            "Obagi 360 system",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi-C Rx Balancing Toner",
-            "Prepare – Cleansing Lotion",
-        ],
-        rosacea: [
-            "Oil Control Serum - Control",
-            "Oil Control Pads - Remove",
-            "Blemish Control Pen - Zap",
-            "Hypo21 Purifying Skin Spray",
-            "Phenomenal Eye Cream",
-            "Phenomenal Eyelash Serum",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Clear Advanced Gel Cleanser",
-            "Neck Firming Cream - Lift",
-            "Endurance Moisturiser - FTT H2O",
-            "Rejuvenating Serum - Rejuvenate",
-            "Hydrating Lip Balm",
-            "FTT Signature Lip Duo - lip balm and plumper kit",
-            "Obagi Foaming Cleanser",
-            "Obagi 360 system",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Retivance Skin Rejuvenating Complex",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi-C Rx Balancing Toner",
-            "Obagi-C Rx Exfoliating Day Lotion",
-            "Obagi CLENZIderm Daily Care Foaming Cleanser",
-            "Prepare – Cleansing Lotion",
-        ],
-        unevenSkinTone: [
-            "Oil Control Serum - Control",
-            "Oil Control Pads - Remove",
-            "Blemish Control Pen - Zap",
-            "Hypo21 Purifying Skin Spray",
-            "Phenomenal Eyelash Serum",
-            "Quench Advanced Hyaluronic Serum",
-            "Calm Night Cream",
-            "Clear Advanced Gel Cleanser",
-            "Neck Firming Cream - Lift",
-            "Endurance Moisturiser - FTT H2O",
-            "Rejuvenating Serum - Rejuvenate",
-            "Hydrating Lip Balm",
-            "FTT Signature Lip Duo - lip balm and plumper kit",
-            "Obagi 360 system",
-            "Obagi ELASTIderm Eye Cream",
-            "Obagi ELASTIderm Eye Serum",
-            "Obagi ELASTIderm Facial Serum",
-            "Obagi Hydrate Luxe Facial Moisturiser",
-            "Obagi Daily Intensive Repair",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi NU-CIL Eyelash Serum",
-            "Obagi Nu-Derm Foaming Gel",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-            "Obagi Vitamin C Serum 15%",
-            "Obagi Vitamin C Serum 20%",
-            "Obagi CLENZIderm Daily Care Foaming Cleanser",
-        ],
+        dryDehydrated: [],
+        acne: [],
+        wrinklesFinelines: [],
+        rosacea: [],
+        unevenSkinTone: [],
         improvements: [],
         },
         wrinklesFinelines: {
         finelines: [],
         wrinkles: [],
         both: [],
-        },
-        typeOfHyperpigmentation: {
-        darkSpots: [],
-        melasma: [],
-        undereyeDarkness: [
-            "Purify Micellar Water",
-            "Obagi Nu-Derm Toner",
-            "Obagi Nu-Derm Exfoderm",
-            "Obagi Nu-Derm Exfoderm Forte",
-            "Vitamin C Serum 10%",
-            "Vitamin C Serum 20%",
-        ],
         },
         typeOfAcne: {
         blackhead: [],
@@ -554,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
         none: [],
         },
         takePrescription: {
-        yes: [], // out “sorry the active in skincare products can cause irritation if not discussed first with a medical professional, please try again when you are no longer using topical prescriptions”
+        yes: [], // out 
         no: [],
         },
         retinoidUse: {
@@ -618,17 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Neck Firming Cream - Lift",
         ],
         },
-        /*
-        sunscreenUse: {
-        everyday: [
-            "Obagi 360 Hydrofactor SPF 30",
-            "Obagi Sun Shield Cool",
-            "Obagi Sun Shield Matte",
-            "Obagi Sun Shield Warm",
-        ],
-        sometimes: [],
-        },
-        */
         routineComplexity: {
         advanced: [], //output max products
         },
@@ -1672,35 +1391,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500); // Delay to match the slide-out animation of the last question
         }
     }
-
-    /*
-    legacy codes
-
-    function displayProducts(products, detailIds, imageIds, linkIds) {
-        products.forEach((product, index) => {
-        const detailElement = document.getElementById(detailIds[index]);
-        const imageElement = document.getElementById(imageIds[index]);
-        const linkElement = document.getElementById(linkIds[index]);
-
-        if (detailElement && imageElement && linkElement) {
-            detailElement.innerHTML =
-            detailElement.innerHTML +
-            `
-            <h3>${product}</h3>
-            <p>${productBlurbs[product]?.blurb || "No description"}</p>
-            <p>${productBlurbs[product]?.directions || "No directions"}</p>
-            `;
-            imageElement.src = productBlurbs[product]?.imgURL;
-            console.log(imageElement);
-            linkElement.href = productBlurbs[product]?.prodURL;
-        } else {
-            console.error(`Element not found for product: ${product}`);
-        }
-        });
-    }
-
-    //perhaps could rework this function in the future
-    */
 
     let selectedConcernArea = [];
     selectConcernArea = function (selectedArea) {
