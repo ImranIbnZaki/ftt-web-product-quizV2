@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Clear Advanced Gel Cleanser",
         "Oil Control Serum - Control",
         "Retinol Serum - FTT Skin Clinics R+",
-        "Foaming Wash - Reveal",
         "Quench Advanced Hyaluronic Serum",
         "Hypo21 Purifying Skin Spray",
         /*
@@ -121,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Quench Advanced Hyaluronic Serum",
         "Endurance Moisturiser - FTT H2O",
         "Night Cream - Recover",
-        "Prepare – Cleansing Lotion",
         "Vitamin C Serum 10%",
         /*
         "Obagi Hydrate Luxe Facial Moisturiser",
@@ -133,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let unevenSkinToneProductPool = [
         "Skin Brightening Serum - Illuminate",
         "Vitamin C Serum 20%",
-        "Foaming Wash - Reveal",
         "Rejuvenating Serum - Rejuvenate",
         "Quench Advanced Hyaluronic Serum",
         "Luxury Exfoliator Cleanser - Glasglow",
@@ -148,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let ageingProductPool = [
         "Retinol Serum - FTT Skin Clinics R+",
-        "Foaming Wash - Reveal",
         "Vitamin C Serum 20%",
         "Rejuvenating Serum - Rejuvenate",
         "Neck Firming Cream - Lift",
@@ -168,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Calm Night Cream",
         "Vitamin C Serum 10%",
         "Quench Advanced Hyaluronic Serum",
-        "Prepare – Cleansing Lotion",
         "Hypo21 Purifying Skin Spray",
         /*
         "Obagi Rebalance",
@@ -1042,17 +1037,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (questionType === "skinConcern") {
         // Initialize the product pool based on the selected skin concern
         switch (selection) {
+            case "acne":
+            initialProductPool = spotProneProductPool.slice();
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
+            break;
+            case "oily":
+            initialProductPool = spotProneProductPool.slice();
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
+            break;
             case "dryDehydrated":
             initialProductPool = dryDehydratedProductPool.slice();
             basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
             break;
-            case "acne":
-            initialProductPool = spotProneProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
-            break;
-            case "oily":
-            initialProductPool = spotProneProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
+            case "unevenSkinTone":
+            initialProductPool = unevenSkinToneProductPool.slice();
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
             break;
             case "wrinklesFinelines":
             initialProductPool = ageingProductPool.slice();
@@ -1062,13 +1061,9 @@ document.addEventListener("DOMContentLoaded", function () {
             initialProductPool = rosaceaProductPool.slice();
             basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
             break;
-            case "unevenSkinTone":
-            initialProductPool = unevenSkinToneProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Foaming Wash - Reveal"];
-            break;
             case "improvements":
             initialProductPool = improvementsProductPool.slice();
-            basicPool= ["SPF 50 Sunscreen - Prime & Protect"];
+            basicPool= ["SPF 50 Sunscreen - Prime & Protect", "Prepare – Cleansing Lotion"];
             break;
             default:
             initialProductPool = [];
