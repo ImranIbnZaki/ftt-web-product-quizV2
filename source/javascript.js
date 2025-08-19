@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Oil Control Pads - Remove",
         "Clear Advanced Gel Cleanser",
         "Oil Control Serum - Control",
-        "Retinol Serum - FTT Skin Clinics R+",
+        "Night Cream - Recover",
         "Quench Advanced Hyaluronic Serum",
         "Hypo21 Purifying Skin Spray",
     ];
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let ageingProductPool = [
-        "Retinol Serum - FTT Skin Clinics R+",
+        "Night Cream - Recover",
         "Vitamin C Serum 20%",
         "Rejuvenating Serum - Rejuvenate",
         "Neck Firming Cream - Lift",
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let improvementsProductPool = [
         "Foaming Wash - Reveal",
         "Vitamin C Serum 20%",
-        "Retinol Serum - FTT Skin Clinics R+",
+        "Night Cream - Recover",
         "Luxury Exfoliator Cleanser - Glasglow",
     ];
 
@@ -219,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Phenomenal Eye Cream",
             "Rejuvenating Serum - Rejuvenate",
             "Night Cream - Recover",
-            "Retinol Serum - FTT Skin Clinics R+",
         ], // Exclude products with tag: tretinoin, retinol, retinoids Exclude anti-aging
         },
         skinConcern: {
@@ -245,7 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
         mild: [
             "Clear Advanced Gel Cleanser",
             "Obagi CLENZIderm Daily Care Foaming Cleanser",
-            "Retinol Serum - FTT Skin Clinics R+",
             "Obagi Hydrate Facial Moisturiser",
             "Obagi Retivance Skin Rejuvenating Complex",
         ],
@@ -265,7 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
         niacinamide: ["Calm Night Cream"],
         retinolRetinoids: [
             "Obagi Retinol 0.5 Cream",
-            "Retinol Serum - FTT Skin Clinics R+",
             "Vitamin C Serum 20%",
             "Night Cream - Recover",
             "Obagi Medical Cleansing Wipes",
@@ -275,7 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Oil Control Pads - Remove",
             "Oil Control Serum - Control",
             "Clear Advanced Gel Cleanser",
-            "Retinol Serum - FTT Skin Clinics R+",
             "Obagi Foaming Cleanser",
             "Blemish Control Pen - Zap"
         ],
@@ -293,7 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
         retinoidIrritation: {
         yes: [
             "Obagi Retinol 0.5 Cream",
-            "Retinol Serum - FTT Skin Clinics R+",
             "Night Cream - Recover",
             "Obagi Medical Cleansing Wipes",
             "Obagi Retivance Skin Rejuvenating Complex",
@@ -323,7 +318,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Clear Advanced Gel Cleanser",
             "Obagi Nu-Derm Exfoderm Forte",
             "Obagi Professional-C Microdermabrasion Polish Mask",
-            "Retinol Serum - FTT Skin Clinics R+",
             "Rejuvenating Serum - Rejuvenate",
             "Obagi-C Rx Balancing Toner",
         ],
@@ -511,14 +505,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "Using fingertips, gently massage one pump onto cleansed face. Can be smoothed all over face or applied to targeted areas.",
         imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2017/07/FTT_Rejuvenate_Active_Serum.jpg",
         prodURL: "https://www.francesturnertraill.co.uk/shop/ftt-signature/rejuvenating-serum/",
-        },
-        "Retinol Serum - FTT Skin Clinics R+": {
-        blurb:
-            "A powerful and highly effective serum clinically proven to increase cell turnover. R+ will reduce pore size, resulting in firmer younger looking skin as well as reduce, visible signs of ageing including pigmentation and uneven skin tone.",
-        directions:
-            "Apply to clean skin at night. Use as directed by your skincare specialist. It is important to use sunscreen when using a retinol cream, as retinol increases the skin’s sensitivity to sun exposure.",
-        imgURL: "https://525dca3a.rocketcdn.me/wp-content/uploads/2019/01/FTT_Retinol_serum.jpg",
-        prodURL: "https://www.francesturnertraill.co.uk/shop/ftt-signature/retinol-serum/",
         },
         "Skin Brightening Serum - Illuminate": {
         blurb:
