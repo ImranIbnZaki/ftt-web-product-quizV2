@@ -13,7 +13,7 @@ function generateDots(containerId, numDark) {
         container.appendChild(dot);
     }
 
-    for (let i = 0; i < 10 - numDark; i++) {
+    for (let i = 0; i < 11 - numDark; i++) {
         let dot = document.createElement("span");
         dot.classList.add("dotlight");
         container.appendChild(dot);
@@ -27,12 +27,13 @@ generateDots("dot25", 1);
 generateDots("dotVitC", 2);
 generateDots("dotAllergy", 3);
 generateDots("dotPrescription", 4);
-generateDots("dotRetinoid", 5);
-generateDots("dotIrritation", 6);
-generateDots("dotSkinType", 7);
-generateDots("dotSensitivity", 8);
-generateDots("dotArea", 9);
-generateDots("dotComplexity", 10);
+generateDots("dotCleanserFunFact", 5)
+generateDots("dotRetinoid", 6);
+generateDots("dotIrritation", 7);
+generateDots("dotSkinType", 8);
+generateDots("dotSensitivity", 9);
+generateDots("dotArea", 10);
+generateDots("dotComplexity", 11);
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -222,65 +223,67 @@ document.addEventListener("DOMContentLoaded", function () {
         ], // Exclude products with tag: tretinoin, retinol, retinoids Exclude anti-aging
         },
         skinConcern: {
-        dryDehydrated: [],
-        acne: [],
-        wrinklesFinelines: [],
-        rosacea: [],
-        unevenSkinTone: [],
-        improvements: [],
+            dryDehydrated: [],
+            acne: [],
+            wrinklesFinelines: [],
+            rosacea: [],
+            unevenSkinTone: [],
+            improvements: [],
         },
         wrinklesFinelines: {
-        finelines: [],
-        wrinkles: [],
-        both: [],
+            finelines: [],
+            wrinkles: [],
+            both: [],
         },
         typeOfAcne: {
-        blackhead: [],
-        cystic: [],
-        papules: [],
-        whiteheads: [],
+            cystic: [],
+            blackhead: [],
+            papules: [],
+            whiteheads: [],
         },
         severityOfAcne: {
-        mild: [
-            "Clear Advanced Gel Cleanser",
-            "Obagi CLENZIderm Daily Care Foaming Cleanser",
-            "Obagi Hydrate Facial Moisturiser",
-            "Obagi Retivance Skin Rejuvenating Complex",
-        ],
-        moderate: [
-            "Blemish Control Pen - Zap",
-            "Obagi Retinol 0.5 Cream",
-            "Obagi Hydrate Facial Moisturiser",
-            "Obagi Retivance Skin Rejuvenating Complex",
-        ],
-        severe: [], // is an out
+            mild: [
+                "Clear Advanced Gel Cleanser",
+                "Obagi CLENZIderm Daily Care Foaming Cleanser",
+                "Obagi Hydrate Facial Moisturiser",
+                "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            moderate: [
+                "Blemish Control Pen - Zap",
+                "Obagi Retinol 0.5 Cream",
+                "Obagi Hydrate Facial Moisturiser",
+                "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            severe: [], // is an out
         },
         usesVitaminC: {
-        yes: [],
-        no: ["Vitamin C Serum 20%"],
+            yes: [],
+            no: ["Vitamin C Serum 20%"],
         },
         allergy: {
-        niacinamide: ["Calm Night Cream"],
-        retinolRetinoids: [
-            "Obagi Retinol 0.5 Cream",
-            "Vitamin C Serum 20%",
-            "Night Cream - Recover",
-            "Obagi Medical Cleansing Wipes",
-            "Obagi Retivance Skin Rejuvenating Complex",
-        ],
-        salicylicAcid:[
-            "Oil Control Pads - Remove",
-            "Oil Control Serum - Control",
-            "Clear Advanced Gel Cleanser",
-            "Obagi Foaming Cleanser",
-            "Blemish Control Pen - Zap"
-        ],
-        azelaicAcid: ["Skin Brightening Serum - Illuminate"],
-        none: [],
+            niacinamide: ["Calm Night Cream"],
+            retinolRetinoids: [
+                "Obagi Retinol 0.5 Cream",
+                "Vitamin C Serum 20%",
+                "Night Cream - Recover",
+                "Obagi Medical Cleansing Wipes",
+                "Obagi Retivance Skin Rejuvenating Complex",
+            ],
+            salicylicAcid:[
+                "Oil Control Pads - Remove",
+                "Oil Control Serum - Control",
+                "Clear Advanced Gel Cleanser",
+                "Obagi Foaming Cleanser",
+                "Blemish Control Pen - Zap"
+            ],
+            azelaicAcid: ["Skin Brightening Serum - Illuminate"],
         },
         takePrescription: {
         yes: [], // out 
         no: [],
+        },
+        cleanserFunFact: {
+        yes:[],
         },
         retinoidUse: {
         yes: [],
@@ -950,9 +953,12 @@ document.addEventListener("DOMContentLoaded", function () {
             nextQuestionId = "exitPoint";
             break;
             } else {
-            nextQuestionId = "retinoidUse";
+            nextQuestionId = "cleanserFunFact";
             break;
             }
+        case "cleanserFunFact":
+            nextQuestionId = "retinoidUse";
+            break;
         case "retinoidUse":
             if (selection === "yes") {
             nextQuestionId = "retinoidIrritation";
@@ -1005,6 +1011,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showNextQuestion = function (currentQuestionId, nextQuestionId) {
         const currentElement = document.getElementById(currentQuestionId);
         const nextElement = document.getElementById(nextQuestionId);
+        console.log("NNext Question: " + nextQuestionId);
 
         // Apply slide-out animation to current element
         if (currentElement) {
